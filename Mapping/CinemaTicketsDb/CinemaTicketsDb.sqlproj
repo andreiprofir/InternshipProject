@@ -62,6 +62,9 @@
     <Folder Include="dbo\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CinemaTicketsDb.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <Build Include="dbo\Actor.sql" />
     <Build Include="dbo\ActorsToMovies.sql" />
     <Build Include="dbo\Cinema.sql" />
@@ -94,8 +97,5 @@
     <Build Include="dbo\SessionPrice.sql" />
     <Build Include="dbo\User.sql" />
     <Build Include="dbo\Writer.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CinemaTicketsDb.publish.xml" />
   </ItemGroup>
 </Project>
