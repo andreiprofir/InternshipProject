@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Pictures]
+(
+	[Id] BIGINT NOT NULL IDENTITY(1, 1),
+	[Uri] NVARCHAR(255) NOT NULL,
+	[Alt] NVARCHAR(255) NULL,
+	[EntityId] BIGINT NOT NULL, 
+    CONSTRAINT [PK_Pictures] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [FK_Pictures_Entities] FOREIGN KEY ([EntityId]) REFERENCES [Entities]([Id])
+)

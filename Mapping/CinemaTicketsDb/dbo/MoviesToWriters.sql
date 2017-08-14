@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[MoviesToWriters] (
+    [MovieId]  BIGINT NOT NULL,
+    [WriterId] BIGINT NOT NULL,
+    CONSTRAINT [FKA4A59421B46911D9] FOREIGN KEY ([WriterId]) REFERENCES [dbo].[Writer] ([Id]),
+    CONSTRAINT [FKA4A59421EB6BBFDA] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([Id])
+);
+

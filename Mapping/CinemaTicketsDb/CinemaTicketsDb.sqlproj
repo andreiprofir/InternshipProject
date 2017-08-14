@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CinemaTicketsDb</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{1b1bd08c-bdcd-472b-b9e2-307ae00fd1d1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CinemaTicketsDb</RootNamespace>
+    <AssemblyName>CinemaTicketsDb</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Actor.sql" />
+    <Build Include="dbo\ActorsToMovies.sql" />
+    <Build Include="dbo\Cinema.sql" />
+    <Build Include="dbo\CinemasToPromotions.sql" />
+    <Build Include="dbo\City.sql" />
+    <Build Include="dbo\Comment.sql" />
+    <Build Include="dbo\CommentType.sql" />
+    <Build Include="dbo\Country.sql" />
+    <Build Include="dbo\CountriesToMovies.sql" />
+    <Build Include="dbo\Director.sql" />
+    <Build Include="dbo\DirectorsToMovies.sql" />
+    <Build Include="dbo\Entity.sql" />
+    <Build Include="dbo\Genre.sql" />
+    <Build Include="dbo\GenresToMovies.sql" />
+    <Build Include="dbo\Hall.sql" />
+    <Build Include="dbo\MovieSessionToHall.sql" />
+    <Build Include="dbo\Language.sql" />
+    <Build Include="dbo\LanguagesToMovies.sql" />
+    <Build Include="dbo\Movie.sql" />
+    <Build Include="dbo\MoviesToPromotions.sql" />
+    <Build Include="dbo\MoviesToWriters.sql" />
+    <Build Include="dbo\MovieSession.sql" />
+    <Build Include="dbo\Order.sql" />
+    <Build Include="dbo\Picture.sql" />
+    <Build Include="dbo\Promotion.sql" />
+    <Build Include="dbo\Role.sql" />
+    <Build Include="dbo\RolesToUsers.sql" />
+    <Build Include="dbo\Seat.sql" />
+    <Build Include="dbo\SeatType.sql" />
+    <Build Include="dbo\SessionPrice.sql" />
+    <Build Include="dbo\User.sql" />
+    <Build Include="dbo\Writer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CinemaTicketsDb.publish.xml" />
+  </ItemGroup>
+</Project>

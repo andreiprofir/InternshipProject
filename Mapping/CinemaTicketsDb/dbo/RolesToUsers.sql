@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[RolesToUsers] (
+    [RoleId] BIGINT NOT NULL,
+    [UserId] BIGINT NOT NULL,
+    CONSTRAINT [FKA135DE3576FCA13] FOREIGN KEY ([RoleId]) REFERENCES [dbo].[Role] ([Id]),
+    CONSTRAINT [FKA135DE3B3F091CE] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([Id])
+);
+
