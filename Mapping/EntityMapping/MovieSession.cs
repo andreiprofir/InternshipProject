@@ -9,7 +9,6 @@ namespace EntityMapping
         {
             Orders = new HashSet<Order>();
             SessionPrices = new HashSet<SessionPrice>();
-            Halls = new HashSet<Hall>();
         }
 
         public long Id { get; set; }
@@ -27,7 +26,5 @@ namespace EntityMapping
         public virtual ICollection<Order> Orders { get; set; }
 
         public virtual ICollection<SessionPrice> SessionPrices { get; set; }
-
-        public virtual ICollection<Hall> Halls { get; set; }
     }
 }

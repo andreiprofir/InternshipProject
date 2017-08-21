@@ -80,7 +80,6 @@
     <Build Include="Tables\Genres.sql" />
     <Build Include="Tables\MovieGenres.sql" />
     <Build Include="Tables\Halls.sql" />
-    <Build Include="Tables\HallMovieSessions.sql" />
     <Build Include="Tables\Languages.sql" />
     <Build Include="Tables\MovieLanguages.sql" />
     <Build Include="Tables\Movies.sql" />

@@ -8,7 +8,6 @@ namespace EntityMapping
         {
             MovieSessions = new HashSet<MovieSession>();
             Seats = new HashSet<Seat>();
-            MovieSessions1 = new HashSet<MovieSession>();
         }
 
         public long Id { get; set; }
@@ -24,7 +23,5 @@ namespace EntityMapping
         public virtual ICollection<MovieSession> MovieSessions { get; set; }
 
         public virtual ICollection<Seat> Seats { get; set; }
-
-        public virtual ICollection<MovieSession> MovieSessions1 { get; set; }
     }
 }

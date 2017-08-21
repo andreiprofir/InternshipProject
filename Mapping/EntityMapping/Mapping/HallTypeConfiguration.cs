@@ -14,10 +14,6 @@ namespace EntityMapping.Mapping
             HasMany(e => e.Seats)
                 .WithRequired(e => e.Hall)
                 .WillCascadeOnDelete(false);
-
-            HasMany(e => e.MovieSessions1)
-                .WithMany(e => e.Halls)
-                .Map(m => m.ToTable("HallMovieSessions").MapLeftKey("HallId").MapRightKey("MovieSessionId"));
         }
     }
 }
