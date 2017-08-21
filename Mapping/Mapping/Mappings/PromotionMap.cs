@@ -8,6 +8,8 @@ namespace Mapping.Mappings
     {
         public PromotionMap()
         {
+            Table("Promotions");
+
             Id(e => e.Id)
                 .GeneratedBy.Foreign("Entity");
 
@@ -29,11 +31,13 @@ namespace Mapping.Mappings
                 .Constrained().ForeignKey();
 
             HasManyToMany(e => e.Cinemas)
+                .Table("CinemaPromotions")
                 .ParentKeyColumn("PromotionId")
                 .ChildKeyColumn("CinemaId")
                 .Cascade.All();
 
             HasManyToMany(e => e.Movies)
+                .Table("MoviePromotions")
                 .ParentKeyColumn("PromotionId")
                 .ChildKeyColumn("MovieId")
                 .Cascade.All();

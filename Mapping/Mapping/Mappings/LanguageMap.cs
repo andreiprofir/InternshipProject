@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public LanguageMap()
         {
+            Table("Languages");
+
             Id(e => e.Id);
 
             Map(e => e.Name)
@@ -14,6 +16,7 @@ namespace Mapping.Mappings
                 .Unique();
 
             HasManyToMany(e => e.Movies)
+                .Table("MovieLanguages")
                 .ParentKeyColumn("LanguageId")
                 .ChildKeyColumn("MovieId")
                 .Cascade.All()

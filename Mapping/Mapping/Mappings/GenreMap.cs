@@ -7,7 +7,10 @@ namespace Mapping.Mappings
     {
         public GenreMap()
         {
+            Table("Genres");
+
             Id(e => e.Id)
+                .Index("PK_Genres")
                 .GeneratedBy.Foreign("Entity");
 
             Map(e => e.Name)
@@ -17,9 +20,11 @@ namespace Mapping.Mappings
 
             HasOne(e => e.Entity)
                 .Constrained()
-                .ForeignKey();
+                .ForeignKey("FK_Genres_Entities")
+                .Cascade.All();
 
             HasManyToMany(e => e.Movies)
+                .Table("MovieGenres")
                 .ParentKeyColumn("GenreId")
                 .ChildKeyColumn("MovieId")
                 .Cascade.All()

@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public HallMap()
         {
+            Table("Halls");
+
             Id(e => e.Id);
 
             Map(e => e.Name)
@@ -28,6 +30,7 @@ namespace Mapping.Mappings
                 .Cascade.All();
 
             HasManyToMany(e => e.MovieSessions)
+                .Table("HallMovieSessions")
                 .ParentKeyColumn("HallId")
                 .ChildKeyColumn("MovieSessionId")
                 .Cascade.All()

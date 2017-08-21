@@ -8,6 +8,8 @@ namespace Mapping.Mappings
         private const string UniqueKeyName = "AK_Seat_RowNumber_ColumnNumber_Hall";
         public SeatMap()
         {
+            Table("Seats");
+
             Id(e => e.Id);
 
             Map(e => e.Identifier)

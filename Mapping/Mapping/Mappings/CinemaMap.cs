@@ -9,8 +9,11 @@ namespace Mapping.Mappings
         private const int DefaultValueFromLikes = 0;
         public CinemaMap()
         {
+            Table("Cinemas");
+
             Id(e => e.Id)
-                .GeneratedBy.Foreign("Entity");
+                .GeneratedBy.Foreign("Entity")
+                .Index("PK_Cinemas");
 
             Map(e => e.ShortName)
                 .Length(128)
@@ -55,6 +58,7 @@ namespace Mapping.Mappings
                 .Cascade.All();
 
             HasManyToMany(e => e.Promotions)
+                .Table("MoviePromotions")
                 .ParentKeyColumn("CinemaId")
                 .ChildKeyColumn("PromotionId")
                 .Cascade.All()

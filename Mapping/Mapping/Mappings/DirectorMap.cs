@@ -8,6 +8,8 @@ namespace Mapping.Mappings
         private const string UniqueKeyName = "AK_Director_FirstName_LastName";
         public DirectorMap()
         {
+            Table("Directors");
+
             Id(e => e.Id);
 
             Map(e => e.FirstName)
@@ -21,6 +23,7 @@ namespace Mapping.Mappings
                 .UniqueKey(UniqueKeyName);
 
             HasManyToMany(e => e.Movies)
+                .Table("MovieDirectors")
                 .ParentKeyColumn("DirectorId")
                 .ChildKeyColumn("MovieId")
                 .Cascade.All()

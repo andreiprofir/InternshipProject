@@ -7,7 +7,10 @@ namespace Mapping.Mappings
     {
         public UserMap()
         {
-            Id(e => e.Id);
+            Table("Users");
+
+            Id(e => e.Id)
+                .Index("PK_Users");
 
             Map(e => e.FirstName)
                 .Length(64);
@@ -17,7 +20,7 @@ namespace Mapping.Mappings
 
             Map(e => e.Email)
                 .Not.Nullable()
-                .Unique();
+                .UniqueKey("AK_Users_Email");
 
             Map(e => e.Password)
                 .Length(128)
@@ -27,13 +30,15 @@ namespace Mapping.Mappings
                 .Not.Nullable();
 
             Map(e => e.PhoneNumber)
-                .Unique();
+                .UniqueKey("AK_PhoneNumber");
 
             References(e => e.Avatar)
+                .ForeignKey("FK_Users_Pictures")
                 .Column("AvatarId")
                 .Cascade.All();
 
             HasManyToMany(e => e.Roles)
+                .Table("UserRoles")
                 .ParentKeyColumn("UserId")
                 .ChildKeyColumn("RoleId")
                 .Cascade.All();

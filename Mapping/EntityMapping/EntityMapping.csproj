@@ -32,8 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +51,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actor.cs" />
+    <Compile Include="Cinema.cs" />
+    <Compile Include="CinemaTickets.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="CommentType.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Director.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Genre.cs" />
+    <Compile Include="Hall.cs" />
+    <Compile Include="Language.cs" />
+    <Compile Include="Mapping\ActorTypeConfiguration.cs" />
+    <Compile Include="Mapping\CinemaTypeConfiguration.cs" />
+    <Compile Include="Mapping\CityTypeConfiguration.cs" />
+    <Compile Include="Mapping\CommentTypeConfiguration.cs" />
+    <Compile Include="Mapping\CommentTypeTypeConfiguration.cs" />
+    <Compile Include="Mapping\CountryTypeConfiguration.cs" />
+    <Compile Include="Mapping\DirectorTypeConfiguration.cs" />
+    <Compile Include="Mapping\EntityConfiguration.cs" />
+    <Compile Include="Mapping\GenreTypeConfiguration.cs" />
+    <Compile Include="Mapping\HallTypeConfiguration.cs" />
+    <Compile Include="Mapping\LanguageTypeConfiguration.cs" />
+    <Compile Include="Mapping\MovieSessionTypeConfiguration.cs" />
+    <Compile Include="Mapping\MovieTypeConfiguration.cs" />
+    <Compile Include="Mapping\OrderTypeConfiguration.cs" />
+    <Compile Include="Mapping\PictureTypeConfiguration.cs" />
+    <Compile Include="Mapping\PromotionTypeConfiguration.cs" />
+    <Compile Include="Mapping\RoleTypeConfiguration.cs" />
+    <Compile Include="Mapping\SeatTypeConfiguration.cs" />
+    <Compile Include="Mapping\SeatTypeTypeConfiguration.cs" />
+    <Compile Include="Mapping\SessionPriceTypeConfiguration.cs" />
+    <Compile Include="Mapping\UserTypeConfiguration.cs" />
+    <Compile Include="Mapping\WriterTypeConfiguration.cs" />
+    <Compile Include="MovieSession.cs" />
+    <Compile Include="Movie.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Picture.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Promotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="Seat.cs" />
+    <Compile Include="SeatType.cs" />
+    <Compile Include="SessionPrice.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Writer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

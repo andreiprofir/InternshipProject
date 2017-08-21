@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public RoleMap()
         {
+            Table("Roles");
+
             Id(e => e.Id);
 
             Map(e => e.Name)
@@ -15,6 +17,7 @@ namespace Mapping.Mappings
                 .Unique();
 
             HasManyToMany(e => e.Users)
+                .Table("UserRoles")
                 .ParentKeyColumn("RoleId")
                 .ChildKeyColumn("UserId")
                 .Cascade.All()

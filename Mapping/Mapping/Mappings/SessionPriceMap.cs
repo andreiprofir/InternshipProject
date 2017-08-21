@@ -10,6 +10,8 @@ namespace Mapping.Mappings
 
         public SessionPriceMap()
         {
+            Table("SessionPrices");
+
             Id(e => e.Id);
 
             References(e => e.MovieSession)

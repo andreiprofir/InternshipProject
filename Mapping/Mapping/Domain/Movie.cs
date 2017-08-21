@@ -15,7 +15,7 @@ namespace ConsoleApp1.Domain
         
         public virtual DateTimeOffset? ReleaseDate { get; set; }
 
-        public int? AgeLimit { get; set; }
+        public virtual int? AgeLimit { get; set; }
         
         public virtual string ImdbRaiting { get; set; }
         

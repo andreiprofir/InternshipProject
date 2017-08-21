@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public CityMap()
         {
+            Table("Cities");
+
             Id(e => e.Id);
 
             Map(e => e.Name)

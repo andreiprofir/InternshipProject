@@ -8,6 +8,8 @@ namespace Mapping.Mappings
         private const string UniqueKeyName = "AK_Order_MovieSession_Seat_User";
         public OrderMap()
         {
+            Table("Orders");
+
             Id(e => e.Id);
 
             References(e => e.MovieSession)

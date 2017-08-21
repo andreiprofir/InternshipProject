@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public MovieSessionMap()
         {
+            Table("MovieSessions");
+
             Id(e => e.Id);
 
             Map(e => e.Time)

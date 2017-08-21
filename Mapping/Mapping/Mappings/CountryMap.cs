@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public CountryMap()
         {
+            Table("Countries");
+
             Id(e => e.Id);
 
             Map(e => e.Name)
@@ -15,6 +17,7 @@ namespace Mapping.Mappings
                 .Unique();
 
             HasManyToMany(e => e.Movies)
+                .Table("MovieCountries")
                 .ParentKeyColumn("CountryId")
                 .ChildKeyColumn("MovieId")
                 .Cascade.All()

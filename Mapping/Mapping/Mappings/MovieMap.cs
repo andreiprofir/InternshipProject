@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public MovieMap()
         {
+            Table("Movies");
+
             Id(e => e.Id)
                 .GeneratedBy.Foreign("Entity");
 
@@ -58,36 +60,44 @@ namespace Mapping.Mappings
                 .Cascade.All();
 
             HasManyToMany(e => e.Directors)
+                .Table("MovieDirectors")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("DirectorId")
                 .Cascade.All();
 
             HasManyToMany(e => e.Genres)
+                .Table("MovieGenres")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("GenreId")
                 .Cascade.All();
 
             HasManyToMany(e => e.Promotions)
+                .Table("MoviePromotions")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("PromotionId")
                 .Cascade.All();
 
             HasManyToMany(e => e.Actors)
+                .Table("MovieActors")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("ActorId")
+                .ForeignKeyConstraintNames("FK_MovieActors_Movies", "FK_MovieActors_Actors")
                 .Cascade.All();
 
             HasManyToMany(e => e.Countries)
+                .Table("MovieCountries")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("CountryId")
                 .Cascade.All();
 
             HasManyToMany(e => e.Languages)
+                .Table("MovieLanguages")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("LanguageId")
                 .Cascade.All();
 
             HasManyToMany(e => e.Writers)
+                .Table("MovieWriters")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("WriterId")
                 .Cascade.All();

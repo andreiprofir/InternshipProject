@@ -8,7 +8,9 @@ using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using Mapping.Mappings;
+using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Impl;
 using NHibernate.Tool.hbm2ddl;
 
 namespace Mapping
@@ -27,19 +29,43 @@ namespace Mapping
 
         static void FluentMapping()
         {
-            Configuration configuration = Fluently.Configure()
+            ISessionFactory sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration
                     .MsSql2012
                     .ConnectionString(ConnectionString))
                 .Mappings(m => m.FluentMappings
                     .AddFromAssemblyOf<MovieMap>())
-                .BuildConfiguration();
-
-            var exporter = new SchemaExport(configuration);
-            exporter.Drop(true, true);
-            exporter.Create(true, true);
+                .ExposeConfiguration(cfg =>
+                {
+                    new SchemaValidator(cfg).Validate();
+                })
+                .BuildSessionFactory();
+            
+            //var exporter = ;
+            ////exporter.Drop(true, true);
+            ////exporter.Create(true, true);
+            //exporter.Execute(true, true);
             
             Console.WriteLine("Finish...");
+
+            using (ISession session = sessionFactory.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Genre genre = new Genre
+                    {
+                        Entity = new Entity(),
+                        Name = "Genre3"
+                    };
+
+                    session.SaveOrUpdate(genre);
+
+                    //session.Delete(session.Get<Genre>((long) 3));
+
+
+                    transaction.Commit();
+                }
+            }
         }
 
         static void AutoMapping()

@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public SeatTypeMap()
         {
+            Table("SeatTypes");
+
             Id(e => e.Id);
 
             Map(e => e.Name)

@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public PictureMap()
         {
+            Table("Pictures");
+
             Id(e => e.Id);
 
             Map(e => e.Uri)

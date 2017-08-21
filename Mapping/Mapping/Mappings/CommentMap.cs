@@ -7,6 +7,8 @@ namespace Mapping.Mappings
     {
         public CommentMap()
         {
+            Table("Comments");
+
             Id(e => e.Id);
 
             References(e => e.User)

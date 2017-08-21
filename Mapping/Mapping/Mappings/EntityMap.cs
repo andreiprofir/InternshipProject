@@ -7,7 +7,10 @@ namespace Mapping.Mappings
     {
         public EntityMap()
         {
-            Id(e => e.Id);
+            Table("Entities");
+
+            Id(e => e.Id)
+                .Index("PK_Entities");
 
             HasOne(e => e.Cinema)
                 .Cascade.All();
