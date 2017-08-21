@@ -1,7 +1,0 @@
-﻿CREATE TABLE [dbo].[GenresToMovies] (
-    [GenreId] BIGINT NOT NULL,
-    [MovieId] BIGINT NOT NULL,
-    CONSTRAINT [FKC49B6EDCD9134F51] FOREIGN KEY ([GenreId]) REFERENCES [dbo].[Genre] ([Id]),
-    CONSTRAINT [FKC49B6EDCEB6BBFDA] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([Id])
-);
-

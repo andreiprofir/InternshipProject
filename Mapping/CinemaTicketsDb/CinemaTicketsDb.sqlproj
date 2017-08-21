@@ -59,43 +59,46 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="dbo\" />
+    <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CinemaTicketsDb.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Actor.sql" />
-    <Build Include="dbo\ActorsToMovies.sql" />
-    <Build Include="dbo\Cinema.sql" />
-    <Build Include="dbo\CinemasToPromotions.sql" />
-    <Build Include="dbo\City.sql" />
-    <Build Include="dbo\Comment.sql" />
-    <Build Include="dbo\CommentType.sql" />
-    <Build Include="dbo\Country.sql" />
-    <Build Include="dbo\CountriesToMovies.sql" />
-    <Build Include="dbo\Director.sql" />
-    <Build Include="dbo\DirectorsToMovies.sql" />
-    <Build Include="dbo\Entity.sql" />
-    <Build Include="dbo\Genre.sql" />
-    <Build Include="dbo\GenresToMovies.sql" />
-    <Build Include="dbo\Hall.sql" />
-    <Build Include="dbo\MovieSessionToHall.sql" />
-    <Build Include="dbo\Language.sql" />
-    <Build Include="dbo\LanguagesToMovies.sql" />
-    <Build Include="dbo\Movie.sql" />
-    <Build Include="dbo\MoviesToPromotions.sql" />
-    <Build Include="dbo\MoviesToWriters.sql" />
-    <Build Include="dbo\MovieSession.sql" />
-    <Build Include="dbo\Order.sql" />
-    <Build Include="dbo\Picture.sql" />
-    <Build Include="dbo\Promotion.sql" />
-    <Build Include="dbo\Role.sql" />
-    <Build Include="dbo\RolesToUsers.sql" />
-    <Build Include="dbo\Seat.sql" />
-    <Build Include="dbo\SeatType.sql" />
-    <Build Include="dbo\SessionPrice.sql" />
-    <Build Include="dbo\User.sql" />
-    <Build Include="dbo\Writer.sql" />
+    <Build Include="Tables\Actors.sql" />
+    <Build Include="Tables\MovieActors.sql" />
+    <Build Include="Tables\Cinemas.sql" />
+    <Build Include="Tables\CinemaPromotions.sql" />
+    <Build Include="Tables\Cities.sql" />
+    <Build Include="Tables\Comments.sql" />
+    <Build Include="Tables\CommentTypes.sql" />
+    <Build Include="Tables\Countries.sql" />
+    <Build Include="Tables\MovieCountries.sql" />
+    <Build Include="Tables\Directors.sql" />
+    <Build Include="Tables\MovieDirectors.sql" />
+    <Build Include="Tables\Entities.sql" />
+    <Build Include="Tables\Genres.sql" />
+    <Build Include="Tables\MovieGenres.sql" />
+    <Build Include="Tables\Halls.sql" />
+    <Build Include="Tables\HallMovieSessions.sql" />
+    <Build Include="Tables\Languages.sql" />
+    <Build Include="Tables\MovieLanguages.sql" />
+    <Build Include="Tables\Movies.sql" />
+    <Build Include="Tables\MoviePromotions.sql" />
+    <Build Include="Tables\MovieWriters.sql" />
+    <Build Include="Tables\MovieSessions.sql" />
+    <Build Include="Tables\Orders.sql" />
+    <Build Include="Tables\Pictures.sql" />
+    <Build Include="Tables\Promotions.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <Build Include="Tables\UserRoles.sql" />
+    <Build Include="Tables\Seats.sql" />
+    <Build Include="Tables\SeatTypes.sql" />
+    <Build Include="Tables\SessionPrices.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\Writers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="CinemaTicketsDb.refactorlog" />
   </ItemGroup>
 </Project>
