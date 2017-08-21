@@ -7,6 +7,7 @@ namespace EntityMapping.Mapping
         public SessionPriceTypeConfiguration()
         {
             Property(e => e.Price)
+                .HasColumnType("money")
                 .HasPrecision(19, 4);
         }
     }

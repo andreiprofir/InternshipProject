@@ -9,31 +9,21 @@ namespace Mapping.Mappings
         {
             Table("Users");
 
-            Id(e => e.Id)
-                .Index("PK_Users");
+            Id(e => e.Id);
 
-            Map(e => e.FirstName)
-                .Length(64);
+            Map(e => e.FirstName);
 
-            Map(e => e.LastName)
-                .Length(64);
+            Map(e => e.LastName);
 
-            Map(e => e.Email)
-                .Not.Nullable()
-                .UniqueKey("AK_Users_Email");
+            Map(e => e.Email);
 
-            Map(e => e.Password)
-                .Length(128)
-                .Not.Nullable();
+            Map(e => e.Password);
 
-            Map(e => e.Salt)
-                .Not.Nullable();
+            Map(e => e.Salt);
 
-            Map(e => e.PhoneNumber)
-                .UniqueKey("AK_PhoneNumber");
+            Map(e => e.PhoneNumber);
 
             References(e => e.Avatar)
-                .ForeignKey("FK_Users_Pictures")
                 .Column("AvatarId")
                 .Cascade.All();
 

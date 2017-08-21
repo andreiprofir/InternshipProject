@@ -11,17 +11,12 @@ namespace Mapping.Mappings
 
             Id(e => e.Id);
 
-            Map(e => e.Uri)
-                .Length(1024)
-                .Not.Nullable()
-                .Unique();
+            Map(e => e.Uri);
 
-            Map(e => e.Alt)
-                .Length(255);
+            Map(e => e.Alt);
 
             References(e => e.Entity)
                 .Column("EntityId")
-                .Not.Nullable()
                 .Cascade.All();
         }
     }

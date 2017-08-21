@@ -10,17 +10,12 @@ namespace Mapping.Mappings
             Table("Genres");
 
             Id(e => e.Id)
-                .Index("PK_Genres")
                 .GeneratedBy.Foreign("Entity");
 
-            Map(e => e.Name)
-                .Length(128)
-                .Not.Nullable()
-                .Unique();
+            Map(e => e.Name);
 
             HasOne(e => e.Entity)
                 .Constrained()
-                .ForeignKey("FK_Genres_Entities")
                 .Cascade.All();
 
             HasManyToMany(e => e.Movies)

@@ -9,24 +9,16 @@ namespace Mapping.Mappings
         {
             Table("Actors");
 
-            Id(e => e.Id)
-                .Index("PK_Actors");
+            Id(e => e.Id);
 
-            Map(e => e.FirstName)
-                .Length(64)
-                .Not.Nullable()
-                .UniqueKey("AK_Actors_FirstName_LastName");
+            Map(e => e.FirstName);
 
-            Map(e => e.LastName)
-                .Length(64)
-                .Not.Nullable()
-                .UniqueKey("AK_Actors_FirstName_LastName");
+            Map(e => e.LastName);
 
             HasManyToMany(e => e.Movies)
                 .Table("MovieActors")
                 .ParentKeyColumn("ActorId")
                 .ChildKeyColumn("MovieId")
-                .ForeignKeyConstraintNames("FK_MovieActors_Actors", "FK_MovieActors_Movies")
                 .Cascade.All();
         }
     }

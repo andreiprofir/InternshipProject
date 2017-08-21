@@ -13,15 +13,11 @@ namespace Mapping.Mappings
             Id(e => e.Id)
                 .GeneratedBy.Foreign("Entity");
 
-            Map(e => e.Title)
-                .Length(255)
-                .Not.Nullable();
+            Map(e => e.Title);
 
-            Map(e => e.ShortDescription)
-                .Length(512);
+            Map(e => e.ShortDescription);
 
-            Map(e => e.DescriptionOfRules)
-                .CustomSqlType("NVARCHAR(MAX)");
+            Map(e => e.DescriptionOfRules);
 
             Map(e => e.ValidFrom);
 
@@ -41,8 +37,6 @@ namespace Mapping.Mappings
                 .ParentKeyColumn("PromotionId")
                 .ChildKeyColumn("MovieId")
                 .Cascade.All();
-
-            CheckConstraint("ValidFrom < ValidTo");
         }
     }
 }

@@ -12,35 +12,21 @@ namespace Mapping.Mappings
             Table("Cinemas");
 
             Id(e => e.Id)
-                .GeneratedBy.Foreign("Entity")
-                .Index("PK_Cinemas");
+                .GeneratedBy.Foreign("Entity");
 
-            Map(e => e.ShortName)
-                .Length(128)
-                .Not.Nullable();
+            Map(e => e.ShortName);
 
-            Map(e => e.FullName)
-                .Length(255)
-                .Not.Nullable();
+            Map(e => e.FullName);
 
-            Map(e => e.Street)
-                .Length(255)
-                .Not.Nullable();
+            Map(e => e.Street);
 
-            Map(e => e.ContactPhone)
-                .Length(128)
-                .Not.Nullable();
+            Map(e => e.ContactPhone);
 
-            Map(e => e.Info)
-                .CustomSqlType("NVARCHAR(MAX)");
+            Map(e => e.Info);
 
-            Map(e => e.Likes)
-                .Not.Nullable()
-                .Default(DefaultValueFromLikes.ToString());
+            Map(e => e.Likes);
 
-            Map(e => e.Dislikes)
-                .Not.Nullable()
-                .Default(DefaultValueFromLikes.ToString());
+            Map(e => e.Dislikes);
 
             HasOne(e => e.Entity)
                 .Constrained()
@@ -48,23 +34,19 @@ namespace Mapping.Mappings
 
             References(e => e.City)
                 .Column("CityId")
-                .Not.Nullable()
                 .Cascade.All();
 
             HasMany(e => e.Halls)
                 .KeyColumn("CinemaId")
-                .Not.KeyNullable()
                 .Inverse()
                 .Cascade.All();
 
             HasManyToMany(e => e.Promotions)
-                .Table("MoviePromotions")
+                .Table("CinemaPromotions")
                 .ParentKeyColumn("CinemaId")
                 .ChildKeyColumn("PromotionId")
                 .Cascade.All()
                 .Inverse();
-
-            CheckConstraint("Likes >= 0 AND Dislikes >= 0");
         }
     }
 }

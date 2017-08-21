@@ -16,21 +16,21 @@ namespace EntityMapping
 
                 Console.WriteLine(cinema.Genres.Count());
 
-                //Genre genre = new Genre
-                //{
-                //    Entity = new Entity(),
-                //    Name = "Genre1"
-                //};
+                ////Genre genre = new Genre
+                ////{
+                ////    Entity = new Entity(),
+                ////    Name = "Genre1"
+                ////};
 
-                //cinema.Genres.Add(genre);
+                ////cinema.Genres.Add(genre);
 
-                cinema.Genres.Remove(cinema.Genres.First());
+                //cinema.Genres.Remove(cinema.Genres.First());
 
-                cinema.SaveChanges();
+                //cinema.SaveChanges();
 
-                Console.WriteLine(cinema.Entities.Count());
+                //Console.WriteLine(cinema.Entities.Count());
 
-                Console.WriteLine(cinema.Genres.Count());
+                //Console.WriteLine(cinema.Genres.Count());
             }
         }
     }

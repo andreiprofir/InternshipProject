@@ -13,23 +13,16 @@ namespace Mapping.Mappings
 
             References(e => e.User)
                 .Column("UserId")
-                .Not.Nullable()
                 .Cascade.All();
 
-            Map(e => e.Date)
-                .Not.Nullable();
+            Map(e => e.Date);
 
-            Map(e => e.Likes)
-                .Not.Nullable()
-                .Default("0");
+            Map(e => e.Likes);
 
-            Map(e => e.Text)
-                .Length(1024)
-                .Not.Nullable();
+            Map(e => e.Text);
 
             References(e => e.Entity)
                 .Column("EntityId")
-                .Not.Nullable()
                 .Cascade.All();
 
             HasMany(e => e.Answers)

@@ -16,22 +16,14 @@ namespace Mapping.Mappings
 
             References(e => e.MovieSession)
                 .Column("MovieSessionId")
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
                 .Cascade.All();
 
             References(e => e.SeatType)
                 .Column("SeatTypeId")
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
                 .Cascade.All();
 
             Map(e => e.Price)
-                .CustomSqlType("money")
-                .Not.Nullable()
-                .Default("0.0");
-
-            CheckConstraint("Price >= 0");
+                .CustomSqlType("money");
         }
     }
 }

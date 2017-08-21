@@ -9,8 +9,7 @@ namespace Mapping.Mappings
         {
             Table("Entities");
 
-            Id(e => e.Id)
-                .Index("PK_Entities");
+            Id(e => e.Id);
 
             HasOne(e => e.Cinema)
                 .Cascade.All();

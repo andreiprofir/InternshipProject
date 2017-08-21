@@ -12,43 +12,25 @@ namespace Mapping.Mappings
             Id(e => e.Id)
                 .GeneratedBy.Foreign("Entity");
 
-            Map(e => e.Name)
-                .Length(255)
-                .Not.Nullable();
+            Map(e => e.Name);
 
-            Map(e => e.OriginalName)
-                .Length(255)
-                .Not.Nullable();
+            Map(e => e.OriginalName);
 
-            Map(e => e.Trailer)
-                .Length(1024);
+            Map(e => e.Trailer);
 
-            Map(e => e.Duration)
-                .Not.Nullable()
-                .Default("1")
-                .Check("Duration >= 1");
+            Map(e => e.Duration);
 
-            Map(e => e.ReleaseDate)
-                .Not.Nullable();
+            Map(e => e.ReleaseDate);
 
-            Map(e => e.AgeLimit)
-                .Default("0")
-                .Not.Nullable()
-                .Check("AgeLimit >= 0");
+            Map(e => e.AgeLimit);
 
-            Map(e => e.ImdbRaiting)
-                .Length(255);
+            Map(e => e.ImdbRaiting);
 
-            Map(e => e.Description)
-                .CustomSqlType("NVARCHAR(MAX)");
+            Map(e => e.Description);
 
-            Map(e => e.Likes)
-                .Not.Nullable()
-                .Default("0");
+            Map(e => e.Likes);
 
-            Map(e => e.Dislikes)
-                .Not.Nullable()
-                .Default("0");
+            Map(e => e.Dislikes);
 
             HasOne(e => e.Entity)
                 .Constrained()
@@ -81,7 +63,6 @@ namespace Mapping.Mappings
                 .Table("MovieActors")
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("ActorId")
-                .ForeignKeyConstraintNames("FK_MovieActors_Movies", "FK_MovieActors_Actors")
                 .Cascade.All();
 
             HasManyToMany(e => e.Countries)
@@ -101,8 +82,6 @@ namespace Mapping.Mappings
                 .ParentKeyColumn("MovieId")
                 .ChildKeyColumn("WriterId")
                 .Cascade.All();
-            
-            CheckConstraint("Likes >= 0 AND Dislikes >= 0");
         }
     }
 }

@@ -1,11 +1,7 @@
+using System.Collections.Generic;
+
 namespace EntityMapping
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
     public partial class Actor
     {
         public Actor()
@@ -14,16 +10,11 @@ namespace EntityMapping
         }
 
         public long Id { get; set; }
-
-        [Required]
-        [StringLength(64)]
+        
         public string FirstName { get; set; }
-
-        [Required]
-        [StringLength(64)]
+        
         public string LastName { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movie> Movies { get; set; }
     }
 }

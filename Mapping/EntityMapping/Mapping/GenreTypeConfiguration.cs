@@ -6,10 +6,6 @@ namespace EntityMapping.Mapping
     {
         public GenreTypeConfiguration()
         {
-            HasRequired(e => e.Entity)
-                .WithOptional()
-                .WillCascadeOnDelete(true);
-
             HasMany(e => e.Movies)
                 .WithMany(e => e.Genres)
                 .Map(m => m.ToTable("MovieGenres").MapLeftKey("GenreId").MapRightKey("MovieId"));

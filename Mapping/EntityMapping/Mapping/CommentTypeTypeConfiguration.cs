@@ -6,9 +6,7 @@ namespace EntityMapping.Mapping
     {
         public CommentTypeTypeConfiguration()
         {
-            Property(e => e.Name)
-                .IsRequired()
-                .HasMaxLength(32);
+
         }
     }
 }

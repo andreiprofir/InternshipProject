@@ -11,9 +11,7 @@ namespace Mapping.Mappings
 
             Id(e => e.Id);
 
-            Map(e => e.Name)
-                .Not.Nullable()
-                .Unique();
+            Map(e => e.Name);
 
             HasManyToMany(e => e.Movies)
                 .Table("MovieLanguages")

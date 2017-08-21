@@ -12,28 +12,16 @@ namespace Mapping.Mappings
 
             Id(e => e.Id);
 
-            Map(e => e.Identifier)
-                .Length(32)
-                .Not.Nullable();
+            Map(e => e.Identifier);
 
-            Map(e => e.RowNumber)
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
-                .Default("0");
+            Map(e => e.RowNumber);
 
-            Map(e => e.ColumnNumber)
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
-                .Default("0");
+            Map(e => e.ColumnNumber);
 
-            Map(e => e.IsBusy)
-                .Default("0")
-                .Not.Nullable();
+            Map(e => e.IsBusy);
 
             References(e => e.Hall)
                 .Column("HallId")
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
                 .Cascade.All();
 
             HasMany(e => e.Orders)
@@ -43,10 +31,7 @@ namespace Mapping.Mappings
 
             References(e => e.SeatType)
                 .Column("SeatTypeId")
-                .Not.Nullable()
                 .Cascade.All();
-
-            CheckConstraint("RowNumber >= 0 AND ColumnNumber >= 0");
         }
     }
 }

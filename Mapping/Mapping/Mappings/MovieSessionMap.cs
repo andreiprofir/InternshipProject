@@ -11,17 +11,14 @@ namespace Mapping.Mappings
 
             Id(e => e.Id);
 
-            Map(e => e.Time)
-                .Not.Nullable();
+            Map(e => e.Time);
 
             References(e => e.Hall)
                 .Column("HallId")
-                .Not.Nullable()
                 .Cascade.All();
 
             References(e => e.Movie)
                 .Column("MovieId")
-                .Not.Nullable()
                 .Cascade.All();
 
             HasMany(e => e.Orders)

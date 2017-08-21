@@ -14,20 +14,14 @@ namespace Mapping.Mappings
 
             References(e => e.MovieSession)
                 .Column("MovieSessionId")
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
                 .Cascade.All();
 
             References(e => e.Seat)
                 .Column("SeatId")
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
                 .Cascade.All();
 
             References(e => e.User)
                 .Column("UserId")
-                .Not.Nullable()
-                .UniqueKey(UniqueKeyName)
                 .Cascade.All();
         }
     }

@@ -11,10 +11,7 @@ namespace Mapping.Mappings
 
             Id(e => e.Id);
 
-            Map(e => e.Name)
-                .Length(32)
-                .Not.Nullable()
-                .Unique();
+            Map(e => e.Name);
 
             HasMany(e => e.Comments)
                 .KeyColumn("CommentTypeId")

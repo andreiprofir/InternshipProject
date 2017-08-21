@@ -52,13 +52,13 @@ namespace Mapping
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    Genre genre = new Genre
-                    {
-                        Entity = new Entity(),
-                        Name = "Genre3"
-                    };
+                    //Genre genre = new Genre
+                    //{
+                    //    Entity = new Entity(),
+                    //    Name = "Genre3"
+                    //};
 
-                    session.SaveOrUpdate(genre);
+                    //session.SaveOrUpdate(genre);
 
                     //session.Delete(session.Get<Genre>((long) 3));
 

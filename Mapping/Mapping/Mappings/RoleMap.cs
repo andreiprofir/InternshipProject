@@ -11,10 +11,7 @@ namespace Mapping.Mappings
 
             Id(e => e.Id);
 
-            Map(e => e.Name)
-                .Length(255)
-                .Not.Nullable()
-                .Unique();
+            Map(e => e.Name);
 
             HasManyToMany(e => e.Users)
                 .Table("UserRoles")
