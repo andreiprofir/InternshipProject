@@ -10,6 +10,8 @@ namespace CinemaTickets.Infrastructure.Data.Context
             : base("name=CinemaTickets")
         {
         }
+
+        public CinemaTicketsContext(string nameOrConnectionString) : base(nameOrConnectionString) { }
         
         public virtual DbSet<Actor> Actors { get; set; }
         public virtual DbSet<Cinema> Cinemas { get; set; }
