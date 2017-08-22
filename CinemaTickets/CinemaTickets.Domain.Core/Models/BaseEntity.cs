@@ -1,4 +1,4 @@
-﻿namespace CinemaTickets.Domain.Core.Classes
+﻿namespace CinemaTickets.Domain.Core.Models
 {
     public class BaseEntity
     {

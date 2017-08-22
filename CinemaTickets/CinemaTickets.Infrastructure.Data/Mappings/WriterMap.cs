@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using CinemaTickets.Domain.Core.Classes;
+using CinemaTickets.Domain.Core.Models;
 
 namespace CinemaTickets.Infrastructure.Data.Mappings
 {

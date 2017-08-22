@@ -71,6 +71,7 @@
     <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="Mappings\WriterMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -81,6 +82,10 @@
     <ProjectReference Include="..\CinemaTickets.Domain.Core\CinemaTickets.Domain.Core.csproj">
       <Project>{A8A6E09F-9933-4C85-9EC8-A81F3D538107}</Project>
       <Name>CinemaTickets.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CinemaTickets.Domain\CinemaTickets.Domain.csproj">
+      <Project>{E16FC775-B2AE-4E73-878B-D343E9622169}</Project>
+      <Name>CinemaTickets.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CinemaTickets.Domain.Core.Classes
+namespace CinemaTickets.Domain.Core.Models
 {
     public partial class Promotion : BaseEntity
     {

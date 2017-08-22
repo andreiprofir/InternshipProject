@@ -1,5 +1,5 @@
 using System.Data.Entity;
-using CinemaTickets.Domain.Core.Classes;
+using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Infrastructure.Data.Mappings;
 
 namespace CinemaTickets.Infrastructure.Data.Context

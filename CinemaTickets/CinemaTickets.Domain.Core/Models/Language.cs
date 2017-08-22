@@ -1,17 +1,15 @@
 using System.Collections.Generic;
 
-namespace CinemaTickets.Domain.Core.Classes
+namespace CinemaTickets.Domain.Core.Models
 {
-    public partial class Genre : BaseEntity
+    public partial class Language : BaseEntity
     {
-        public Genre()
+        public Language()
         {
             Movies = new HashSet<Movie>();
         }
         
         public string Name { get; set; }
-
-        public virtual Entity Entity { get; set; }
 
         public virtual ICollection<Movie> Movies { get; set; }
     }
