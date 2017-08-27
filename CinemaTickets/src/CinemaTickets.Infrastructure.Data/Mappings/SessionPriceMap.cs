@@ -14,7 +14,7 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
 
             builder.Property(e => e.Price)
                 .HasColumnType("money")
-                .HasDefaultValueSql("((0.0))");
+                .HasDefaultValueSql("(0)");
 
             builder.HasOne(d => d.MovieSession)
                 .WithMany(p => p.SessionPrices)

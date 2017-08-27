@@ -6,7 +6,7 @@ namespace CinemaTickets.Domain.Core.Models
     {
         public Picture()
         {
-            Users = new HashSet<User>();
+            Customers = new HashSet<Customer>();
         }
 
         public long Id { get; set; }
@@ -15,6 +15,6 @@ namespace CinemaTickets.Domain.Core.Models
         public long EntityId { get; set; }
 
         public Entity Entity { get; set; }
-        public ICollection<User> Users { get; set; }
+        public ICollection<Customer> Customers { get; set; }
     }
 }

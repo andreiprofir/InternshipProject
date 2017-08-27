@@ -14,7 +14,7 @@ namespace CinemaTickets.Domain.Core.Models
         public DateTimeOffset Date { get; set; }
         public int Likes { get; set; }
         public string Text { get; set; }
-        public long UserId { get; set; }
+        public long CustomerId { get; set; }
         public long EntityId { get; set; }
         public long? AnswerToId { get; set; }
         public long? CommentTypeId { get; set; }
@@ -22,7 +22,7 @@ namespace CinemaTickets.Domain.Core.Models
         public Comment AnswerTo { get; set; }
         public CommentType CommentType { get; set; }
         public Entity Entity { get; set; }
-        public User User { get; set; }
+        public Customer Customer { get; set; }
         public ICollection<Comment> InverseAnswerTo { get; set; }
     }
 }

@@ -30,11 +30,11 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Comments_Entities");
 
-            builder.HasOne(d => d.User)
+            builder.HasOne(d => d.Customer)
                 .WithMany(p => p.Comments)
-                .HasForeignKey(d => d.UserId)
+                .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Comments_Users");
+                .HasConstraintName("FK_Comments_Customers");
         }
     }
 }

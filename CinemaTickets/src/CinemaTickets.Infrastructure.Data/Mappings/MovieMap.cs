@@ -10,15 +10,15 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
         {
             builder.Property(e => e.Id).ValueGeneratedNever();
 
-            builder.Property(e => e.AgeLimit).HasDefaultValueSql("((0))");
+            builder.Property(e => e.AgeLimit).HasDefaultValueSql("(0)");
 
-            builder.Property(e => e.Dislikes).HasDefaultValueSql("((0))");
+            builder.Property(e => e.Dislikes).HasDefaultValueSql("(0)");
 
-            builder.Property(e => e.Duration).HasDefaultValueSql("((1))");
+            builder.Property(e => e.Duration).HasDefaultValueSql("(1)");
 
             builder.Property(e => e.ImdbRaiting).HasMaxLength(255);
 
-            builder.Property(e => e.Likes).HasDefaultValueSql("((0))");
+            builder.Property(e => e.Likes).HasDefaultValueSql("(0)");
 
             builder.Property(e => e.Name)
                 .IsRequired()

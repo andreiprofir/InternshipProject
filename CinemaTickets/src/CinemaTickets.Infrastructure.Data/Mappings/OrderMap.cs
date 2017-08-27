@@ -8,8 +8,8 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasIndex(e => new { e.MovieSessionId, e.SeatId, e.UserId })
-                .HasName("AK_Orders_MovieSessionId_SeatId_UserId")
+            builder.HasIndex(e => new { e.MovieSessionId, e.SeatId, UserId = e.CustomerId })
+                .HasName("AK_Orders_MovieSessionId_SeatId_CustomerId")
                 .IsUnique();
 
             builder.HasOne(d => d.MovieSession)
@@ -24,11 +24,11 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Orders_Seats");
 
-            builder.HasOne(d => d.User)
+            builder.HasOne(d => d.Customer)
                 .WithMany(p => p.Orders)
-                .HasForeignKey(d => d.UserId)
+                .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Orders_Users");
+                .HasConstraintName("FK_Orders_Customers");
         }
     }
 }

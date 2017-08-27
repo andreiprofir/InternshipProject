@@ -84,15 +84,10 @@
     <Build Include="Tables\Orders.sql" />
     <Build Include="Tables\Pictures.sql" />
     <Build Include="Tables\Promotions.sql" />
-    <Build Include="Tables\Roles.sql" />
     <Build Include="Tables\Seats.sql" />
     <Build Include="Tables\SeatTypes.sql" />
     <Build Include="Tables\SessionPrices.sql" />
-    <Build Include="Tables\UserRoles.sql" />
-    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\Customers.sql" />
     <Build Include="Tables\Writers.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CinemaTickets.SqlServerDbProject.publish.xml" />
   </ItemGroup>
 </Project>

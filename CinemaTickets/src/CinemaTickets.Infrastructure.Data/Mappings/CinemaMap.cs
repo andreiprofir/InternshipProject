@@ -14,13 +14,13 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .IsRequired()
                 .HasMaxLength(128);
 
-            builder.Property(e => e.Dislikes).HasDefaultValueSql("((0))");
+            builder.Property(e => e.Dislikes).HasDefaultValueSql("(0)");
 
             builder.Property(e => e.FullName)
                 .IsRequired()
                 .HasMaxLength(255);
 
-            builder.Property(e => e.Likes).HasDefaultValueSql("((0))");
+            builder.Property(e => e.Likes).HasDefaultValueSql("(0)");
 
             builder.Property(e => e.ShortName)
                 .IsRequired()

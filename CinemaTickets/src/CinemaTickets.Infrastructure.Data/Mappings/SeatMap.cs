@@ -12,15 +12,15 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .HasName("AK_Seats_RowNumber_ColumnNumber_HallId")
                 .IsUnique();
 
-            builder.Property(e => e.ColumnNumber).HasDefaultValueSql("((0))");
+            builder.Property(e => e.ColumnNumber).HasDefaultValueSql("(0)");
 
             builder.Property(e => e.Identifier)
                 .IsRequired()
                 .HasMaxLength(32);
 
-            builder.Property(e => e.IsBusy).HasDefaultValueSql("((0))");
+            builder.Property(e => e.IsBusy).HasDefaultValueSql("(0)");
 
-            builder.Property(e => e.RowNumber).HasDefaultValueSql("((0))");
+            builder.Property(e => e.RowNumber).HasDefaultValueSql("(0)");
 
             builder.HasOne(d => d.Hall)
                 .WithMany(p => p.Seats)

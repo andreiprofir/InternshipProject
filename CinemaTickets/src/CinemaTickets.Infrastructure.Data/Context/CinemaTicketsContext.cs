@@ -32,12 +32,10 @@ namespace CinemaTickets.Infrastructure.Data.Context
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Picture> Pictures { get; set; }
         public virtual DbSet<Promotion> Promotions { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Seat> Seats { get; set; }
         public virtual DbSet<SeatType> SeatTypes { get; set; }
         public virtual DbSet<SessionPrice> SessionPrices { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Writer> Writers { get; set; }
 
         #endregion
@@ -71,12 +69,10 @@ namespace CinemaTickets.Infrastructure.Data.Context
             modelBuilder.ApplyConfiguration(new OrderMap());
             modelBuilder.ApplyConfiguration(new PictureMap());
             modelBuilder.ApplyConfiguration(new PromotionMap());
-            modelBuilder.ApplyConfiguration(new RoleMap());
             modelBuilder.ApplyConfiguration(new SeatMap());
             modelBuilder.ApplyConfiguration(new SeatTypeMap());
             modelBuilder.ApplyConfiguration(new SessionPriceMap());
-            modelBuilder.ApplyConfiguration(new UserMap());
-            modelBuilder.ApplyConfiguration(new UserRoleMap());
+            modelBuilder.ApplyConfiguration(new CustomerMap());
             modelBuilder.ApplyConfiguration(new WriterMap());
         }
     }
