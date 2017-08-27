@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using CinemaTickets.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +34,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.FindAsync(id);
         }
 
-        public IEnumerable<TEntity> Find(Func<TEntity, bool> predicate)
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return _dbSet.AsNoTracking().Where(predicate).AsEnumerable();
         }

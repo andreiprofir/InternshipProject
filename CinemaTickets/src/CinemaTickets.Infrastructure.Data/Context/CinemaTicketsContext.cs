@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTickets.Infrastructure.Data.Context
 {
-    public partial class CinemaTicketsContext : DbContext
+    public partial class CinemaTicketsContext : IdentityContext
     {
         #region VirtualDbSets
 
@@ -40,12 +40,14 @@ namespace CinemaTickets.Infrastructure.Data.Context
 
         #endregion
 
-        public CinemaTicketsContext(DbContextOptions<CinemaTicketsContext> options) : base(options)
+        public CinemaTicketsContext(DbContextOptions<IdentityContext> options) : base(options)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new ActorMap());
             modelBuilder.ApplyConfiguration(new CinemaMap());
             modelBuilder.ApplyConfiguration(new CinemaPromotionMap());

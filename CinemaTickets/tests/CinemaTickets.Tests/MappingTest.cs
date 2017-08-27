@@ -37,7 +37,7 @@ namespace CinemaTickets.Tests
             // получаем строку подключения
             string connectionString = config.GetConnectionString("DefaultConnection");
 
-            var optionsBuilder = new DbContextOptionsBuilder<CinemaTicketsContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<IdentityContext>();
             var options = optionsBuilder
                 .UseSqlServer(connectionString)
                 .Options;

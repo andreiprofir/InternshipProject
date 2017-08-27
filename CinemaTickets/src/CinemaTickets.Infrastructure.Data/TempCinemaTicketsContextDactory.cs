@@ -10,7 +10,7 @@ namespace CinemaTickets.Infrastructure.Data
     {
         public CinemaTicketsContext CreateDbContext(string[] args)
         {
-            var builder = new DbContextOptionsBuilder<CinemaTicketsContext>();
+            var builder = new DbContextOptionsBuilder<IdentityContext>();
 
             builder.UseSqlServer(
                 "Data Source=DESKTOP-0PB30CN;Initial Catalog=CinemaTickets;Integrated Security=True;Connect Timeout=60;",

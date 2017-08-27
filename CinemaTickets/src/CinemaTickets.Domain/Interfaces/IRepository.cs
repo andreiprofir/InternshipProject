@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace CinemaTickets.Domain.Interfaces
@@ -13,7 +14,7 @@ namespace CinemaTickets.Domain.Interfaces
 
         Task<TEntity> GetAsync(long id);
 
-        IEnumerable<TEntity> Find(Func<TEntity, bool> predicate);
+        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entity);
 

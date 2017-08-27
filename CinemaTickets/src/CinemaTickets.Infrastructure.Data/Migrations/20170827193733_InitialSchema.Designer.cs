@@ -6,13 +6,14 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
 
 namespace CinemaTickets.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CinemaTicketsContext))]
-    [Migration("20170827142132_CreateInitialSchema")]
-    partial class CreateInitialSchema
+    [Migration("20170827193733_InitialSchema")]
+    partial class InitialSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -187,8 +188,10 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Customer", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<long>("Id");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
 
                     b.Property<string>("FirstName")
                         .HasMaxLength(64);
@@ -196,13 +199,11 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                     b.Property<string>("LastName")
                         .HasMaxLength(64);
 
-                    b.Property<long?>("PictureId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("PictureId");
+                    b.ToTable("Users");
 
-                    b.ToTable("Customers");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Customer");
                 });
 
             modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Director", b =>
@@ -622,6 +623,119 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                     b.ToTable("Writers");
                 });
 
+            modelBuilder.Entity("CinemaTickets.Infrastructure.Data.Models.Identity.Role", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("CinemaTickets.Infrastructure.Data.Models.Identity.User", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
+                {
+                    b.Property<long>("UserId");
+
+                    b.Property<long>("RoleId");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
+                {
+                    b.Property<long>("UserId");
+
+                    b.Property<string>("LoginProvider");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("UserTokens");
+                });
+
+            modelBuilder.Entity("CinemaTickets.Infrastructure.Data.Models.UserCustomer", b =>
+                {
+                    b.HasBaseType("CinemaTickets.Domain.Core.Models.Customer");
+
+
+                    b.ToTable("UserCustomer");
+
+                    b.HasDiscriminator().HasValue("UserCustomer");
+                });
+
             modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Cinema", b =>
                 {
                     b.HasOne("CinemaTickets.Domain.Core.Models.City", "City")
@@ -671,13 +785,6 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                         .WithMany("Comments")
                         .HasForeignKey("EntityId")
                         .HasConstraintName("FK_Comments_Entities");
-                });
-
-            modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Customer", b =>
-                {
-                    b.HasOne("CinemaTickets.Domain.Core.Models.Picture")
-                        .WithMany("Customers")
-                        .HasForeignKey("PictureId");
                 });
 
             modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Genre", b =>
@@ -880,6 +987,35 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                         .WithMany("SessionPrices")
                         .HasForeignKey("SeatTypeId")
                         .HasConstraintName("FK_SessionPrices_SeatTypes");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
+                {
+                    b.HasOne("CinemaTickets.Infrastructure.Data.Models.Identity.Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CinemaTickets.Infrastructure.Data.Models.Identity.User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
+                {
+                    b.HasOne("CinemaTickets.Infrastructure.Data.Models.Identity.User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("CinemaTickets.Infrastructure.Data.Models.UserCustomer", b =>
+                {
+                    b.HasOne("CinemaTickets.Infrastructure.Data.Models.Identity.User", "User")
+                        .WithOne("Customer")
+                        .HasForeignKey("CinemaTickets.Infrastructure.Data.Models.UserCustomer", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
