@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using CinemaTickets.Domain.Interfaces;
+using CinemaTickets.Domain.Interfaces.OrderSpecification;
+using CinemaTickets.Infrastructure.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTickets.Infrastructure.Data.Repositories
@@ -12,16 +13,18 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
+        private readonly IQuerySpecificationBuilder<TEntity> _queryBuilder;
 
-        public Repository(DbContext context)
+        public Repository(DbContext context, IQuerySpecificationBuilder<TEntity> queryBuilder)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();
+            _queryBuilder = queryBuilder;
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public List<TEntity> GetAll()
         {
-            return _dbSet.AsNoTracking().AsEnumerable();
+            return _dbSet.AsNoTracking().ToList();
         }
 
         public TEntity Get(long id)
@@ -34,9 +37,13 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.FindAsync(id);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public List<TEntity> Find(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications)
         {
-            return _dbSet.AsNoTracking().Where(predicate).AsEnumerable();
+            var spec = new List<ISpecification<TEntity>>(specifications) {specification};
+
+            IQueryable<TEntity> query = _queryBuilder.Build(_dbSet.AsNoTracking(), spec.ToArray());
+
+            return query.ToList();
         }
 
         public void Add(TEntity entity)
@@ -83,7 +90,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
 
         #region DisposePattern
 
-        private bool _disposed = false;
+        private bool _disposed;
 
         protected virtual void Dispose(bool disposing)
         {
@@ -94,7 +101,8 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
                     _context.Dispose();
                 }
             }
-            this._disposed = true;
+
+            _disposed = true;
         }
 
         public void Dispose()

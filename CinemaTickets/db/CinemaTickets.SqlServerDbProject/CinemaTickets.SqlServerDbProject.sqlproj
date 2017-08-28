@@ -14,8 +14,8 @@
     </RootPath>
     <RootNamespace>CinemaTickets.SqlServerDbProject</RootNamespace>
     <AssemblyName>CinemaTickets.SqlServerDbProject</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
-    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
@@ -23,6 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,37 +59,45 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Tables" />
+    <Folder Include="Tables\" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
+    <Build Include="Tables\__EFMigrationsHistory.sql" />
     <Build Include="Tables\Actors.sql" />
-    <Build Include="Tables\CinemaPromotions.sql" />
-    <Build Include="Tables\Cinemas.sql" />
     <Build Include="Tables\Cities.sql" />
-    <Build Include="Tables\Comments.sql" />
     <Build Include="Tables\CommentTypes.sql" />
     <Build Include="Tables\Countries.sql" />
     <Build Include="Tables\Directors.sql" />
     <Build Include="Tables\Entities.sql" />
-    <Build Include="Tables\Genres.sql" />
-    <Build Include="Tables\Halls.sql" />
     <Build Include="Tables\Languages.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <Build Include="Tables\SeatTypes.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\Writers.sql" />
+    <Build Include="Tables\Cinemas.sql" />
+    <Build Include="Tables\Genres.sql" />
+    <Build Include="Tables\Movies.sql" />
+    <Build Include="Tables\Pictures.sql" />
+    <Build Include="Tables\Promotions.sql" />
+    <Build Include="Tables\Comments.sql" />
+    <Build Include="Tables\UserRoles.sql" />
+    <Build Include="Tables\UserTokens.sql" />
+    <Build Include="Tables\Halls.sql" />
     <Build Include="Tables\MovieActors.sql" />
     <Build Include="Tables\MovieCountries.sql" />
     <Build Include="Tables\MovieDirectors.sql" />
     <Build Include="Tables\MovieGenres.sql" />
     <Build Include="Tables\MovieLanguages.sql" />
-    <Build Include="Tables\MoviePromotions.sql" />
-    <Build Include="Tables\Movies.sql" />
-    <Build Include="Tables\MovieSessions.sql" />
     <Build Include="Tables\MovieWriters.sql" />
-    <Build Include="Tables\Orders.sql" />
-    <Build Include="Tables\Pictures.sql" />
-    <Build Include="Tables\Promotions.sql" />
+    <Build Include="Tables\CinemaPromotions.sql" />
+    <Build Include="Tables\MoviePromotions.sql" />
+    <Build Include="Tables\MovieSessions.sql" />
     <Build Include="Tables\Seats.sql" />
-    <Build Include="Tables\SeatTypes.sql" />
     <Build Include="Tables\SessionPrices.sql" />
-    <Build Include="Tables\Customers.sql" />
-    <Build Include="Tables\Writers.sql" />
+    <Build Include="Tables\Orders.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\InsertDates.sql" />
   </ItemGroup>
 </Project>

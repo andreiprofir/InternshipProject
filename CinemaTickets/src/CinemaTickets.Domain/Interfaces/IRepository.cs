@@ -8,13 +8,13 @@ namespace CinemaTickets.Domain.Interfaces
     public interface IRepository<TEntity> : IDisposable
         where TEntity : class
     {
-        IEnumerable<TEntity> GetAll();
+        List<TEntity> GetAll();
 
         TEntity Get(long id);
 
         Task<TEntity> GetAsync(long id);
 
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        List<TEntity> Find(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications);
 
         void Add(TEntity entity);
 
