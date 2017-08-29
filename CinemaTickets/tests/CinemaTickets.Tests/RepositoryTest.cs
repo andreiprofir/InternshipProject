@@ -52,12 +52,17 @@ namespace CinemaTickets.Tests
             IRepository<Actor> actors = new Repository<Actor>(new CinemaTicketsContext(_options), new QuerySpecificationBuilder<Actor>());
 
             List<Actor> queryResult = actors.Find(
-                new CriteriaSpecification<Actor> {Predicate = a => a.Id > 20},
+                new OrderDescSpecification<Actor> { KeySelector = a => a.FirstName},
+                new CriteriaSpecification<Actor> {Predicate = a => a.Id > 0},
                 new OrderAscSpecification<Actor> {KeySelector = a => a.Id});
 
             foreach (Actor actor in queryResult)
             {
                 _output.WriteLine($"{actor.Id} {actor.FirstName} {actor.LastName}");
+                foreach (MovieActor ma in actor.MovieActors)
+                {
+                    _output.WriteLine($"-->{ma.Movie.Id}");
+                }
             }
         }
     }
