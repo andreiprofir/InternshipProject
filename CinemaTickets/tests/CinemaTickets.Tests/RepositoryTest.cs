@@ -4,12 +4,17 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using AutoMapper.XpressionMapper.Extensions;
 using CinemaTickets.Domain.Core.Models;
+using CinemaTickets.Domain.Dtos.Genre;
 using CinemaTickets.Domain.Interfaces;
 using CinemaTickets.Infrastructure.Data.Concrete;
 using CinemaTickets.Infrastructure.Data.Concrete.Specifications;
+using CinemaTickets.Infrastructure.Data.Concrete.Specifications.Generics;
 using CinemaTickets.Infrastructure.Data.Context;
 using CinemaTickets.Infrastructure.Data.Repositories;
+using CinemaTickets.Services.Application.AutoMapper;
+using CinemaTickets.Services.Application.AutoMapper.DtoToViewModelMappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Xunit;
@@ -52,17 +57,40 @@ namespace CinemaTickets.Tests
             IRepository<Actor> actors = new Repository<Actor>(new CinemaTicketsContext(_options), new QuerySpecificationBuilder<Actor>());
 
             List<Actor> queryResult = actors.Find(
-                new OrderDescSpecification<Actor> { KeySelector = a => a.FirstName},
-                new CriteriaSpecification<Actor> {Predicate = a => a.Id > 0},
-                new OrderAscSpecification<Actor> {KeySelector = a => a.Id});
+                Specification.OrderByDescending<Actor>(a => a.FirstName),
+                Specification.Where<Actor>(a => a.Id > 0),
+                Specification.OrderBy<Actor>(a => a.Id)
+            );
+            
 
             foreach (Actor actor in queryResult)
             {
                 _output.WriteLine($"{actor.Id} {actor.FirstName} {actor.LastName}");
-                foreach (MovieActor ma in actor.MovieActors)
-                {
-                    _output.WriteLine($"-->{ma.Movie.Id}");
-                }
+                //foreach (MovieActor ma in actor.MovieActors)
+                //{
+                //    _output.WriteLine($"-->{ma.Movie.Id}");
+                //}
+            }
+        }
+
+        [Fact]
+        public void AutoMapperTest()
+        {
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new DomainToDtoMappingProfile());
+            });
+
+            var mapper = config.CreateMapper();
+
+            IRepository<Genre> actors = new Repository<Genre>(new CinemaTicketsContext(_options), new QuerySpecificationBuilder<Genre>());
+
+
+            var genres = mapper.Map<List<GenreDto>>(actors.GetAll());
+
+            foreach (var genre in genres)
+            {
+                _output.WriteLine($"{genre.Id} {genre.Name}");
             }
         }
     }

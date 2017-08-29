@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using CinemaTickets.Domain.Interfaces;
-using CinemaTickets.Domain.Interfaces.OrderSpecification;
 using CinemaTickets.Infrastructure.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTickets.Infrastructure.Data.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : ICustomRepository<TEntity> where TEntity : class
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
@@ -27,6 +27,11 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.AsNoTracking().ToList();
         }
 
+        public Task<List<TEntity>> GetAllAsync()
+        {
+            return _dbSet.AsNoTracking().ToListAsync();
+        }
+
         public TEntity Get(long id)
         {
             return _dbSet.Find(id);
@@ -37,13 +42,35 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.FindAsync(id);
         }
 
+        public List<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _dbSet.Where(predicate).ToList();
+        }
+
+        public Task<List<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _dbSet.Where(predicate).ToListAsync();
+        }
+
         public List<TEntity> Find(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications)
         {
-            var spec = new List<ISpecification<TEntity>>(specifications) {specification};
+            return CreateQuery(specification, specifications).ToList();
+        }
 
-            IQueryable<TEntity> query = _queryBuilder.Build(_dbSet.AsNoTracking(), spec.ToArray());
+        public Task<List<TEntity>> FindAsync(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications)
+        {
+            return CreateQuery(specification, specifications).ToListAsync();
+        }
 
-            return query.ToList();
+        private IQueryable<TEntity> CreateQuery(ISpecification<TEntity> specification, ISpecification<TEntity>[] specifications)
+        {
+            var spec = new List<ISpecification<TEntity>>();
+
+            if (specification != null) spec.Add(specification);
+
+            if (specifications != null) spec.AddRange(specifications);
+
+            return _queryBuilder.Build(_dbSet.AsNoTracking(), spec.ToArray());
         }
 
         public void Add(TEntity entity)
@@ -103,6 +130,11 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             }
 
             _disposed = true;
+        }
+
+        public IQueryable<TEntity> Query()
+        {
+            throw new NotImplementedException();
         }
 
         public void Dispose()

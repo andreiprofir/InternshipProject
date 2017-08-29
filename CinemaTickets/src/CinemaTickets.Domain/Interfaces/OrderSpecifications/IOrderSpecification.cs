@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace CinemaTickets.Domain.Interfaces.OrderSpecification
+namespace CinemaTickets.Domain.Interfaces.OrderSpecifications
 {
     public interface IOrderSpecification<TEntity> : ISpecification<TEntity> where TEntity : class 
     {

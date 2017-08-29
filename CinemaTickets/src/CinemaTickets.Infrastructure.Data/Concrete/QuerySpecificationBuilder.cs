@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 using CinemaTickets.Domain.Interfaces;
-using CinemaTickets.Domain.Interfaces.OrderSpecification;
+using CinemaTickets.Domain.Interfaces.OrderSpecifications;
 using CinemaTickets.Infrastructure.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -21,10 +21,6 @@ namespace CinemaTickets.Infrastructure.Data.Concrete
         {
             switch (specification)
             {
-                case IIncludeSpecification<TEntity> i:
-                    query = AddSpecification(query, i);
-                    break;
-
                 case IOrderAscSpecification<TEntity> oa:
                     query = AddSpecification(query, oa);
                     break;
@@ -39,11 +35,6 @@ namespace CinemaTickets.Infrastructure.Data.Concrete
             }
 
             return query;
-        }
-
-        private static IQueryable<TEntity> AddSpecification(IQueryable<TEntity> query, IIncludeSpecification<TEntity> include)
-        {
-            return include?.Property != null ? query.Include(include.Property) : query;
         }
 
         private static IQueryable<TEntity> AddSpecification(IQueryable<TEntity> query, IOrderAscSpecification<TEntity> orderBy)

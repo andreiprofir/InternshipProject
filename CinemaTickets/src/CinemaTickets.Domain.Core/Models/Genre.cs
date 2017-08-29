@@ -13,6 +13,7 @@ namespace CinemaTickets.Domain.Core.Models
         public string Name { get; set; }
 
         public Entity IdNavigation { get; set; }
+
         public ICollection<MovieGenre> MovieGenres { get; set; }
     }
 }

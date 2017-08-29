@@ -10,11 +10,19 @@ namespace CinemaTickets.Domain.Interfaces
     {
         List<TEntity> GetAll();
 
+        Task<List<TEntity>> GetAllAsync();
+
         TEntity Get(long id);
 
         Task<TEntity> GetAsync(long id);
 
+        List<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+
         List<TEntity> Find(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications);
+
+        Task<List<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
+
+        Task<List<TEntity>> FindAsync(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications);
 
         void Add(TEntity entity);
 

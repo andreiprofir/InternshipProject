@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
@@ -17,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\CinemaTickets.Infrastructure.Data\CinemaTickets.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\..\src\CinemaTickets.Services.Application\CinemaTickets.Services.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
