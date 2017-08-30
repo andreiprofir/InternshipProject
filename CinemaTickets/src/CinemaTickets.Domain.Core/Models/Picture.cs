@@ -7,6 +7,7 @@ namespace CinemaTickets.Domain.Core.Models
         public long Id { get; set; }
         public string Uri { get; set; }
         public string Alt { get; set; }
+
         public long EntityId { get; set; }
 
         public Entity Entity { get; set; }

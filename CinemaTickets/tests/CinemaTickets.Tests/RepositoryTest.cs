@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using AutoMapper.QueryableExtensions;
 using AutoMapper.XpressionMapper.Extensions;
 using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Dtos.Genre;
+using CinemaTickets.Domain.Dtos.Picture;
 using CinemaTickets.Domain.Interfaces;
 using CinemaTickets.Infrastructure.Data.Concrete;
 using CinemaTickets.Infrastructure.Data.Concrete.Specifications;
@@ -83,14 +85,41 @@ namespace CinemaTickets.Tests
 
             var mapper = config.CreateMapper();
 
-            IRepository<Genre> actors = new Repository<Genre>(new CinemaTicketsContext(_options), new QuerySpecificationBuilder<Genre>());
+            //IRepository<Genre> actors = new Repository<Genre>(new CinemaTicketsContext(_options), new QuerySpecificationBuilder<Genre>());
 
 
-            var genres = mapper.Map<List<GenreDto>>(actors.GetAll());
+            //var genres = mapper.Map<List<GenreDto>>(actors.GetAll());
+
+            //foreach (var genre in genres)
+            //{
+            //    _output.WriteLine($"{genre.Id} {genre.Name}");
+            //}
+
+            var context = new CinemaTicketsContext(_options);
+
+            var genresFull = context.Genres
+                .Include(g => g.IdNavigation)
+                    .ThenInclude(e => e.Pictures)
+                .ToList();
+
+            var genres = mapper.Map<List<GenreFullInfoDto>>(genresFull);
+
+            //var genres = genresFull.Select(s => new GenreFullInfoDto
+            //{
+            //    Id = s.Id,
+            //    Name = s.Name,
+            //    Pictures = s.IdNavigation.Pictures
+            //        .Select(p => new PictureDto
+            //        {
+            //            Id = p.Id,
+            //            Uri = p.Uri,
+            //            Alt = p.Alt
+            //        }).ToList()
+            //});
 
             foreach (var genre in genres)
             {
-                _output.WriteLine($"{genre.Id} {genre.Name}");
+                _output.WriteLine($"{genre.Id} {genre.Name} {genre.Pictures.Count}");
             }
         }
     }
