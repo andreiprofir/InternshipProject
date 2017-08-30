@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using AutoMapper.XpressionMapper.Extensions;
 using CinemaTickets.Domain.Core.Models;
@@ -16,7 +17,6 @@ using CinemaTickets.Infrastructure.Data.Concrete.Specifications.Generics;
 using CinemaTickets.Infrastructure.Data.Context;
 using CinemaTickets.Infrastructure.Data.Repositories;
 using CinemaTickets.Services.Application.AutoMapper;
-using CinemaTickets.Services.Application.AutoMapper.DtoToViewModelMappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Xunit;
@@ -28,6 +28,7 @@ namespace CinemaTickets.Tests
     {
         private DbContextOptions<IdentityContext> _options;
         private readonly ITestOutputHelper _output;
+        private IMapper _mapper;
 
         public RepositoryTest(ITestOutputHelper output)
         {
@@ -51,6 +52,16 @@ namespace CinemaTickets.Tests
                 .Options;
 
             _output = output;
+
+            var config1 = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new DomainToDtoMappingProfile());
+                cfg.AddProfile(new DtoToDomainMappingProfile());
+            });
+
+            _mapper = config1.CreateMapper();
+
+            config1.AssertConfigurationIsValid<DomainToDtoMappingProfile>();
         }
 
         [Fact]
@@ -78,48 +89,19 @@ namespace CinemaTickets.Tests
         [Fact]
         public void AutoMapperTest()
         {
-            var config = new AutoMapper.MapperConfiguration(cfg =>
+            using (var context = new CinemaTicketsContext(_options))
             {
-                cfg.AddProfile(new DomainToDtoMappingProfile());
-            });
+                var src = context.Genres
+                    .Include(g => g.Entity)
+                        .ThenInclude(e => e.Pictures)
+                    .ToList();
 
-            var mapper = config.CreateMapper();
+                var dest = _mapper.Map<List<GenreBaseInfoDto>>(src);
 
-            //IRepository<Genre> actors = new Repository<Genre>(new CinemaTicketsContext(_options), new QuerySpecificationBuilder<Genre>());
-
-
-            //var genres = mapper.Map<List<GenreDto>>(actors.GetAll());
-
-            //foreach (var genre in genres)
-            //{
-            //    _output.WriteLine($"{genre.Id} {genre.Name}");
-            //}
-
-            var context = new CinemaTicketsContext(_options);
-
-            var genresFull = context.Genres
-                .Include(g => g.IdNavigation)
-                    .ThenInclude(e => e.Pictures)
-                .ToList();
-
-            var genres = mapper.Map<List<GenreFullInfoDto>>(genresFull);
-
-            //var genres = genresFull.Select(s => new GenreFullInfoDto
-            //{
-            //    Id = s.Id,
-            //    Name = s.Name,
-            //    Pictures = s.IdNavigation.Pictures
-            //        .Select(p => new PictureDto
-            //        {
-            //            Id = p.Id,
-            //            Uri = p.Uri,
-            //            Alt = p.Alt
-            //        }).ToList()
-            //});
-
-            foreach (var genre in genres)
-            {
-                _output.WriteLine($"{genre.Id} {genre.Name} {genre.Pictures.Count}");
+                foreach (var d in dest)
+                {
+                    _output.WriteLine($"{d.Name} {d.Poster?.Uri}");
+                }
             }
         }
     }

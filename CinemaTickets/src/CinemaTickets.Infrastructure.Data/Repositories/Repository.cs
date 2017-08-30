@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTickets.Infrastructure.Data.Repositories
 {
-    public class Repository<TEntity> : ICustomRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
@@ -52,25 +52,22 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.Where(predicate).ToListAsync();
         }
 
-        public List<TEntity> Find(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications)
+        public List<TEntity> Find(params ISpecification<TEntity>[] specifications)
         {
-            return CreateQuery(specification, specifications).ToList();
+            return CreateQuery(specifications).ToList();
         }
 
-        public Task<List<TEntity>> FindAsync(ISpecification<TEntity> specification, params ISpecification<TEntity>[] specifications)
+        public Task<List<TEntity>> FindAsync(params ISpecification<TEntity>[] specifications)
         {
-            return CreateQuery(specification, specifications).ToListAsync();
+            return CreateQuery(specifications).ToListAsync();
         }
 
-        private IQueryable<TEntity> CreateQuery(ISpecification<TEntity> specification, ISpecification<TEntity>[] specifications)
+        protected IQueryable<TEntity> CreateQuery(ISpecification<TEntity>[] specifications = null)
         {
-            var spec = new List<ISpecification<TEntity>>();
+            if (specifications != null && specifications.Length > 0)
+                return _queryBuilder.Build(_dbSet.AsNoTracking(), specifications);
 
-            if (specification != null) spec.Add(specification);
-
-            if (specifications != null) spec.AddRange(specifications);
-
-            return _queryBuilder.Build(_dbSet.AsNoTracking(), spec.ToArray());
+            return _dbSet.AsNoTracking();
         }
 
         public void Add(TEntity entity)
@@ -130,11 +127,6 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             }
 
             _disposed = true;
-        }
-
-        public IQueryable<TEntity> Query()
-        {
-            throw new NotImplementedException();
         }
 
         public void Dispose()

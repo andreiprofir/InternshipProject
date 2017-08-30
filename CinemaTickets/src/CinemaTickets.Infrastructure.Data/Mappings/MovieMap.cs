@@ -30,7 +30,7 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
 
             builder.Property(e => e.Trailer).HasMaxLength(1024);
 
-            builder.HasOne(d => d.IdNavigation)
+            builder.HasOne(d => d.Entity)
                 .WithOne(p => p.Movies)
                 .HasForeignKey<Movie>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)

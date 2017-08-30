@@ -743,7 +743,7 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                         .HasForeignKey("CityId")
                         .HasConstraintName("FK_Cinemas_Cities");
 
-                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "IdNavigation")
+                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "Entity")
                         .WithOne("Cinemas")
                         .HasForeignKey("CinemaTickets.Domain.Core.Models.Cinema", "Id")
                         .HasConstraintName("FK_Cinemas_Entities");
@@ -789,7 +789,7 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Genre", b =>
                 {
-                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "IdNavigation")
+                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "Entity")
                         .WithOne("Genres")
                         .HasForeignKey("CinemaTickets.Domain.Core.Models.Genre", "Id")
                         .HasConstraintName("FK_Genres_Entities");
@@ -805,7 +805,7 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Movie", b =>
                 {
-                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "IdNavigation")
+                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "Entity")
                         .WithOne("Movies")
                         .HasForeignKey("CinemaTickets.Domain.Core.Models.Movie", "Id")
                         .HasConstraintName("FK_Movies_Entities");
@@ -957,7 +957,7 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("CinemaTickets.Domain.Core.Models.Promotion", b =>
                 {
-                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "IdNavigation")
+                    b.HasOne("CinemaTickets.Domain.Core.Models.Entity", "Entity")
                         .WithOne("Promotions")
                         .HasForeignKey("CinemaTickets.Domain.Core.Models.Promotion", "Id")
                         .HasConstraintName("FK_Promotions_Entities");

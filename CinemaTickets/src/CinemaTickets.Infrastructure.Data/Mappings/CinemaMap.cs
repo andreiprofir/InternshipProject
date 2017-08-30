@@ -36,7 +36,7 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Cinemas_Cities");
 
-            builder.HasOne(d => d.IdNavigation)
+            builder.HasOne(d => d.Entity)
                 .WithOne(p => p.Cinemas)
                 .HasForeignKey<Cinema>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)

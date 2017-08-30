@@ -18,7 +18,7 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .IsRequired()
                 .HasMaxLength(128);
 
-            builder.HasOne(d => d.IdNavigation)
+            builder.HasOne(d => d.Entity)
                 .WithOne(p => p.Genres)
                 .HasForeignKey<Genre>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)

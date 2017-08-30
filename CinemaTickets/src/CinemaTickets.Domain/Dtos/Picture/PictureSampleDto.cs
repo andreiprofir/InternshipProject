@@ -1,8 +1,7 @@
 ﻿namespace CinemaTickets.Domain.Dtos.Picture
 {
-    public class PictureDto
+    public class PictureSampleDto
     {
-        public long Id { get; set; }
         public string Uri { get; set; }
         public string Alt { get; set; }
     }

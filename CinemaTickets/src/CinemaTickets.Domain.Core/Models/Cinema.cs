@@ -21,7 +21,7 @@ namespace CinemaTickets.Domain.Core.Models
         public long CityId { get; set; }
 
         public City City { get; set; }
-        public Entity IdNavigation { get; set; }
+        public Entity Entity { get; set; }
         public ICollection<CinemaPromotion> CinemaPromotions { get; set; }
         public ICollection<Hall> Halls { get; set; }
     }

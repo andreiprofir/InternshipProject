@@ -9,12 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AutoMapper\DomainToDtoMappings\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CinemaTickets.Domain.Core\CinemaTickets.Domain.Core.csproj" />
     <ProjectReference Include="..\CinemaTickets.Domain\CinemaTickets.Domain.csproj" />
+    <ProjectReference Include="..\CinemaTickets.Infrastructure.Data\CinemaTickets.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\CinemaTickets.Services.Interfaces\CinemaTickets.Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

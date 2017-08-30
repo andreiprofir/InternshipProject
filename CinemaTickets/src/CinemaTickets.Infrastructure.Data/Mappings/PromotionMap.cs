@@ -16,7 +16,7 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .IsRequired()
                 .HasMaxLength(255);
 
-            builder.HasOne(d => d.IdNavigation)
+            builder.HasOne(d => d.Entity)
                 .WithOne(p => p.Promotions)
                 .HasForeignKey<Promotion>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)

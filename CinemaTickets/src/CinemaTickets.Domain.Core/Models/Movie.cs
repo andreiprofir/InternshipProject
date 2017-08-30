@@ -29,7 +29,7 @@ namespace CinemaTickets.Domain.Core.Models
         public int Likes { get; set; }
         public int Dislikes { get; set; }
 
-        public Entity IdNavigation { get; set; }
+        public Entity Entity { get; set; }
         public ICollection<MovieActor> MovieActors { get; set; }
         public ICollection<MovieCountry> MovieCountries { get; set; }
         public ICollection<MovieDirector> MovieDirectors { get; set; }

@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaTickets.Infrastructure.Data\CinemaTickets.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\CinemaTickets.Services.Interfaces\CinemaTickets.Services.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

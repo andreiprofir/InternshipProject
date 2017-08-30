@@ -18,7 +18,7 @@ namespace CinemaTickets.Domain.Core.Models
         public DateTimeOffset? ValidFrom { get; set; }
         public DateTimeOffset? ValidTo { get; set; }
 
-        public Entity IdNavigation { get; set; }
+        public Entity Entity { get; set; }
         public ICollection<CinemaPromotion> CinemaPromotions { get; set; }
         public ICollection<MoviePromotion> MoviePromotions { get; set; }
     }
