@@ -30,5 +30,14 @@ namespace CinemaTickets.Infrastructure.Business.Services
 
             return result;
         }
+
+        public MovieFullInfoDto GetFullInfoOfMovieById(long movieId)
+        {
+            Movie source = _movieRepository.GetMovieByIdAndIncludeAllInfo(movieId);
+
+            MovieFullInfoDto result = _mapper.Map<MovieFullInfoDto>(source);
+
+            return result;
+        }
     }
 }

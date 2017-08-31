@@ -13,6 +13,7 @@ namespace CinemaTickets.Domain.Core.Models
         public long Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string AvatarUri { get; set; }
         
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Order> Orders { get; set; }

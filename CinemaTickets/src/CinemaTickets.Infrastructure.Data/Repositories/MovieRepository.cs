@@ -25,5 +25,28 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
                     .ThenInclude(e => e.Pictures)
                 .ToList();
         }
+
+        public Movie GetMovieByIdAndIncludeAllInfo(long movieId)
+        {
+            IQueryable<Movie> query = CreateQuery()
+                .Include(m => m.Entity)
+                    .ThenInclude(e => e.Pictures)
+                .Include(m => m.MovieActors)
+                    .ThenInclude(ma => ma.Actor)
+                .Include(m => m.MovieCountries)
+                    .ThenInclude(mc => mc.Country)
+                .Include(m => m.MovieDirectors)
+                    .ThenInclude(md => md.Director)
+                .Include(m => m.MovieLanguages)
+                    .ThenInclude(ml => ml.Language)
+                .Include(m => m.MovieWriters)
+                    .ThenInclude(mw => mw.Writer)
+                .Include(m => m.MovieGenres)
+                    .ThenInclude(mg => mg.Genre)
+                .Include(m => m.Entity)
+                    .ThenInclude(e => e.Comments);
+
+            return query.FirstOrDefault(m => m.Id == movieId);
+        }
     }
 }

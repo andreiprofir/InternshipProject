@@ -19,12 +19,21 @@ namespace CinemaTickets.Infrastructure.Business.Services
             _mapper = mapper;
         }
 
-        public List<GenreBaseInfoDto> GetListOfGenres()
+        public List<GenreBaseInfoDto> GetAll()
         {
             List<Genre> source = _genreRepository.GetListOfGenresWithIncludePictures(
                 Specification.OrderBy<Genre>(g => g.Name));
 
             List<GenreBaseInfoDto> result = _mapper.Map<List<GenreBaseInfoDto>>(source);
+
+            return result;
+        }
+
+        public GenreSampleInfoDto GetById(long genreId)
+        {
+            Genre source = _genreRepository.Get(genreId);
+
+            GenreSampleInfoDto result = _mapper.Map<GenreSampleInfoDto>(source);
 
             return result;
         }
