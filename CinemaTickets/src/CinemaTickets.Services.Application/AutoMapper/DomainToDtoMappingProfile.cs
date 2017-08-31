@@ -2,6 +2,7 @@
 using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Dtos.Genre;
+using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Dtos.Picture;
 
 namespace CinemaTickets.Services.Application.AutoMapper
@@ -14,6 +15,12 @@ namespace CinemaTickets.Services.Application.AutoMapper
                 .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()));
 
             CreateMap<Picture, PictureSampleDto>();
+
+            CreateMap<Genre, GenreSampleInfoDto>();
+
+            CreateMap<Movie, MovieInGenreDto>()
+                .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()))
+                .ForMember(dest => dest.HasSessions, opt => opt.MapFrom(src => src.MovieSessions.Any()));
         }
     }
 }

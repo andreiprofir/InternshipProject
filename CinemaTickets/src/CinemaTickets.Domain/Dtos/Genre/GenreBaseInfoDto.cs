@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using CinemaTickets.Domain.Dtos.Picture;
+﻿using CinemaTickets.Domain.Dtos.Picture;
 
 namespace CinemaTickets.Domain.Dtos.Genre
 {

@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\CinemaTickets.Infrastructure.Business\CinemaTickets.Infrastructure.Business.csproj" />
     <ProjectReference Include="..\..\src\CinemaTickets.Infrastructure.Data\CinemaTickets.Infrastructure.Data.csproj" />
     <ProjectReference Include="..\..\src\CinemaTickets.Services.Application\CinemaTickets.Services.Application.csproj" />
   </ItemGroup>

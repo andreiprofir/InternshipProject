@@ -27,19 +27,9 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.AsNoTracking().ToList();
         }
 
-        public Task<List<TEntity>> GetAllAsync()
-        {
-            return _dbSet.AsNoTracking().ToListAsync();
-        }
-
         public TEntity Get(long id)
         {
             return _dbSet.Find(id);
-        }
-
-        public Task<TEntity> GetAsync(long id)
-        {
-            return _dbSet.FindAsync(id);
         }
 
         public List<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
@@ -47,19 +37,9 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.Where(predicate).ToList();
         }
 
-        public Task<List<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            return _dbSet.Where(predicate).ToListAsync();
-        }
-
         public List<TEntity> Find(params ISpecification<TEntity>[] specifications)
         {
             return CreateQuery(specifications).ToList();
-        }
-
-        public Task<List<TEntity>> FindAsync(params ISpecification<TEntity>[] specifications)
-        {
-            return CreateQuery(specifications).ToListAsync();
         }
 
         protected IQueryable<TEntity> CreateQuery(ISpecification<TEntity>[] specifications = null)
@@ -105,11 +85,6 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
         public int SaveChanges()
         {
             return _context.SaveChanges();
-        }
-
-        public Task<int> SaveChangesAsync()
-        {
-            return _context.SaveChangesAsync();
         }
 
         #region DisposePattern
