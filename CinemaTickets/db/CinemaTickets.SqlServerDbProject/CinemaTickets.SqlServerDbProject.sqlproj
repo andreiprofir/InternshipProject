@@ -98,6 +98,7 @@
     <Build Include="Tables\Orders.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\InsertDates.sql" />
+    <None Include="Scripts\InsertData_1st.sql" />
+    <None Include="Scripts\InsertData_2nd.sql" />
   </ItemGroup>
 </Project>

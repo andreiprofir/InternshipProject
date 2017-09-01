@@ -12,7 +12,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly DbContext _context;
-        protected readonly DbSet<TEntity> _dbSet;
+        private readonly DbSet<TEntity> _dbSet;
         private readonly IQuerySpecificationBuilder<TEntity> _queryBuilder;
 
         public Repository(DbContext context, IQuerySpecificationBuilder<TEntity> queryBuilder)

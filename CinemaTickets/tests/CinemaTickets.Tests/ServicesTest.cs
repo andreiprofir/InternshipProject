@@ -7,6 +7,7 @@ using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Dtos.Genre;
 using CinemaTickets.Domain.Dtos.Movie;
+using CinemaTickets.Domain.Dtos.MovieSession;
 using CinemaTickets.Domain.Dtos.Picture;
 using CinemaTickets.Domain.Interfaces;
 using CinemaTickets.Infrastructure.Business.Services;
@@ -89,9 +90,18 @@ namespace CinemaTickets.Tests
         {
             IMovieService service = new MovieService(new MovieRepository(_context, new QuerySpecificationBuilder<Movie>()), _mapper);
 
-            MovieFullInfoDto dto = service.GetFullInfoOfMovieById(36);
-
+            MovieFullInfoDto dto = service.GetFullInfoOfMovieById(60);
+            
             _output.WriteLine($"{dto.Id} {dto.Name} {dto.OriginalName}");
+
+            foreach (var ms in dto.MovieSessions)
+            {
+                _output.WriteLine($"-->{ms.Id} {ms.Name}");
+                foreach (var session in ms.MovieSessions)
+                {
+                    _output.WriteLine($"------>>>{session.Id} {session.Format} {session.MinPrice} {session.Time:G}");
+                }
+            }
         }
     }
 }
