@@ -92,15 +92,18 @@ namespace CinemaTickets.Services.Application.AutoMapper
                     dest => dest.CinemaPromotions,
                     opt => opt.MapFrom(src => src.CinemaPromotions.Select(cp => cp.Cinema)));
 
-            //CreateMap<MoviePromotion, MovieBaseInfoDto>()
-            //    .ForAllMembers(opt => opt.MapFrom(src => src.Movie));
-
             CreateMap<Movie, MovieBaseInfoDto>()
                 .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()));
 
             CreateMap<Cinema, CinemaForPromotionDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ShortName))
                 .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City.Name));
+
+            CreateMap<Promotion, PromotionForListDto>()
+                .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()))
+                .ForMember(
+                    dest => dest.Cinemas,
+                    opt => opt.MapFrom(src => src.CinemaPromotions.Select(cp => cp.Cinema)));
         }
     }
 }

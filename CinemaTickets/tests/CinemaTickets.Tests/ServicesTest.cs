@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
+using CinemaTickets.Domain.Dtos.Cinema;
 using CinemaTickets.Domain.Dtos.City;
 using CinemaTickets.Domain.Dtos.Genre;
 using CinemaTickets.Domain.Dtos.Movie;
@@ -132,9 +133,26 @@ namespace CinemaTickets.Tests
         {
             IPromotionService service = new PromotionService(new PromotionRepository(_context, new QuerySpecificationBuilder<Promotion>()), _mapper);
 
-            PromotionFullInfoDto dto = service.GetPromotionById(1);
+            PromotionFullInfoDto dto = service.GetPromotionById(121);
 
-            _output.WriteLine($"{dto?.Id}");
+            _output.WriteLine($"{dto?.Id} {dto?.Title} {dto?.ShortDescription}");
+        }
+
+        [Fact]
+        public void AllValidIn()
+        {
+            IPromotionService service = new PromotionService(new PromotionRepository(_context, new QuerySpecificationBuilder<Promotion>()), _mapper);
+
+            List<PromotionForListDto> dto = service.GetAllValidIn(9);
+
+            foreach (var a in dto)
+            {
+                _output.WriteLine($"{a.Id} {a.Title} {a.ShortDescription}");
+                foreach (var b in a.Cinemas)
+                {
+                    _output.WriteLine($"-->{b.Id} {b.Name}");
+                }
+            }
         }
     }
 }

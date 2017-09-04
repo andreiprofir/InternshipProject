@@ -7,5 +7,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories.Interfaces
     public interface IPromotionRepository : IRepository<Promotion>
     {
         Promotion GetByIdWithIncludes(long promotionId);
+
+        List<Promotion> GetAllWithIncludePicturesAndCinemas(params ISpecification<Promotion>[] specifications);
     }
 }
