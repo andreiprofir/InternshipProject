@@ -45,13 +45,11 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
                     .ThenInclude(mg => mg.Genre)
                 .Include(m => m.Entity)
                     .ThenInclude(e => e.Comments)
-                    
                 .Include(m => m.MovieSessions)
                     .ThenInclude(ms => ms.Hall)
                         .ThenInclude(h => h.Cinema)
-                            .ThenInclude(c => c.Halls)
-                                .ThenInclude(h => h.MovieSessions)
-                                    .ThenInclude(ms => ms.SessionPrices);
+                .Include(m => m.MovieSessions)
+                    .ThenInclude(ms => ms.SessionPrices);
 
             return query.FirstOrDefault(m => m.Id == movieId);
         }

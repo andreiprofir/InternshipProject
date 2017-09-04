@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CinemaTickets.Domain.Dtos.Cinema;
 using CinemaTickets.Domain.Dtos.Comment;
 using CinemaTickets.Domain.Dtos.Genre;
+using CinemaTickets.Domain.Dtos.MovieSession;
 using CinemaTickets.Domain.Dtos.Picture;
 
 namespace CinemaTickets.Domain.Dtos.Movie
@@ -47,6 +48,6 @@ namespace CinemaTickets.Domain.Dtos.Movie
         
         public List<CommentInforForMovieDto> Comments { get; set; }
         
-        public List<CinemaSampleWithMovieSessionsDto> MovieSessions { get; set; }
+        public List<MovieSessionForMovieDto> MovieSessions { get; set; }
     }
 }

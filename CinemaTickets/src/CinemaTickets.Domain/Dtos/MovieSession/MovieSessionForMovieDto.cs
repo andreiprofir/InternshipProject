@@ -1,4 +1,5 @@
 ﻿using System;
+using CinemaTickets.Domain.Dtos.Cinema;
 
 namespace CinemaTickets.Domain.Dtos.MovieSession
 {
@@ -11,5 +12,7 @@ namespace CinemaTickets.Domain.Dtos.MovieSession
         public string Format { get; set; }
 
         public decimal MinPrice { get; set; }
+
+        public CinemaSampleDto Cinema { get; set; }
     }
 }

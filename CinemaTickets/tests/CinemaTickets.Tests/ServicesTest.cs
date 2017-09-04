@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -94,12 +95,15 @@ namespace CinemaTickets.Tests
             
             _output.WriteLine($"{dto.Id} {dto.Name} {dto.OriginalName}");
 
-            foreach (var ms in dto.MovieSessions)
+            var query = from ms in dto.MovieSessions
+                group ms by new {ms.Cinema.Id, ms.Cinema.Name};
+
+            foreach (var session in query)
             {
-                _output.WriteLine($"-->{ms.Id} {ms.Name}");
-                foreach (var session in ms.MovieSessions)
+                _output.WriteLine($"->{session.Key.Id} {session.Key.Name}");
+                foreach (var a in session)
                 {
-                    _output.WriteLine($"------>>>{session.Id} {session.Format} {session.MinPrice} {session.Time:G}");
+                    _output.WriteLine($"-->>>{a.Id} {a.Format} {a.MinPrice} {a.Time:G}");
                 }
             }
         }

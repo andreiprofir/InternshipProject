@@ -8,7 +8,6 @@ using CinemaTickets.Domain.Dtos.Genre;
 using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Dtos.MovieSession;
 using CinemaTickets.Domain.Dtos.Picture;
-using CinemaTickets.Infrastructure.Data.Models.Identity;
 
 namespace CinemaTickets.Services.Application.AutoMapper
 {
@@ -64,19 +63,15 @@ namespace CinemaTickets.Services.Application.AutoMapper
                     opt => opt.MapFrom(src => src.Entity.Comments))
                 .ForMember(
                     dest => dest.Genres,
-                    opt => opt.MapFrom(src => src.MovieGenres))
-                .ForMember(
-                    dest => dest.MovieSessions,
-                    opt => opt.MapFrom(src => src.MovieSessions.Select(ms => ms.Hall.Cinema)));
+                    opt => opt.MapFrom(src => src.MovieGenres));
 
-            CreateMap<Cinema, CinemaSampleWithMovieSessionsDto>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ShortName))
-                .ForMember(dest => dest.MovieSessions,
-                    opt => opt.MapFrom(src => src.Halls.SelectMany(h => h.MovieSessions)));
+            CreateMap<Cinema, CinemaSampleDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ShortName));
 
             CreateMap<MovieSession, MovieSessionForMovieDto>()
-                .ForMember(ms => ms.Format, opt => opt.MapFrom(src => src.Hall.Format))
-                .ForMember(ms => ms.MinPrice, opt => opt.MapFrom(src => src.SessionPrices.Min(sp => sp.Price)));
+                .ForMember(dest => dest.Format, opt => opt.MapFrom(src => src.Hall.Format))
+                .ForMember(dest => dest.MinPrice, opt => opt.MapFrom(src => src.SessionPrices.Min(sp => sp.Price)))
+                .ForMember(dest => dest.Cinema, opt => opt.MapFrom(src => src.Hall.Cinema));
         }
     }
 }
