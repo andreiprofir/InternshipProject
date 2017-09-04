@@ -13,10 +13,5 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
         public CinemaRepository(DbContext context, IQuerySpecificationBuilder<Cinema> queryBuilder) : base(context, queryBuilder)
         {
         }
-
-        public List<Cinema> GetCinemasWith()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

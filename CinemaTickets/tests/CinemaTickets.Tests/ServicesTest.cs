@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
+using CinemaTickets.Domain.Dtos.City;
 using CinemaTickets.Domain.Dtos.Genre;
 using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Dtos.MovieSession;
@@ -104,6 +105,23 @@ namespace CinemaTickets.Tests
                 foreach (var a in session)
                 {
                     _output.WriteLine($"-->>>{a.Id} {a.Format} {a.MinPrice} {a.Time:G}");
+                }
+            }
+        }
+
+        [Fact]
+        public void GetAllCitiesWithCinemas()
+        {
+            ICityService service = new CityService(new CityRepository(_context, new QuerySpecificationBuilder<City>()), _mapper);
+
+            List<CityWithCinemasDto> result = service.GetAllCitiesWithCinemas();
+
+            foreach (var dto in result)
+            {
+                _output.WriteLine($"{dto.Id} {dto.Name}");
+                foreach (var d in dto.Cinemas)
+                {
+                    _output.WriteLine($"-->{d.Id} {d.Name} {d.Address}");
                 }
             }
         }

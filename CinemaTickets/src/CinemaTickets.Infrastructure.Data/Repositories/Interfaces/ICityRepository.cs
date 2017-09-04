@@ -4,8 +4,8 @@ using CinemaTickets.Domain.Interfaces;
 
 namespace CinemaTickets.Infrastructure.Data.Repositories.Interfaces
 {
-    public interface ICinemaRepository : IRepository<Cinema>
+    public interface ICityRepository : IRepository<City>
     {
-        
+        List<City> GetAllCitiesAndIncludeCinamas(params ISpecification<City>[] specifications);
     }
 }

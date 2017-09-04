@@ -2,6 +2,7 @@
 using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Dtos.Cinema;
+using CinemaTickets.Domain.Dtos.City;
 using CinemaTickets.Domain.Dtos.Comment;
 using CinemaTickets.Domain.Dtos.Customer;
 using CinemaTickets.Domain.Dtos.Genre;
@@ -72,6 +73,12 @@ namespace CinemaTickets.Services.Application.AutoMapper
                 .ForMember(dest => dest.Format, opt => opt.MapFrom(src => src.Hall.Format))
                 .ForMember(dest => dest.MinPrice, opt => opt.MapFrom(src => src.SessionPrices.Min(sp => sp.Price)))
                 .ForMember(dest => dest.Cinema, opt => opt.MapFrom(src => src.Hall.Cinema));
+
+            CreateMap<City, CityWithCinemasDto>();
+
+            CreateMap<Cinema, CinemaNameAndAddressDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ShortName))
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Street));
         }
     }
 }
