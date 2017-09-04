@@ -9,6 +9,7 @@ using CinemaTickets.Domain.Dtos.Genre;
 using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Dtos.MovieSession;
 using CinemaTickets.Domain.Dtos.Picture;
+using CinemaTickets.Domain.Dtos.Promotion;
 
 namespace CinemaTickets.Services.Application.AutoMapper
 {
@@ -79,6 +80,27 @@ namespace CinemaTickets.Services.Application.AutoMapper
             CreateMap<Cinema, CinemaNameAndAddressDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ShortName))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Street));
+
+            CreateMap<Promotion, PromotionFullInfoDto>()
+                .ForMember(
+                    dest => dest.Poster, 
+                    opt => opt.MapFrom(src => src.Entity.Pictures.LastOrDefault()))
+                .ForMember(
+                    dest => dest.MoviePromotions,
+                    opt => opt.MapFrom(src => src.MoviePromotions.Select(mp => mp.Movie)))
+                .ForMember(
+                    dest => dest.CinemaPromotions,
+                    opt => opt.MapFrom(src => src.CinemaPromotions.Select(cp => cp.Cinema)));
+
+            //CreateMap<MoviePromotion, MovieBaseInfoDto>()
+            //    .ForAllMembers(opt => opt.MapFrom(src => src.Movie));
+
+            CreateMap<Movie, MovieBaseInfoDto>()
+                .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()));
+
+            CreateMap<Cinema, CinemaForPromotionDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.ShortName))
+                .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City.Name));
         }
     }
 }

@@ -11,6 +11,7 @@ using CinemaTickets.Domain.Dtos.Genre;
 using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Dtos.MovieSession;
 using CinemaTickets.Domain.Dtos.Picture;
+using CinemaTickets.Domain.Dtos.Promotion;
 using CinemaTickets.Domain.Interfaces;
 using CinemaTickets.Infrastructure.Business.Services;
 using CinemaTickets.Infrastructure.Data.Concrete;
@@ -110,7 +111,7 @@ namespace CinemaTickets.Tests
         }
 
         [Fact]
-        public void GetAllCitiesWithCinemas()
+        public void GetAllCitiesWithCinemasTest()
         {
             ICityService service = new CityService(new CityRepository(_context, new QuerySpecificationBuilder<City>()), _mapper);
 
@@ -124,6 +125,16 @@ namespace CinemaTickets.Tests
                     _output.WriteLine($"-->{d.Id} {d.Name} {d.Address}");
                 }
             }
+        }
+
+        [Fact]
+        public void GetPromotionByIdTest()
+        {
+            IPromotionService service = new PromotionService(new PromotionRepository(_context, new QuerySpecificationBuilder<Promotion>()), _mapper);
+
+            PromotionFullInfoDto dto = service.GetPromotionById(1);
+
+            _output.WriteLine($"{dto?.Id}");
         }
     }
 }
