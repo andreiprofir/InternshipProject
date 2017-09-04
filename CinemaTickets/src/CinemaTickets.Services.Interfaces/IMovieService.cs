@@ -8,5 +8,7 @@ namespace CinemaTickets.Services.Interfaces
         List<MovieInGenreDto> GetMoviesByGenre(long genreId);
 
         MovieFullInfoDto GetFullInfoOfMovieById(long movieId);
+
+        List<MovieInfoForListOfPostersDto> GetAllMoviesForPoster(long cinemaId);
     }
 }

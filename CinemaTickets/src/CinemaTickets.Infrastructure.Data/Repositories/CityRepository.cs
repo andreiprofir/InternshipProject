@@ -14,7 +14,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
         {
         }
 
-        public List<City> GetAllCitiesAndIncludeCinamas(params ISpecification<City>[] specifications)
+        public List<City> GetAllCitiesAndIncludeCinemas(params ISpecification<City>[] specifications)
         {
             IQueryable<City> queryWithSpecifications = CreateQuery(specifications)
                 .Include(c => c.Cinemas);

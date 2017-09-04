@@ -6,8 +6,10 @@ namespace CinemaTickets.Infrastructure.Data.Repositories.Interfaces
 {
     public interface IMovieRepository : IRepository<Movie>
     {
-        List<Movie> GetMoviesWithIncludePicturesAndSessions(params ISpecification<Movie>[] specifications);
+        List<Movie> GetAllAndIncludePicturesAndSessions(params ISpecification<Movie>[] specifications);
 
-        Movie GetMovieByIdAndIncludeAllInfo(long movieId);
+        Movie GetByIdAndIncludeAllInfo(long movieId);
+
+        List<Movie> GetAllAndIncludePictures(params ISpecification<Movie>[] specifications);
     }
 }

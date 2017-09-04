@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
@@ -23,7 +24,7 @@ namespace CinemaTickets.Infrastructure.Business.Services
 
         public List<MovieInGenreDto> GetMoviesByGenre(long genreId)
         {
-            List<Movie> source = _movieRepository.GetMoviesWithIncludePicturesAndSessions(
+            List<Movie> source = _movieRepository.GetAllAndIncludePicturesAndSessions(
                 Specification.Where<Movie>(m => m.MovieGenres.Any(g => g.GenreId == genreId)));
 
             List<MovieInGenreDto> result = _mapper.Map<List<MovieInGenreDto>>(source);
@@ -33,9 +34,27 @@ namespace CinemaTickets.Infrastructure.Business.Services
 
         public MovieFullInfoDto GetFullInfoOfMovieById(long movieId)
         {
-            Movie source = _movieRepository.GetMovieByIdAndIncludeAllInfo(movieId);
+            Movie source = _movieRepository.GetByIdAndIncludeAllInfo(movieId);
 
             MovieFullInfoDto result = _mapper.Map<MovieFullInfoDto>(source);
+
+            return result;
+        }
+
+        public List<MovieInfoForListOfPostersDto> GetAllMoviesForPoster(long cinemaId)
+        {
+            List<Movie> source = _movieRepository.GetAllAndIncludePictures(
+                Specification.Where<Movie>(m => m.MovieSessions.Count(ms => ms.Hall.CinemaId == cinemaId) > 0));
+
+            foreach (Movie movie in source)
+            {
+                movie.MovieSessions = movie.MovieSessions
+                    .Where(ms => ms.Hall.CinemaId == cinemaId)
+                    .Where(ms => ms.Time > DateTimeOffset.Now)
+                    .ToList();
+            }
+
+            List<MovieInfoForListOfPostersDto> result = _mapper.Map<List<MovieInfoForListOfPostersDto>>(source);
 
             return result;
         }

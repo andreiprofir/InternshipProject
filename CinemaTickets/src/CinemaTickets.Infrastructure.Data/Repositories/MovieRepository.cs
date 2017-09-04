@@ -15,7 +15,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
         }
 
 
-        public List<Movie> GetMoviesWithIncludePicturesAndSessions(params ISpecification<Movie>[] specifications)
+        public List<Movie> GetAllAndIncludePicturesAndSessions(params ISpecification<Movie>[] specifications)
         {
             IQueryable<Movie> queryWithSpecifications = CreateQuery(specifications);
 
@@ -26,7 +26,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
                 .ToList();
         }
 
-        public Movie GetMovieByIdAndIncludeAllInfo(long movieId)
+        public Movie GetByIdAndIncludeAllInfo(long movieId)
         {
             IQueryable<Movie> query = CreateQuery()
                 .Include(m => m.Entity)
@@ -52,6 +52,20 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
                     .ThenInclude(ms => ms.SessionPrices);
 
             return query.FirstOrDefault(m => m.Id == movieId);
+        }
+
+        public List<Movie> GetAllAndIncludePictures(params ISpecification<Movie>[] specifications)
+        {
+            IQueryable<Movie> queryWithSpecifications = CreateQuery(specifications)
+                .Include(m => m.Entity)
+                    .ThenInclude(e => e.Pictures)
+                .Include(m => m.MovieSessions)
+                    .ThenInclude(ms => ms.SessionPrices)
+                .Include(m => m.MovieSessions)
+                    .ThenInclude(ms => ms.Hall)
+                        .ThenInclude(h => h.Cinema);
+
+            return queryWithSpecifications.ToList();
         }
     }
 }

@@ -72,7 +72,8 @@ namespace CinemaTickets.Services.Application.AutoMapper
 
             CreateMap<MovieSession, MovieSessionForMovieDto>()
                 .ForMember(dest => dest.Format, opt => opt.MapFrom(src => src.Hall.Format))
-                .ForMember(dest => dest.MinPrice, opt => opt.MapFrom(src => src.SessionPrices.Min(sp => sp.Price)))
+                .ForMember(dest => dest.MinPrice, 
+                    opt => opt.MapFrom(src => src.SessionPrices.DefaultIfEmpty().Min(sp => sp.Price)))
                 .ForMember(dest => dest.Cinema, opt => opt.MapFrom(src => src.Hall.Cinema));
 
             CreateMap<City, CityWithCinemasDto>();
@@ -104,6 +105,10 @@ namespace CinemaTickets.Services.Application.AutoMapper
                 .ForMember(
                     dest => dest.Cinemas,
                     opt => opt.MapFrom(src => src.CinemaPromotions.Select(cp => cp.Cinema)));
+
+            CreateMap<Movie, MovieInfoForListOfPostersDto>()
+                .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()))
+                .ForMember(dest => dest.MovieSessions, opt => opt.MapFrom(src => src.MovieSessions));
         }
     }
 }

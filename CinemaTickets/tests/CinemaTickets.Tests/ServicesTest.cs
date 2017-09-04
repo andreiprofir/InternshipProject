@@ -95,11 +95,11 @@ namespace CinemaTickets.Tests
             IMovieService service = new MovieService(new MovieRepository(_context, new QuerySpecificationBuilder<Movie>()), _mapper);
 
             MovieFullInfoDto dto = service.GetFullInfoOfMovieById(60);
-            
+
             _output.WriteLine($"{dto.Id} {dto.Name} {dto.OriginalName}");
 
             var query = from ms in dto.MovieSessions
-                group ms by new {ms.Cinema.Id, ms.Cinema.Name};
+                        group ms by new { ms.Cinema.Id, ms.Cinema.Name };
 
             foreach (var session in query)
             {
@@ -151,6 +151,24 @@ namespace CinemaTickets.Tests
                 foreach (var b in a.Cinemas)
                 {
                     _output.WriteLine($"-->{b.Id} {b.Name}");
+                }
+            }
+        }
+
+        [Fact]
+        public void GetAllMoviesForPoster()
+        {
+            IMovieService service = new MovieService(new MovieRepository(_context, new QuerySpecificationBuilder<Movie>()), _mapper);
+
+            List<MovieInfoForListOfPostersDto> dto = service.GetAllMoviesForPoster(71);
+
+            foreach (var d in dto)
+            {
+                _output.WriteLine($"{d.Id} {d.Name} {d.Poster}");
+
+                foreach (var session in d.MovieSessions)
+                {
+                    _output.WriteLine($"-->{session?.MinPrice} {session.Format} {session.Time}");
                 }
             }
         }

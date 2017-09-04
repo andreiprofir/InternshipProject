@@ -10,8 +10,8 @@ namespace CinemaTickets.Infrastructure.Business.Services
 {
     public class CityService : ICityService
     {
-        private ICityRepository _cityRepository;
-        private IMapper _mapper;
+        private readonly ICityRepository _cityRepository;
+        private readonly IMapper _mapper;
 
         public CityService(ICityRepository cityRepository, IMapper mapper)
         {
@@ -21,7 +21,7 @@ namespace CinemaTickets.Infrastructure.Business.Services
 
         public List<CityWithCinemasDto> GetAllCitiesWithCinemas()
         {
-            List<City> source = _cityRepository.GetAllCitiesAndIncludeCinamas(
+            List<City> source = _cityRepository.GetAllCitiesAndIncludeCinemas(
                 Specification.Where<City>(c => c.Cinemas.Count > 0));
 
             List<CityWithCinemasDto> result = _mapper.Map<List<CityWithCinemasDto>>(source);
