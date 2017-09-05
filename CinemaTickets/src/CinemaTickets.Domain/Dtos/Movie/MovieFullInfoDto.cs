@@ -46,7 +46,7 @@ namespace CinemaTickets.Domain.Dtos.Movie
 
         public List<GenreSampleInfoDto> Genres { get; set; }
         
-        public List<CommentInforForMovieDto> Comments { get; set; }
+        public List<CommentInfoDto> Comments { get; set; }
         
         public List<MovieSessionForMovieDto> MovieSessions { get; set; }
     }

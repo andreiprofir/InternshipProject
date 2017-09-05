@@ -31,7 +31,7 @@ namespace CinemaTickets.Services.Application.AutoMapper
             CreateMap<Customer, CustomerInfoForCommentDto>()
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
 
-            CreateMap<Comment, CommentInforForMovieDto>()
+            CreateMap<Comment, CommentInfoDto>()
                 .ForMember(dest => dest.CommentType, opt => opt.MapFrom(src => src.CommentType.Name));
 
             CreateMap<MovieGenre, GenreSampleInfoDto>()
@@ -118,6 +118,22 @@ namespace CinemaTickets.Services.Application.AutoMapper
                 .ForMember(dest => dest.Phone, opt => opt.MapFrom(src => src.ContactPhone))
                 .ForMember(dest => dest.Formats, opt => opt.MapFrom(src => src.Halls.Select(h => h.Format).Distinct()))
                 .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()));
+
+
+
+            CreateMap<MovieSession, MovieSessionForCinemaDto>()
+                .ForMember(dest => dest.Format, opt => opt.MapFrom(src => src.Hall.Format))
+                .ForMember(dest => dest.MinPrice,
+                    opt => opt.MapFrom(src => src.SessionPrices.DefaultIfEmpty().Min(sp => sp.Price)));
+
+            CreateMap<Movie, MovieInfoForCinemaSessionsDto>()
+                .ForMember(dest => dest.Poster, opt => opt.MapFrom(src => src.Entity.Pictures.FirstOrDefault()));
+
+            CreateMap<Cinema, CinemaFullInfoDto>()
+                .ForMember(dest => dest.CityName, opt => opt.MapFrom(src => src.City.Name))
+                .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Entity.Comments))
+                .ForMember(dest => dest.Pictures, opt => opt.MapFrom(src => src.Entity.Pictures))
+                .ForMember(dest => dest.MovieSessions, opt => opt.Ignore());
         }
     }
 }

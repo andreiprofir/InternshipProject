@@ -6,5 +6,7 @@ namespace CinemaTickets.Services.Interfaces
     public interface ICinemaService
     {
         List<CinemaForListDto> GetAllByCityId(long? cityId = null);
+
+        CinemaFullInfoDto GetById(long cinemaId);
     }
 }

@@ -43,7 +43,7 @@ namespace CinemaTickets.Infrastructure.Business.Services
 
         public List<MovieInfoForListOfPostersDto> GetAllMoviesForPoster(long cinemaId)
         {
-            List<Movie> source = _movieRepository.GetAllAndIncludePictures(
+            List<Movie> source = _movieRepository.GetAllIncludePicturesAndCinema(
                 Specification.Where<Movie>(m => m.MovieSessions.Count(ms => ms.Hall.CinemaId == cinemaId) > 0));
 
             foreach (Movie movie in source)

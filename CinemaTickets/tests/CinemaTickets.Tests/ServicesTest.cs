@@ -173,21 +173,32 @@ namespace CinemaTickets.Tests
             }
         }
 
+        //[Fact]
+        //public void GetAll()
+        //{
+        //    ICinemaService service = new CinemaService(new CinemaRepository(_context, new QuerySpecificationBuilder<Cinema>()), _mapper);
+
+        //    List<CinemaForListDto> dto = service.GetAllByCityId();
+
+        //    foreach (var d in dto)
+        //    {
+        //        _output.WriteLine($"{d.Id} {d.Name} {d.Phone} {d.Address} {d.City.Name}");
+        //        foreach (var f in d.Formats)
+        //        {
+        //            _output.WriteLine($"-->{f}");
+        //        }
+        //    }
+        //}
+
         [Fact]
-        public void GetAll()
+        public void GetFullInfoOfCinema()
         {
-            ICinemaService service = new CinemaService(new CinemaRepository(_context, new QuerySpecificationBuilder<Cinema>()), _mapper);
+            ICinemaService service = new CinemaService(new CinemaRepository(_context, new QuerySpecificationBuilder<Cinema>()),
+                new MovieRepository(_context, new QuerySpecificationBuilder<Movie>()), _mapper);
 
-            List<CinemaForListDto> dto = service.GetAllByCityId();
+            CinemaFullInfoDto dto = service.GetById(72);
 
-            foreach (var d in dto)
-            {
-                _output.WriteLine($"{d.Id} {d.Name} {d.Phone} {d.Address} {d.City.Name}");
-                foreach (var f in d.Formats)
-                {
-                    _output.WriteLine($"-->{f}");
-                }
-            }
+            _output.WriteLine($"{dto.Id}");
         }
     }
 }

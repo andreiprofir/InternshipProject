@@ -10,6 +10,8 @@ namespace CinemaTickets.Infrastructure.Data.Repositories.Interfaces
 
         Movie GetByIdAndIncludeAllInfo(long movieId);
 
-        List<Movie> GetAllAndIncludePictures(params ISpecification<Movie>[] specifications);
+        List<Movie> GetAllIncludePicturesAndCinema(params ISpecification<Movie>[] specifications);
+
+        List<Movie> GetAllIncludePictures(params ISpecification<Movie>[] specifications);
     }
 }

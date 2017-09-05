@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Interfaces;
+using CinemaTickets.Infrastructure.Data.Concrete.Specifications;
 using CinemaTickets.Infrastructure.Data.Interfaces;
 using CinemaTickets.Infrastructure.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,17 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
                 .Include(c => c.Halls);
 
             return queryWithSpecifications.ToList();
+        }
+
+        public Cinema GetByIdWithFullInfo(params ISpecification<Cinema>[] specifications)
+        {
+            IQueryable<Cinema> queryWithSpecifications = CreateQuery(specifications)
+                .Include(c => c.Entity)
+                    .ThenInclude(e => e.Pictures)
+                .Include(c => c.Entity)
+                    .ThenInclude(e => e.Comments);
+
+            return queryWithSpecifications.FirstOrDefault();
         }
     }
 }
