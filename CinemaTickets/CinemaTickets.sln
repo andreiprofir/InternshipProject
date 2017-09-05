@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FF3EE37C-5026-4166-9DDF-7DE13BD71069}"
 EndProject
@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Tests", "test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Services.Interfaces", "src\CinemaTickets.Services.Interfaces\CinemaTickets.Services.Interfaces.csproj", "{C13A4E8F-E519-4D13-A289-3619AEEF930F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTickets.Services.Application", "src\CinemaTickets.Services.Application\CinemaTickets.Services.Application.csproj", "{3D246C52-1660-44AC-92A1-BFC96EF689F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Services.Application", "src\CinemaTickets.Services.Application\CinemaTickets.Services.Application.csproj", "{3D246C52-1660-44AC-92A1-BFC96EF689F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTickets.Web", "src\CinemaTickets.Web\CinemaTickets.Web.csproj", "{32BC2699-ACC8-4A03-A574-0D7ACE02654E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{3D246C52-1660-44AC-92A1-BFC96EF689F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D246C52-1660-44AC-92A1-BFC96EF689F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D246C52-1660-44AC-92A1-BFC96EF689F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32BC2699-ACC8-4A03-A574-0D7ACE02654E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32BC2699-ACC8-4A03-A574-0D7ACE02654E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32BC2699-ACC8-4A03-A574-0D7ACE02654E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32BC2699-ACC8-4A03-A574-0D7ACE02654E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{3B70E6F8-C5DB-445F-8CBB-264851F3D3E2} = {53BE2C29-612E-49BA-84CE-2296C0267971}
 		{C13A4E8F-E519-4D13-A289-3619AEEF930F} = {94FEBD2D-8C14-43D1-9A4E-828A52A39DAB}
 		{3D246C52-1660-44AC-92A1-BFC96EF689F1} = {94FEBD2D-8C14-43D1-9A4E-828A52A39DAB}
+		{32BC2699-ACC8-4A03-A574-0D7ACE02654E} = {77C404B9-3288-4604-9473-488A72BC251C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85E6A3A2-CF25-4F28-AB59-D6947324C528}
