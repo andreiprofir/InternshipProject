@@ -5,7 +5,7 @@ namespace CinemaTickets.Services.Interfaces
 {
     public interface IGenreService
     {
-        List<GenreBaseInfoDto> GetAll();
+        List<GenreBaseInfoDto> GetAllNames();
 
         GenreSampleInfoDto GetById(long genreId);
     }

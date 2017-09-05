@@ -172,5 +172,22 @@ namespace CinemaTickets.Tests
                 }
             }
         }
+
+        [Fact]
+        public void GetAll()
+        {
+            ICinemaService service = new CinemaService(new CinemaRepository(_context, new QuerySpecificationBuilder<Cinema>()), _mapper);
+
+            List<CinemaForListDto> dto = service.GetAllByCityId();
+
+            foreach (var d in dto)
+            {
+                _output.WriteLine($"{d.Id} {d.Name} {d.Phone} {d.Address} {d.City.Name}");
+                foreach (var f in d.Formats)
+                {
+                    _output.WriteLine($"-->{f}");
+                }
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace CinemaTickets.Infrastructure.Business.Services
             _mapper = mapper;
         }
 
-        public List<GenreBaseInfoDto> GetAll()
+        public List<GenreBaseInfoDto> GetAllNames()
         {
             List<Genre> source = _genreRepository.GetListOfGenresWithIncludePictures(
                 Specification.OrderBy<Genre>(g => g.Name));
