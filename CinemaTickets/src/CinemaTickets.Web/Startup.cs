@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CinemaTickets.Infrastructure.Data.Context;
+using CinemaTickets.Infrastructure.Data.Models.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using CinemaTickets.Web.Data;
 using CinemaTickets.Web.Models;
 using CinemaTickets.Web.Services;
 
@@ -26,11 +27,11 @@ namespace CinemaTickets.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<CinemaTicketsContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<CinemaTicketsContext>()
                 .AddDefaultTokenProviders();
 
             // Add application services.

@@ -8,6 +8,8 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
+            builder.Property(e => e.Id).ValueGeneratedNever();
+
             builder.Property(e => e.FirstName).HasMaxLength(64);
 
             builder.Property(e => e.LastName).HasMaxLength(64);

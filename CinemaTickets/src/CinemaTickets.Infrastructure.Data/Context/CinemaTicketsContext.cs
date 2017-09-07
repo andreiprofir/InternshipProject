@@ -1,10 +1,14 @@
 ﻿using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Infrastructure.Data.Mappings;
+using CinemaTickets.Infrastructure.Data.Models;
+using CinemaTickets.Infrastructure.Data.Models.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTickets.Infrastructure.Data.Context
 {
-    public partial class CinemaTicketsContext : IdentityContext
+    public partial class CinemaTicketsContext : IdentityDbContext<User, Role, long>
     {
         #region VirtualDbSets
 
@@ -40,7 +44,7 @@ namespace CinemaTickets.Infrastructure.Data.Context
 
         #endregion
 
-        public CinemaTicketsContext(DbContextOptions<IdentityContext> options) : base(options)
+        public CinemaTicketsContext(DbContextOptions<CinemaTicketsContext> options) : base(options)
         {
         }
 
@@ -76,6 +80,31 @@ namespace CinemaTickets.Infrastructure.Data.Context
             modelBuilder.ApplyConfiguration(new SessionPriceMap());
             modelBuilder.ApplyConfiguration(new CustomerMap());
             modelBuilder.ApplyConfiguration(new WriterMap());
+
+            modelBuilder.Entity<UserCustomer>()
+                .HasOne(e => e.User)
+                .WithOne(e => e.Customer)
+                .HasForeignKey<UserCustomer>(e => e.Id);
+
+            modelBuilder.Entity<User>().ToTable("Users");
+            
+            modelBuilder.Entity<Role>()
+                .ToTable("Roles");
+
+            modelBuilder.Entity<IdentityUserRole<long>>()
+                .ToTable("UserRoles");
+
+            modelBuilder.Entity<IdentityUserToken<long>>()
+                .ToTable("UserTokens");
+
+            modelBuilder.Entity<IdentityUserLogin<long>>()
+                .ToTable("UserLogins");
+
+            modelBuilder.Entity<IdentityUserClaim<long>>()
+                .ToTable("UserClaims");
+
+            modelBuilder.Entity<IdentityRoleClaim<long>>()
+                .ToTable("RoleClaims");
         }
     }
 }

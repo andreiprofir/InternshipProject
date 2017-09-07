@@ -20,8 +20,8 @@ namespace CinemaTickets.Infrastructure.Data.Temp
 
             string connectionString = config.GetConnectionString("DefaultConnection");
 
-            var optionsBuilder = new DbContextOptionsBuilder<IdentityContext>();
-            DbContextOptions<IdentityContext> options = optionsBuilder
+            var optionsBuilder = new DbContextOptionsBuilder<CinemaTicketsContext>();
+            DbContextOptions<CinemaTicketsContext> options = optionsBuilder
                 .UseSqlServer(connectionString)
                 .Options;
 

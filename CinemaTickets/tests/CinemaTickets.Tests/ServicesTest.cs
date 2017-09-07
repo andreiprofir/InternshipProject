@@ -29,7 +29,7 @@ namespace CinemaTickets.Tests
 {
     public class ServicesTest
     {
-        private DbContextOptions<IdentityContext> _options;
+        private DbContextOptions<CinemaTicketsContext> _options;
         private readonly ITestOutputHelper _output;
         private IMapper _mapper;
 
@@ -51,7 +51,7 @@ namespace CinemaTickets.Tests
             // получаем строку подключения
             string connectionString = config.GetConnectionString("DefaultConnection");
 
-            var optionsBuilder = new DbContextOptionsBuilder<IdentityContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<CinemaTicketsContext>();
             _options = optionsBuilder
                 .UseSqlServer(connectionString)
                 .Options;
