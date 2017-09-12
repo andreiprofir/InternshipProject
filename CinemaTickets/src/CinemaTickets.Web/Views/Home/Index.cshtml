@@ -1,5 +1,13 @@
-﻿@{
+﻿@model IEnumerable<MovieForPosterViewModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Hello World!</h1>
+
+<div class="row">
+    @foreach (MovieForPosterViewModel movie in Model)
+    {
+        @await Html.PartialAsync("_MovieForPoster", movie)
+    }
+</div>

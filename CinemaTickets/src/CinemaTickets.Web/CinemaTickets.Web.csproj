@@ -7,6 +7,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" PrivateAssets="All" />
@@ -19,11 +20,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CinemaTickets.Infrastructure.Business\CinemaTickets.Infrastructure.Business.csproj" />
     <ProjectReference Include="..\CinemaTickets.Infrastructure.Data\CinemaTickets.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\CinemaTickets.Services.Application\CinemaTickets.Services.Application.csproj" />
+    <ProjectReference Include="..\CinemaTickets.Services.Interfaces\CinemaTickets.Services.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="Models\HomeViewModels\" />
   </ItemGroup>
 
 </Project>

@@ -58,7 +58,7 @@ namespace CinemaTickets.Tests
 
             _output = output;
 
-            var config1 = new AutoMapper.MapperConfiguration(cfg =>
+            MapperConfiguration config1 = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new DomainToDtoMappingProfile());
                 cfg.AddProfile(new DtoToDomainMappingProfile());
