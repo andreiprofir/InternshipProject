@@ -5,6 +5,13 @@
     <UserSecretsId>aspnet-CinemaTickets.Web-A5B2E286-C364-4B75-8CA0-0B17A00AC1A9</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\HomeViewModels\**" />
+    <Content Remove="Models\HomeViewModels\**" />
+    <EmbeddedResource Remove="Models\HomeViewModels\**" />
+    <None Remove="Models\HomeViewModels\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.0.1" />
@@ -24,10 +31,6 @@
     <ProjectReference Include="..\CinemaTickets.Infrastructure.Data\CinemaTickets.Infrastructure.Data.csproj" />
     <ProjectReference Include="..\CinemaTickets.Services.Application\CinemaTickets.Services.Application.csproj" />
     <ProjectReference Include="..\CinemaTickets.Services.Interfaces\CinemaTickets.Services.Interfaces.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\HomeViewModels\" />
   </ItemGroup>
 
 </Project>

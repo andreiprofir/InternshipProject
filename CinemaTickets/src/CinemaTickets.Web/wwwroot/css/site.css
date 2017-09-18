@@ -1,1 +1,32 @@
-﻿
+﻿a, a:hover, a:visited {
+    text-decoration: none;
+}
+
+.movie-poster { height: 45rem; }
+
+.rounded-link {
+    border-radius: 2rem;
+    background-color: #008080;
+    color: #FFFFFF;
+    height: 3rem;
+    line-height: 3rem;
+    font-weight: bold;
+}
+
+.rounded-link:hover {
+    color: #C0392B;
+}
+
+.rounded-link span {
+    line-height: 3rem;
+    height: 3rem;
+    padding-left: 2rem;
+    background-image: url("../images/trailer-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-size: 1.6rem;
+}
+
+    .rounded-link:hover span {
+        background-image: url("../images/trailer-icon-hover.svg");
+    }
