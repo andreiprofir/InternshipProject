@@ -5,7 +5,7 @@
 }
 
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-lg-3 float-left d-block">
         <img class="w-100" src="~/images/movie-poster.jpg" alt="Movie poster"/>
         <a class="d-block rounded-link mt-2 text-center" href="#">
             <span>
@@ -13,10 +13,120 @@
             </span>
         </a>
     </div>
-    <div class="col-md-7">
-        
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-lg-12 mb-3">
+                <h2>@Model.Name</h2>
+            </div>
+        </div>
+        <dl class="row">
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.AgeLimit):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayFor(m => m.AgeLimit)+
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.OriginalName):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayFor(m => m.OriginalName)
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.ReleaseDate):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Model.ReleaseDate.ToString("d", CultureInfo.CurrentUICulture)
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.Duration):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayFor(m => m.Duration) мин
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.Countries):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayList(Model.Countries)
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.Actors):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayList(Model.Actors)
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.Directors):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayList(Model.Directors)
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.Languages):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayList(Model.Languages)
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.Writers):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @Html.DisplayList(Model.Writers)
+            </dd>
+            <dt class="col-lg-2 float-left d-block mw-8rem">
+                @Html.DisplayNameFor(m => m.Genres):
+            </dt>
+            <dd class="col-lg-10 float-left d-block">
+                @{
+                    int i;
+                    for (i = 0; i < Model.Genres.Count - 1; i++)
+                    {
+                        <a asp-controller="Genre" asp-action="Get" asp-route-id="@Model.Genres[i].Id">@Model.Genres[i].Name</a>
+                        <span>,</span>
+                    }
+                    <a asp-controller="Genre" asp-action="Get" asp-route-id="@Model.Genres[i].Id">@Model.Genres[i].Name</a>
+                }
+            </dd>
+            <dd class="col-lg-12 my-3">
+                @Html.DisplayFor(m => m.Description)
+            </dd>
+        </dl>
+        <div class="row px-3">
+            <div class="col-lg-12">
+                <h5 class="row mb-3">
+                    Отзывы о фильме @Html.DisplayFor(m => m.Name)
+                </h5>
+                <div class="row mb-2">
+                    <div>
+                        <a id="like" class="mr-2">
+                            <span class="pl-5 pr-3 py-2 rounded movie-like-dislike">
+                                Лайк 
+                                @Model.Likes
+                            </span>
+                        </a>
+                        <a id="dislike" class="rounded ml-2">
+                            <span class="pl-5 pr-3 py-2 rounded movie-like-dislike text-center">
+                                Дизлайк
+                                @Model.Dislikes
+                            </span>
+                        </a>
+                    </div>
+                    <div id="comment-numbers" class="m-auto">
+                        <a>
+                            <span class="pl-5 pr-3 py-2 text-center rounded">
+                                Коментарий(@Model.Comments.Count)
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    @{ await Html.RenderPartialAsync("_Comments", Model.Comments); }
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-3">
-        
+    <div class="col-lg-2">
+        @{ await Html.RenderPartialAsync("_MovieSessionsForMovie", Model.MovieSessions);}
     </div>
 </div>

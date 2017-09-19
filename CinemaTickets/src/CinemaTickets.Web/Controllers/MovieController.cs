@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaTickets.Web.Controllers
 {
+    [Route("[controller]")]
     public class MovieController : Controller
     {
         private IMapper _mapper;
@@ -22,10 +23,10 @@ namespace CinemaTickets.Web.Controllers
             _movieService = movieService;
         }
 
-        [Route("movie/{movieId}")]
-        public IActionResult Display(long movieId)
+        [Route("{id}")]
+        public IActionResult Display(long id)
         {
-            MovieFullInfoDto source = _movieService.GetFullInfoOfMovieById(movieId);
+            MovieFullInfoDto source = _movieService.GetFullInfoOfMovieById(id);
 
             MovieViewModel movie = _mapper.Map<MovieViewModel>(source);
 

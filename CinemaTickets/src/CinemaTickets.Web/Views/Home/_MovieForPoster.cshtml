@@ -1,7 +1,7 @@
 ﻿@model MovieForPosterViewModel
 
 <div class="col-md-2 mb-2">
-        <a class="card h-100 mh-100" href="#">
+        <a class="card h-100 mh-100" asp-controller="Movie" asp-action="Display" asp-route-id="@Model.Id">
             <img class="img-fluid" src="~/images/poster.jpg" alt="Card image cap">
             <h4 class="card-title p-2">@Model.Name</h4>
         </a>
