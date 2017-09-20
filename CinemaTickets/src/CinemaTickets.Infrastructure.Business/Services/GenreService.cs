@@ -19,13 +19,12 @@ namespace CinemaTickets.Infrastructure.Business.Services
             _mapper = mapper;
         }
 
-        public List<GenreBaseInfoDto> GetAllNames()
+        public List<GenreBaseInfoDto> GetAll()
         {
-            List<Genre> source = _genreRepository.GetListOfGenresWithIncludePictures(
-                Specification.OrderBy<Genre>(g => g.Name));
+            List<Genre> source = _genreRepository.GetListOfGenresWithIncludePictures();
 
             List<GenreBaseInfoDto> result = _mapper.Map<List<GenreBaseInfoDto>>(source);
-
+            
             return result;
         }
 
@@ -34,6 +33,15 @@ namespace CinemaTickets.Infrastructure.Business.Services
             Genre source = _genreRepository.Get(genreId);
 
             GenreSampleInfoDto result = _mapper.Map<GenreSampleInfoDto>(source);
+
+            return result;
+        }
+
+        public GenreBaseInfoDto GetBaseInfoById(long genreId)
+        {
+            Genre source = _genreRepository.GetByIdWithIncludePicture(genreId);
+
+            GenreBaseInfoDto result = _mapper.Map<GenreBaseInfoDto>(source);
 
             return result;
         }

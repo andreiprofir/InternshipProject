@@ -1,0 +1,18 @@
+﻿@model List<GenreForListOfGenresViewModel>
+
+@{
+    ViewData["Title"] = "Жанры";
+}
+
+<div class="row">
+    <h2 class="m-auto p-3">Жанры</h2>
+</div>
+<div class="row">
+    @foreach (GenreForListOfGenresViewModel item in Model)
+    {
+        <a id="genre-block" class="col-md-3 p-4 text-center" asp-controller="Genre" asp-action="Get" asp-route-id="@item.Id">
+            <img class="img-fluid" src="~/images/genre-poster.jpg" alt="Genre poster" />
+            <span class="d-block text-center">@item.Name</span>
+        </a>
+    }
+</div>

@@ -148,3 +148,106 @@
     cursor: pointer;
     background-color: #ab2419;
 }
+
+#genre-block {
+    color: #333333;
+    font-weight: bold;
+}
+
+#genre-block:hover {
+    color: #ab2419;
+}
+
+#genre-block img {
+    transition: 0.5s linear;
+}
+
+#genre-block:hover img {
+    max-width: calc(100% - 10%);
+    opacity: 0.5;
+}
+
+#top-genre-block {
+    height: 30rem;
+    background: url('../images/tv.png'), url('../images/genre-poster.jpg') center/cover no-repeat;
+    color: #ffffff;
+    line-height: 30rem;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+#top-genre-block h1, #top-cinemas-block h1 {
+    font-size: 4rem;
+}
+
+#top-genre-block h1 span {
+    font-size: 2rem;
+}
+
+#movie-in-genre-block {
+    color: #333333;
+    font-weight: bold;
+}
+
+#movie-in-genre-block:hover {
+    color: #ab2419;
+}
+
+#movie-in-genre-block img {
+    transition: 0.5s linear;
+}
+
+#movie-in-genre-block:hover img {
+    opacity: 0.5;
+}
+
+#top-cinemas-block {
+    height: 30rem;
+    background-image: url('../images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    line-height: 30rem;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+#cinema-small-info {
+    min-width: 30rem;
+}
+
+#cinema-small-info a {
+    color: #333333;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#cinema-small-info:hover a {
+    color: #ab2419;
+}
+
+#cinema-small-info a sup {
+    font-size: 1rem;
+    font-weight: normal;
+    top: -1rem;
+}
+
+#cinema-small-image {
+    border-radius: 5%;
+    transition: 0.5s;
+}
+
+#cinema-small-image:hover {
+    opacity: 0.5;
+}
+
+#cinema-address {
+    font-weight: bold;
+}
+
+#cinema-small-format {
+    
+}

@@ -1,0 +1,24 @@
+﻿@using CinemaTickets.Services.Application.ViewModels.Movie
+@model GenreViewModel
+
+@{
+    ViewData["Title"] = $"{Model.Name}";
+}
+
+<div class="row mt-0">
+    <div id="top-genre-block" class="col-sm-12">
+        <h1 class="text-center m-auto">
+            <span class="d-block">Фильмы в жанре</span>
+            @Model.Name
+        </h1>
+    </div>
+</div>
+<div class="row mt-4">
+    @foreach (MovieInGenreViewModel item in Model.Movies)
+    {
+        <a id="movie-in-genre-block" class="col-md-2 text-center mb-3" asp-controller="Movie" asp-action="Display" asp-route-id="@item.Id">
+            <img class="img-fluid" src="~/images/movie-poster.jpg" alt="Movie poster" />
+            <span class="d-block text-center">@item.Name</span>
+        </a>
+    }
+</div>

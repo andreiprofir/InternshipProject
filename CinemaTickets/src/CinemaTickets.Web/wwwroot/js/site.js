@@ -1,6 +1,6 @@
 ﻿
-//script for modal window for display movie trailer
 $(function () {
+    //script for modal window for display movie trailer
     $("#trailer-modal").on("show.bs.modal",
         function() {
             var src = $("#videowrapper").attr("src");

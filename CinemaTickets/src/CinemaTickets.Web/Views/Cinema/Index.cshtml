@@ -1,0 +1,36 @@
+﻿@model List<CinemaForListViewModel>
+
+@{
+    ViewData["Title"] = "Кинотеатры";
+}
+
+<div class="row mb-3">
+    <div id="top-cinemas-block" class="col-sm-12">
+        <h1 class="text-center m-auto">
+            Кинотеатры
+        </h1>
+    </div>
+</div>
+<div class="row">
+    @foreach (CinemaForListViewModel item in Model)
+    {
+        <div class="col-md-10 m-auto">
+            <a asp-controller="Cinema" asp-action="Get" asp-route-id="@item.Id">
+                <img id="cinema-small-image" class="img-fluid col-md-3" src="~/images/cinema-poster.jpg" alt="Cinema poster" />
+            </a>
+            <div id="cinema-small-info" class="col-md-6 d-inline-block align-top">
+                <a asp-controller="Cinema" asp-action="Get" asp-route-id="@item.Id">@item.Name<sup class="badge badge-warning">@item.City.Name</sup></a>
+                <span id="cinema-address" class="d-block">@item.Address</span>
+                <span class="d-block">@item.Phone</span>
+            </div>
+            <div class="col-md-2 d-inline-block align-top">
+                @foreach (string format in item.Formats)
+                {
+                    <span id="cinema-small-format" class="d-inline-block rounded-link px-3">@format</span>
+                }
+            </div>
+            <hr/>
+        </div>
+    }
+</div>
+

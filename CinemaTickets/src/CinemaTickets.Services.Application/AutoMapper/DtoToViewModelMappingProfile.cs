@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CinemaTickets.Domain.Dtos.Cinema;
+using CinemaTickets.Domain.Dtos.City;
 using CinemaTickets.Domain.Dtos.Comment;
 using CinemaTickets.Domain.Dtos.Customer;
 using CinemaTickets.Domain.Dtos.Genre;
@@ -7,6 +8,7 @@ using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Dtos.MovieSession;
 using CinemaTickets.Domain.Dtos.Picture;
 using CinemaTickets.Services.Application.ViewModels.Cinema;
+using CinemaTickets.Services.Application.ViewModels.City;
 using CinemaTickets.Services.Application.ViewModels.Comment;
 using CinemaTickets.Services.Application.ViewModels.Customer;
 using CinemaTickets.Services.Application.ViewModels.Genre;
@@ -35,6 +37,17 @@ namespace CinemaTickets.Services.Application.AutoMapper
             CreateMap<GenreSampleInfoDto, GenreSampleViewModel>();
 
             CreateMap<MovieFullInfoDto, MovieViewModel>();
+
+            CreateMap<GenreBaseInfoDto, GenreForListOfGenresViewModel>();
+
+            CreateMap<MovieInGenreDto, MovieInGenreViewModel>();
+
+            CreateMap<GenreBaseInfoDto, GenreViewModel>()
+                .ForMember(dest => dest.Movies, opt => opt.Ignore());
+
+            CreateMap<CitySampleDto, CitySampleViewModel>();
+
+            CreateMap<CinemaForListDto, CinemaForListViewModel>();
         }
     }
 }
