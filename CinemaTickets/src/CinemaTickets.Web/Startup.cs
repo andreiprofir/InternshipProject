@@ -40,7 +40,15 @@ namespace CinemaTickets.Web
             services.AddDbContext<CinemaTicketsContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<User, Role>()
+            services.AddIdentity<User, Role>(opt =>
+                {
+                    opt.Password.RequiredLength = 6;
+                    opt.Password.RequireDigit = false;
+                    opt.Password.RequireLowercase = false;
+                    opt.Password.RequireNonAlphanumeric = false;
+                    opt.Password.RequireUppercase = false;
+                    opt.Password.RequireNonAlphanumeric = false;
+                })
                 .AddEntityFrameworkStores<CinemaTicketsContext>()
                 .AddDefaultTokenProviders();
 
@@ -62,6 +70,8 @@ namespace CinemaTickets.Web
 
             services.AddScoped<ICinemaRepository, CinemaRepository>();
             services.AddScoped<ICinemaService, CinemaService>();
+
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,15 +1,22 @@
 ﻿using System.Linq;
 using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
+using CinemaTickets.Domain.Dtos.Actor;
 using CinemaTickets.Domain.Dtos.Cinema;
 using CinemaTickets.Domain.Dtos.City;
 using CinemaTickets.Domain.Dtos.Comment;
+using CinemaTickets.Domain.Dtos.Country;
 using CinemaTickets.Domain.Dtos.Customer;
+using CinemaTickets.Domain.Dtos.Director;
 using CinemaTickets.Domain.Dtos.Genre;
+using CinemaTickets.Domain.Dtos.Language;
 using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Dtos.MovieSession;
 using CinemaTickets.Domain.Dtos.Picture;
 using CinemaTickets.Domain.Dtos.Promotion;
+using CinemaTickets.Domain.Dtos.User;
+using CinemaTickets.Domain.Dtos.Writer;
+using CinemaTickets.Infrastructure.Data.Models.Identity;
 
 namespace CinemaTickets.Services.Application.AutoMapper
 {
@@ -134,6 +141,34 @@ namespace CinemaTickets.Services.Application.AutoMapper
                 .ForMember(dest => dest.Comments, opt => opt.MapFrom(src => src.Entity.Comments))
                 .ForMember(dest => dest.Pictures, opt => opt.MapFrom(src => src.Entity.Pictures))
                 .ForMember(dest => dest.MovieSessions, opt => opt.Ignore());
+
+            CreateMap<User, UserWithRolesDto>()
+                .ForMember(dest => dest.Roles, opt => opt.Ignore());
+
+            CreateMap<MovieActor, ActorDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.ActorId))
+                .ForMember(dest => dest.FullName,
+                    opt => opt.MapFrom(src => $"{src.Actor.FirstName} {src.Actor.LastName}"));
+
+            CreateMap<MovieCountry, CountryDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.CountryId))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Country.Name));
+
+            CreateMap<MovieDirector, DirectorDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.DirectorId))
+                .ForMember(dest => dest.FullName,
+                    opt => opt.MapFrom(src => $"{src.Director.FirstName} {src.Director.LastName}")); 
+
+            CreateMap<MovieLanguage, LanguageDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.LanguageId))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Language.Name));
+
+            CreateMap<MovieWriter, WriterDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.WriterId))
+                .ForMember(dest => dest.FullName,
+                    opt => opt.MapFrom(src => $"{src.Writer.FirstName} {src.Writer.LastName}")); 
+
+            CreateMap<Movie, MovieDto>();
         }
     }
 }

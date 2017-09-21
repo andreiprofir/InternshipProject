@@ -34,7 +34,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
 
         public List<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return _dbSet.Where(predicate).ToList();
+            return _dbSet.AsNoTracking().Where(predicate).ToList();
         }
 
         public List<TEntity> Find(params ISpecification<TEntity>[] specifications)

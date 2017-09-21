@@ -1,0 +1,47 @@
+﻿@model List<UserForListViewModels>
+@inject RoleManager<Role> RoleManager
+
+@{
+    ViewData["Title"] = "Все зарегистрированные пользователи";
+    var list = new MultiSelectList(RoleManager.Roles.Select(r => r.Name).ToList());
+}
+
+<div class="row p-5">
+    <form class="col-md-12" method="post" asp-antiforgery="true">
+        <div asp-validation-summary="All"></div>
+        <table class="col-md-12 table table-striped">
+            <thead class="thead-inverse">
+            <tr>
+                <th>#</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().UserName)</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Email)</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Roles)</th>
+            </tr>
+            </thead>
+            <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <th scope="row">
+                        @(i + 1)
+                        <input type="hidden" asp-for="@Model[i].Id"/>
+                    </th>
+                    <td>
+                        @Model[i].UserName
+                        <input type="hidden" asp-for="@Model[i].UserName"/>
+                    </td>
+                    <td>
+                        @Model[i].Email
+                        <input type="hidden" asp-for="@Model[i].Email"/>
+                    </td>
+                    <td>
+                        <select asp-for="@Model[i].Roles" asp-items="@list"></select>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <input class="btn btn-success" type="submit" value="Сохранить"/>
+    </form>
+</div>
+

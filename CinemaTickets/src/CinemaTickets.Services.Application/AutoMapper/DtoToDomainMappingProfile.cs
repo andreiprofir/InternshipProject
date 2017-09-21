@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
-using CinemaTickets.Domain.Dtos.Genre;
-using CinemaTickets.Domain.Dtos.Picture;
+using CinemaTickets.Domain.Dtos.Movie;
 
 namespace CinemaTickets.Services.Application.AutoMapper
 {
@@ -9,7 +8,7 @@ namespace CinemaTickets.Services.Application.AutoMapper
     {
         public DtoToDomainMappingProfile()
         {
-            
+            CreateMap<MovieDto, Movie>();
         }
     }
 }
