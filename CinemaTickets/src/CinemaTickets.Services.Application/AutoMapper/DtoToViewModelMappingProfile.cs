@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using CinemaTickets.Domain.Dtos.Actor;
 using CinemaTickets.Domain.Dtos.Cinema;
 using CinemaTickets.Domain.Dtos.City;

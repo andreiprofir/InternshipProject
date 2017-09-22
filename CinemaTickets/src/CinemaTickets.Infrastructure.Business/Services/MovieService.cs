@@ -14,13 +14,15 @@ namespace CinemaTickets.Infrastructure.Business.Services
 {
     public class MovieService : IMovieService
     {
-        private readonly IMovieRepository _movieRepository;
-        private readonly IMapper _mapper;
+        private IMovieRepository _movieRepository;
+        private IMapper _mapper;
+        private IRepository<MovieActor> _movieActorRepository;
 
-        public MovieService(IMovieRepository movieRepository, IMapper mapper)
+        public MovieService(IMovieRepository movieRepository, IRepository<MovieActor> movieActorRepository, IMapper mapper)
         {
             _movieRepository = movieRepository;
             _mapper = mapper;
+            _movieActorRepository = movieActorRepository;
         }
 
         public List<MovieInGenreDto> GetMoviesByGenre(long? genreId)
@@ -80,6 +82,21 @@ namespace CinemaTickets.Infrastructure.Business.Services
             MovieDto result = _mapper.Map<MovieDto>(source);
 
             return result;
+        }
+
+        public void Update(MovieDto movie)
+        {
+            Movie domainModel = _mapper.Map<Movie>(movie);
+            
+            _movieRepository.Update(domainModel);
+
+            foreach (MovieActor actor in domainModel.MovieActors)
+            {
+                _movieActorRepository.Add(actor);
+            }
+
+            _movieRepository.SaveChanges();
+            _movieActorRepository.SaveChanges();
         }
     }
 }

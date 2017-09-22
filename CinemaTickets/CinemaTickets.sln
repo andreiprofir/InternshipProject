@@ -27,13 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Infrastructur
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CinemaTickets.SqlServerDbProject", "db\CinemaTickets.SqlServerDbProject\CinemaTickets.SqlServerDbProject.sqlproj", "{6BB62D92-CF57-49FE-9B36-E71B7A6E93F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Tests", "tests\CinemaTickets.Tests\CinemaTickets.Tests.csproj", "{3B70E6F8-C5DB-445F-8CBB-264851F3D3E2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Services.Interfaces", "src\CinemaTickets.Services.Interfaces\CinemaTickets.Services.Interfaces.csproj", "{C13A4E8F-E519-4D13-A289-3619AEEF930F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Services.Application", "src\CinemaTickets.Services.Application\CinemaTickets.Services.Application.csproj", "{3D246C52-1660-44AC-92A1-BFC96EF689F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaTickets.Web", "src\CinemaTickets.Web\CinemaTickets.Web.csproj", "{32BC2699-ACC8-4A03-A574-0D7ACE02654E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaTickets.Web", "src\CinemaTickets.Web\CinemaTickets.Web.csproj", "{32BC2699-ACC8-4A03-A574-0D7ACE02654E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +61,6 @@ Global
 		{6BB62D92-CF57-49FE-9B36-E71B7A6E93F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BB62D92-CF57-49FE-9B36-E71B7A6E93F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6BB62D92-CF57-49FE-9B36-E71B7A6E93F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{3B70E6F8-C5DB-445F-8CBB-264851F3D3E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B70E6F8-C5DB-445F-8CBB-264851F3D3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B70E6F8-C5DB-445F-8CBB-264851F3D3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B70E6F8-C5DB-445F-8CBB-264851F3D3E2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C13A4E8F-E519-4D13-A289-3619AEEF930F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C13A4E8F-E519-4D13-A289-3619AEEF930F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C13A4E8F-E519-4D13-A289-3619AEEF930F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,7 +87,6 @@ Global
 		{B8D6B0F2-8045-4775-B98B-72E087B3B2C2} = {CBE053C4-C17E-49E4-A0FC-681B207C51A8}
 		{34A27E48-3C7C-45BC-8DB9-7E22B41B10E7} = {CBE053C4-C17E-49E4-A0FC-681B207C51A8}
 		{6BB62D92-CF57-49FE-9B36-E71B7A6E93F0} = {CCE5F6DB-3512-4BE1-96A0-EF28D0A1E2FC}
-		{3B70E6F8-C5DB-445F-8CBB-264851F3D3E2} = {53BE2C29-612E-49BA-84CE-2296C0267971}
 		{C13A4E8F-E519-4D13-A289-3619AEEF930F} = {94FEBD2D-8C14-43D1-9A4E-828A52A39DAB}
 		{3D246C52-1660-44AC-92A1-BFC96EF689F1} = {94FEBD2D-8C14-43D1-9A4E-828A52A39DAB}
 		{32BC2699-ACC8-4A03-A574-0D7ACE02654E} = {77C404B9-3288-4604-9473-488A72BC251C}

@@ -14,5 +14,6 @@ namespace CinemaTickets.Services.Interfaces
         void Delete(long id);
 
         MovieDto Get(long id);
+        void Update(MovieDto movie);
     }
 }

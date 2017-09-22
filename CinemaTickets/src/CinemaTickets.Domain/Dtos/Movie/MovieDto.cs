@@ -32,16 +32,16 @@ namespace CinemaTickets.Domain.Dtos.Movie
 
         //public Entity Entity { get; set; }
 
-        public List<ActorDto> MovieActors { get; set; }
+        public List<long> MovieActors { get; set; }
 
-        public List<CountryDto> MovieCountries { get; set; }
+        public List<long> MovieCountries { get; set; }
 
-        public List<DirectorDto> MovieDirectors { get; set; }
+        public List<long> MovieDirectors { get; set; }
 
-        public List<GenreSampleInfoDto> MovieGenres { get; set; }
+        public List<long> MovieGenres { get; set; }
 
-        public List<LanguageDto> MovieLanguages { get; set; }
+        public List<long> MovieLanguages { get; set; }
 
-        public List<WriterDto> MovieWriters { get; set; }
+        public List<long> MovieWriters { get; set; }
     }
 }

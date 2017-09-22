@@ -118,14 +118,16 @@ namespace CinemaTickets.Web.Controllers
         [Authorize(Roles = "admin, moderator")]
         [Route("edit/{id}")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(MovieViewModel movie)
         {
             if (!ModelState.IsValid)
+            {
+                SetViewDataVariables();
                 return View(movie);
+            }
 
-            //salvarea datelor trebuie sa fie in service si in repositoriu
-
-            SetViewDataVariables();
+            _movieService.Update(_mapper.Map<MovieDto>(movie));
 
             return RedirectToAction("Index");
         }

@@ -166,9 +166,21 @@ namespace CinemaTickets.Services.Application.AutoMapper
             CreateMap<MovieWriter, WriterDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.WriterId))
                 .ForMember(dest => dest.FullName,
-                    opt => opt.MapFrom(src => $"{src.Writer.FirstName} {src.Writer.LastName}")); 
+                    opt => opt.MapFrom(src => $"{src.Writer.FirstName} {src.Writer.LastName}"));
 
-            CreateMap<Movie, MovieDto>();
+            CreateMap<Movie, MovieDto>()
+                .ForMember(dest => dest.MovieActors, 
+                    opt => opt.MapFrom(src => src.MovieActors.Select(ma => ma.ActorId)))
+                .ForMember(dest => dest.MovieGenres,
+                    opt => opt.MapFrom(src => src.MovieGenres.Select(ma => ma.GenreId)))
+                .ForMember(dest => dest.MovieCountries,
+                    opt => opt.MapFrom(src => src.MovieCountries.Select(ma => ma.CountryId)))
+                .ForMember(dest => dest.MovieDirectors,
+                    opt => opt.MapFrom(src => src.MovieDirectors.Select(ma => ma.DirectorId)))
+                .ForMember(dest => dest.MovieLanguages,
+                    opt => opt.MapFrom(src => src.MovieLanguages.Select(ma => ma.LanguageId)))
+                .ForMember(dest => dest.MovieWriters,
+                    opt => opt.MapFrom(src => src.MovieWriters.Select(ma => ma.WriterId)));
 
             CreateMap<Actor, ActorDto>()
                 .ForMember(dest => dest.FullName,

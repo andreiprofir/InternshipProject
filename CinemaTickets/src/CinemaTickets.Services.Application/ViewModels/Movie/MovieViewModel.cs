@@ -30,16 +30,16 @@ namespace CinemaTickets.Services.Application.ViewModels.Movie
 
         public string Description { get; set; }
 
-        public List<ActorViewModel> MovieActors { get; set; }
+        public List<long> MovieActors { get; set; }
 
-        public List<CountryViewModel> MovieCountries { get; set; }
+        public List<long> MovieCountries { get; set; }
 
-        public List<DirectorViewModel> MovieDirectors { get; set; }
+        public List<long> MovieDirectors { get; set; }
 
-        public List<GenreSampleViewModel> MovieGenres { get; set; }
+        public List<long> MovieGenres { get; set; }
 
-        public List<LanguageViewModel> MovieLanguages { get; set; }
+        public List<long> MovieLanguages { get; set; }
 
-        public List<WriterViewModel> MovieWriters { get; set; }
+        public List<long> MovieWriters { get; set; }
     }
 }
