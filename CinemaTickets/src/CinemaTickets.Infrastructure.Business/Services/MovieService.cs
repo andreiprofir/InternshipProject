@@ -6,6 +6,7 @@ using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Dtos.Movie;
 using CinemaTickets.Domain.Interfaces;
 using CinemaTickets.Infrastructure.Data.Concrete.Specifications;
+using CinemaTickets.Infrastructure.Data.Concrete.Specifications.Generics;
 using CinemaTickets.Infrastructure.Data.Repositories.Interfaces;
 using CinemaTickets.Services.Interfaces;
 
@@ -22,10 +23,16 @@ namespace CinemaTickets.Infrastructure.Business.Services
             _mapper = mapper;
         }
 
-        public List<MovieInGenreDto> GetMoviesByGenre(long genreId)
+        public List<MovieInGenreDto> GetMoviesByGenre(long? genreId)
         {
-            List<Movie> source = _movieRepository.GetAllAndIncludePicturesAndSessions(
-                Specification.Where<Movie>(m => m.MovieGenres.Any(g => g.GenreId == genreId)));
+            CriteriaSpecification<Movie> specification = null;
+
+            if (genreId != null)
+            {
+                specification = Specification.Where<Movie>(m => m.MovieGenres.Any(g => g.GenreId == genreId));
+            }
+
+            List<Movie> source = _movieRepository.GetAllAndIncludePicturesAndSessions(specification);
 
             List<MovieInGenreDto> result = _mapper.Map<List<MovieInGenreDto>>(source);
 
@@ -55,6 +62,22 @@ namespace CinemaTickets.Infrastructure.Business.Services
             }
 
             List<MovieInfoForListOfPostersDto> result = _mapper.Map<List<MovieInfoForListOfPostersDto>>(source);
+
+            return result;
+        }
+
+        public void Delete(long id)
+        {
+            _movieRepository.Delete(id);
+
+            _movieRepository.SaveChanges();
+        }
+
+        public MovieDto Get(long id)
+        {
+            Movie source = _movieRepository.GetByIdWithIncludeDependences(id);
+
+            MovieDto result = _mapper.Map<MovieDto>(source);
 
             return result;
         }

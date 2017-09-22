@@ -10,5 +10,7 @@ namespace CinemaTickets.Services.Interfaces
         GenreSampleInfoDto GetById(long genreId);
 
         GenreBaseInfoDto GetBaseInfoById(long genreId);
+
+        List<GenreSampleInfoDto> GetAllSample();
     }
 }

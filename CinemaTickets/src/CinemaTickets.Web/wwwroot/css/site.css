@@ -277,3 +277,29 @@ a, a:hover, a:visited { text-decoration: none; }
     color: #ab2419;
     font-size: 0.8rem;
 }
+
+dt#edit-movie-button a {
+    background-color: #006c36;
+}
+
+dt#edit-movie-button a span {
+    background-image: url("../images/edit-icon.svg");
+    background-size: 1.3rem;
+}
+
+dt#delete-movie-button a {
+    background-color: #d62d20;
+}
+
+dt#delete-movie-button a span {
+    background-image: url("../images/delete-icon.svg");
+    background-size: 1.3rem;
+}
+
+dt#delete-movie-button a:hover span, dt#edit-movie-button a:hover span {
+    color: #333333;
+}
+
+.bold {
+    font-weight: bold;
+}

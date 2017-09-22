@@ -1,0 +1,17 @@
+﻿@model List<MovieInGenreViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row mt-4">
+    @foreach (MovieInGenreViewModel item in Model)
+    {
+        <a id="movie-in-genre-block" class="col-md-2 text-center mb-3" asp-controller="Movie" asp-action="Display" asp-route-id="@item.Id">
+            <img class="img-fluid" src="~/images/movie-poster.jpg" alt="Movie poster" />
+            <span class="d-block text-center">@item.Name</span>
+        </a>
+    }
+</div>
+
+

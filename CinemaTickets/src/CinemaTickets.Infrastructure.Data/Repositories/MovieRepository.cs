@@ -2,9 +2,11 @@
 using System.Linq;
 using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Interfaces;
+using CinemaTickets.Infrastructure.Data.Concrete.Specifications;
 using CinemaTickets.Infrastructure.Data.Interfaces;
 using CinemaTickets.Infrastructure.Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace CinemaTickets.Infrastructure.Data.Repositories
 {
@@ -79,6 +81,25 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
                     .ThenInclude(ms => ms.Hall);
 
             return queryWithSpecifications.ToList();
+        }
+
+        public Movie GetByIdWithIncludeDependences(long id)
+        {
+            IQueryable<Movie> query = CreateQuery()
+                .Include(m => m.MovieActors)
+                    .ThenInclude(ma => ma.Actor)
+                .Include(m => m.MovieCountries)
+                    .ThenInclude(mc => mc.Country)
+                .Include(m => m.MovieDirectors)
+                    .ThenInclude(md => md.Director)
+                .Include(m => m.MovieLanguages)
+                    .ThenInclude(ml => ml.Language)
+                .Include(m => m.MovieWriters)
+                    .ThenInclude(mw => mw.Writer)
+                .Include(m => m.MovieGenres)
+                    .ThenInclude(mg => mg.Genre);
+
+            return query.FirstOrDefault(m => m.Id == id);
         }
     }
 }

@@ -169,6 +169,22 @@ namespace CinemaTickets.Services.Application.AutoMapper
                     opt => opt.MapFrom(src => $"{src.Writer.FirstName} {src.Writer.LastName}")); 
 
             CreateMap<Movie, MovieDto>();
+
+            CreateMap<Actor, ActorDto>()
+                .ForMember(dest => dest.FullName,
+                    opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
+
+            CreateMap<Country, CountryDto>();
+
+            CreateMap<Director, DirectorDto>()
+                .ForMember(dest => dest.FullName,
+                    opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
+
+            CreateMap<Language, LanguageDto>();
+
+            CreateMap<Writer, WriterDto>()
+                .ForMember(dest => dest.FullName,
+                    opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
         }
     }
 }

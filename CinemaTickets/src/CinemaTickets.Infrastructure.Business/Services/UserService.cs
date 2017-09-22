@@ -44,12 +44,20 @@ namespace CinemaTickets.Infrastructure.Business.Services
 
             foreach (var user in users)
             {
-                if (user.Roles == null || user.Roles.Count == 0) continue;
+                if (user.Roles == null) continue;
 
                 User userFromDb = await _userManager.FindByEmailAsync(user.Email);
 
-                if (userFromDb != null) 
-                    await _userManager.AddToRolesAsync(userFromDb, user.Roles);
+                if (userFromDb != null)
+                {
+                    IList<string> rolesFromDb = await _userManager.GetRolesAsync(userFromDb);
+
+                    IEnumerable<string> rolesForDelete = rolesFromDb.Except(user.Roles).ToList();
+                    IEnumerable<string> rolesForAdd = user.Roles.Except(rolesFromDb);
+                    
+                    await _userManager.RemoveFromRolesAsync(userFromDb, rolesForDelete);
+                    await _userManager.AddToRolesAsync(userFromDb, rolesForAdd);
+                }
             }
         }
     }

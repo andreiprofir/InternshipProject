@@ -1,7 +1,4 @@
-﻿@using CinemaTickets.Infrastructure.Data.Models.Identity
-@using CinemaTickets.Web.Models
-@using CinemaTickets.Web.Views.Manage
-@using Microsoft.AspNetCore.Identity
+﻿
 @inject SignInManager<User> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();

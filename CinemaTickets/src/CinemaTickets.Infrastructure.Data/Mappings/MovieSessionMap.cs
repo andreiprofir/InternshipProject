@@ -17,7 +17,7 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
             builder.HasOne(d => d.Movie)
                 .WithMany(p => p.MovieSessions)
                 .HasForeignKey(d => d.MovieId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                //.OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_MovieSessions_Movies");
         }
     }

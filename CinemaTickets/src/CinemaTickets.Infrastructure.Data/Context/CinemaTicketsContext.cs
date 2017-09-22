@@ -1,10 +1,12 @@
-﻿using CinemaTickets.Domain.Core.Models;
+﻿using System.IO;
+using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Infrastructure.Data.Mappings;
 using CinemaTickets.Infrastructure.Data.Models;
 using CinemaTickets.Infrastructure.Data.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace CinemaTickets.Infrastructure.Data.Context
 {

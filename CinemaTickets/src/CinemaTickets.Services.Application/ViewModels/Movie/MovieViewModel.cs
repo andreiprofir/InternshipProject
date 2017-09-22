@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using CinemaTickets.Services.Application.ViewModels.Actor;
 using CinemaTickets.Services.Application.ViewModels.Country;
 using CinemaTickets.Services.Application.ViewModels.Director;
@@ -20,6 +21,7 @@ namespace CinemaTickets.Services.Application.ViewModels.Movie
 
         public int Duration { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTimeOffset ReleaseDate { get; set; }
 
         public int AgeLimit { get; set; }

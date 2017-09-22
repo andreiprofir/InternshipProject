@@ -1,17 +1,44 @@
-﻿@model MovieInfoViewModel
+﻿
+@model MovieInfoViewModel
+    
+@inject SignInManager<User> SignInManager
+@inject RoleManager<Role> RoleManager
 
 @{
     ViewBag.Title = $"Фильм {Model.Name}";
 }
 
 <div class="row mt-2">
-    <div class="col-lg-3 float-left d-block" data-toggle="modal" data-target="#trailer-modal">
+    <div class="col-lg-3 float-left d-block">
         <img class="w-100" src="~/images/movie-poster.jpg" alt="Movie poster"/>
-        <a class="d-block rounded-link mt-2 text-center" href="#">
-            <span>
-                Трейлер
-            </span>
-        </a>
+        <dl>
+            <dt data-toggle="modal" data-target="#trailer-modal">
+                <a class="d-block rounded-link mt-2 text-center" href="#">
+                    <span>
+                        Трейлер
+                    </span>
+                </a>
+            </dt>
+            
+            @if (SignInManager.IsSignedIn(User) && (User.IsInRole("moderator") || User.IsInRole("admin")))
+            {
+                <dt id="edit-movie-button">
+                    <a class="d-block rounded-link mt-2 text-center" asp-controller="Movie" asp-action="Edit" asp-route-id="@Model.Id">
+                        <span>
+                            Редактировать
+                        </span>
+                    </a>
+                </dt>
+
+                <dt id="delete-movie-button">
+                    <a class="d-block rounded-link mt-2 text-center" asp-controller="Movie" asp-action="Delete" asp-route-id="@Model.Id">
+                        <span>
+                            Удалить
+                        </span>
+                    </a>
+                </dt>
+            }
+        </dl>
         <!-- Modal -->
         <div class="modal fade h-100" id="trailer-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg h-100" role="document">

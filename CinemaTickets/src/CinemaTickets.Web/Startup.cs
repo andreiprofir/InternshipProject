@@ -72,6 +72,12 @@ namespace CinemaTickets.Web
             services.AddScoped<ICinemaService, CinemaService>();
 
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<IActorService, ActorService>();
+            services.AddScoped<IDirectorService, DirectorService>();
+            services.AddScoped<IWriterService, WriterService>();
+            services.AddScoped<ILanguageService, LanguageService>();
+            services.AddScoped<ICountryService, CountryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

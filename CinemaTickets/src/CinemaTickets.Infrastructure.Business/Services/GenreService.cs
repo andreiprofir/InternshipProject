@@ -45,5 +45,14 @@ namespace CinemaTickets.Infrastructure.Business.Services
 
             return result;
         }
+
+        public List<GenreSampleInfoDto> GetAllSample()
+        {
+            List<Genre> source = _genreRepository.GetAll();
+
+            List<GenreSampleInfoDto> result = _mapper.Map<List<GenreSampleInfoDto>>(source);
+
+            return result;
+        }
     }
 }

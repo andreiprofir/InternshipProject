@@ -19,7 +19,7 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
             builder.HasOne(d => d.MovieSession)
                 .WithMany(p => p.SessionPrices)
                 .HasForeignKey(d => d.MovieSessionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                //.OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SessionPrices_MovieSessions");
 
             builder.HasOne(d => d.SeatType)

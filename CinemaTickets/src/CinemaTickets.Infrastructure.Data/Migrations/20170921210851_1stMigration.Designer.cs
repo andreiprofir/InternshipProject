@@ -12,9 +12,10 @@ using System;
 namespace CinemaTickets.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CinemaTicketsContext))]
-    partial class CinemaTicketsContextModelSnapshot : ModelSnapshot
+    [Migration("20170921210851_1stMigration")]
+    partial class _1stMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1036,8 +1037,7 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                     b.HasOne("CinemaTickets.Domain.Core.Models.MovieSession", "MovieSession")
                         .WithMany("SessionPrices")
                         .HasForeignKey("MovieSessionId")
-                        .HasConstraintName("FK_SessionPrices_MovieSessions")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_SessionPrices_MovieSessions");
 
                     b.HasOne("CinemaTickets.Domain.Core.Models.SeatType", "SeatType")
                         .WithMany("SessionPrices")

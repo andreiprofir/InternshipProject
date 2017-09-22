@@ -1,0 +1,88 @@
+﻿@using System.Collections
+@model MovieViewModel
+@{
+    ViewData["Title"] = $"Редактирование фильма {Model.Name}";
+
+    var movieActors = new MultiSelectList(ViewData["MovieActors"] as IEnumerable, "Id", "FullName");
+    long[] selectedActors = Model.MovieActors.Select(ma => ma.Id).ToArray();
+
+    var movieCountries = new MultiSelectList(ViewData["MovieCountries"] as IEnumerable, "Id", "Name");
+    long[] selectedCountries = Model.MovieCountries.Select(ma => ma.Id).ToArray();
+
+
+    var movieDirectors = new MultiSelectList(ViewData["MovieDirectors"] as IEnumerable, "Id", "FullName");
+    long[] selectedDirectors = Model.MovieDirectors.Select(ma => ma.Id).ToArray();
+
+    var movieGenres = new MultiSelectList(ViewData["MovieGenres"] as IEnumerable, "Id", "Name");
+    long[] selectedGenres = Model.MovieGenres.Select(ma => ma.Id).ToArray();
+
+    var movieLanguages = new MultiSelectList(ViewData["MovieLanguages"] as IEnumerable, "Id", "Name");
+    long[] selectedLanguages = Model.MovieLanguages.Select(ma => ma.Id).ToArray();
+
+    var movieWriters = new MultiSelectList(ViewData["MovieWriters"] as IEnumerable, "Id", "FullName");
+    long[] selectedWriters = Model.MovieWriters.Select(ma => ma.Id).ToArray();
+}
+
+<div class="row">
+    <form class="col-md-10 m-auto">
+        <input type="hidden" asp-for="Id"/>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="Name"></label>
+            <input type="text" class="form-control form-control-lg" asp-for="Name">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="OriginalName"></label>
+            <input type="text" class="form-control form-control-lg" asp-for="OriginalName">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="Trailer"></label>
+            <input type="url" class="form-control form-control-lg" asp-for="Trailer">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="Duration"></label>
+            <input type="number" class="form-control form-control-lg" asp-for="Duration">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="ReleaseDate"></label>
+            <input type="date" class="form-control form-control-lg" asp-for="ReleaseDate">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="AgeLimit"></label>
+            <input type="number" class="form-control form-control-lg" asp-for="AgeLimit">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="ImdbRaiting"></label>
+            <input type="text" class="form-control form-control-lg" asp-for="ImdbRaiting">
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="Description"></label>
+            <textarea rows="4" class="form-control form-control-lg" asp-for="Description"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="MovieActors"></label>
+            <select size="6" class="form-control form-control-lg" asp-for="@selectedActors" asp-items="@movieActors"></select>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="MovieDirectors"></label>
+            <select size="6" class="form-control form-control-lg" asp-for="@selectedDirectors" asp-items="@movieDirectors"></select>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="MovieCountries"></label>
+            <select size="6" class="form-control form-control-lg" asp-for="@selectedCountries" asp-items="@movieCountries"></select>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="MovieLanguages"></label>
+            <select size="6" class="form-control form-control-lg" asp-for="@selectedLanguages" asp-items="@movieLanguages"></select>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="MovieWriters"></label>
+            <select size="6" class="form-control form-control-lg" asp-for="@selectedWriters" asp-items="@movieWriters"></select>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label-lg bold" asp-for="MovieGenres"></label>
+            <select size="6" class="form-control form-control-lg" asp-for="@selectedGenres" asp-items="@movieGenres"></select>
+        </div>
+        <input class="btn btn-success float-right" type="submit" value="Сохранить изменения"/>
+    </form>
+</div>
+
