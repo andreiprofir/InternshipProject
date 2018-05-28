@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CinemaTickets.Infrastructure.Data.Migrations
 {
-    public partial class InitialSchema : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -695,7 +695,7 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                         column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -746,7 +746,7 @@ namespace CinemaTickets.Infrastructure.Data.Migrations
                         column: x => x.MovieSessionId,
                         principalTable: "MovieSessions",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_SessionPrices_SeatTypes",
                         column: x => x.SeatTypeId,

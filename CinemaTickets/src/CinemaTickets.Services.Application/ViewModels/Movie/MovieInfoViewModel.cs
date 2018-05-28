@@ -12,27 +12,27 @@ namespace CinemaTickets.Services.Application.ViewModels.Movie
     {
         public long Id { get; set; }
 
-        [DisplayName("Имя")]
+        [DisplayName("Name")]
         public string Name { get; set; }
 
-        [DisplayName("Оригинальное название")]
+        [DisplayName("Original name")]
         public string OriginalName { get; set; }
 
         public string Trailer { get; set; }
 
-        [DisplayName("Длительность")]
+        [DisplayName("Length")]
         public int Duration { get; set; }
 
-        [DisplayName("Дата выхода")]
+        [DisplayName("Release date")]
         public DateTimeOffset ReleaseDate { get; set; }
 
-        [DisplayName("Возраст")]
+        [DisplayName("Age limit")]
         public int AgeLimit { get; set; }
 
-        [DisplayName("IMDB рейтинг")]
+        [DisplayName("IMDB rating")]
         public string ImdbRaiting { get; set; }
 
-        [DisplayName("Описание")]
+        [DisplayName("Description")]
         public string Description { get; set; }
 
         public int Likes { get; set; }
@@ -41,22 +41,22 @@ namespace CinemaTickets.Services.Application.ViewModels.Movie
 
         public PictureSampleViewModel Poster { get; set; }
 
-        [DisplayName("Актёры")]
+        [DisplayName("Actors")]
         public List<string> Actors { get; set; }
 
-        [DisplayName("Производство")]
+        [DisplayName("Countries")]
         public List<string> Countries { get; set; }
 
-        [DisplayName("Режиссёр")]
+        [DisplayName("Directors")]
         public List<string> Directors { get; set; }
 
-        [DisplayName("Язык")]
+        [DisplayName("Lannguages")]
         public List<string> Languages { get; set; }
 
-        [DisplayName("Сценарий")]
+        [DisplayName("Writers")]
         public List<string> Writers { get; set; }
 
-        [DisplayName("Жанр")]
+        [DisplayName("Genres")]
         public List<GenreSampleViewModel> Genres { get; set; }
 
         public List<CommentInfoViewModel> Comments { get; set; }

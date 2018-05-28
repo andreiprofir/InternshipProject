@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CinemaTickets.Infrastructure.Data.Context;
 using CinemaTickets.Infrastructure.Data.Models.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Options;
 using CinemaTickets.Web.Models;
 using CinemaTickets.Web.Models.AccountViewModels;
 using CinemaTickets.Web.Services;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CinemaTickets.Web.Controllers
 {
@@ -45,7 +47,7 @@ namespace CinemaTickets.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(string returnUrl = null)
         {
-            // Clear the existing external cookie to ensure a clean login process
+                // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ViewData["ReturnUrl"] = returnUrl;
@@ -230,6 +232,9 @@ namespace CinemaTickets.Web.Controllers
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
                     await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+
+                    //TODO: aici se adauga userul deodata in taote rolurile existente
+                    await _userManager.AddToRolesAsync(user, new[] {"moderator", "admin", "user"});
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");

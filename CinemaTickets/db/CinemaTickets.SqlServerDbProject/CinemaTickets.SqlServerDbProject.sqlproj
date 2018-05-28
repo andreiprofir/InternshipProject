@@ -96,6 +96,7 @@
     <Build Include="Tables\Seats.sql" />
     <Build Include="Tables\SessionPrices.sql" />
     <Build Include="Tables\Orders.sql" />
+    <None Include="Scripts\InsertData_3rd.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\InsertData_1st.sql" />

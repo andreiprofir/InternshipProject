@@ -5,7 +5,7 @@
 @inject RoleManager<Role> RoleManager
 
 @{
-    ViewBag.Title = $"Фильм {Model.Name}";
+    ViewBag.Title = $"Movie {Model.Name}";
 }
 
 <div class="row mt-2">
@@ -15,7 +15,7 @@
             <dt data-toggle="modal" data-target="#trailer-modal">
                 <a class="d-block rounded-link mt-2 text-center" href="#">
                     <span>
-                        Трейлер
+                        Trailer
                     </span>
                 </a>
             </dt>
@@ -25,7 +25,7 @@
                 <dt id="edit-movie-button">
                     <a class="d-block rounded-link mt-2 text-center" asp-controller="Movie" asp-action="Edit" asp-route-id="@Model.Id">
                         <span>
-                            Редактировать
+                            Edit
                         </span>
                     </a>
                 </dt>
@@ -33,7 +33,7 @@
                 <dt id="delete-movie-button">
                     <a class="d-block rounded-link mt-2 text-center" asp-controller="Movie" asp-action="Delete" asp-route-id="@Model.Id">
                         <span>
-                            Удалить
+                            Delete
                         </span>
                     </a>
                 </dt>
@@ -44,7 +44,7 @@
             <div class="modal-dialog modal-lg h-100" role="document">
                 <div class="modal-content h-75">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Трейлер: @Model.Name</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Trailer: @Model.Name</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -53,7 +53,7 @@
                         <iframe id="videowrapper" class="w-100 h-100" src="https://www.youtube.com/embed/C8qBigNV1xs?asdasd" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="modal-footer">
-                        <button id="close-modal-btn" type="button" class="btn btn-danger" data-dismiss="modal"><span>Закрыть</span></button>
+                        <button id="close-modal-btn" type="button" class="btn btn-danger" data-dismiss="modal"><span>Close</span></button>
                     </div>
                 </div>
             </div>
@@ -141,19 +141,19 @@
         <div class="row px-3">
             <div class="col-lg-12">
                 <h5 class="row mb-3">
-                    Отзывы о фильме @Html.DisplayFor(m => m.Name)
+                    Reviews @Html.DisplayFor(m => m.Name)
                 </h5>
                 <div class="row mb-2">
                     <div>
                         <a id="like" class="mr-2">
                             <span class="pl-5 pr-3 py-2 rounded movie-like-dislike">
-                                Лайк 
+                                Like 
                                 @Model.Likes
                             </span>
                         </a>
                         <a id="dislike" class="rounded ml-2">
                             <span class="pl-5 pr-3 py-2 rounded movie-like-dislike text-center">
-                                Дизлайк
+                                Dislike
                                 @Model.Dislikes
                             </span>
                         </a>
@@ -161,7 +161,7 @@
                     <div id="comment-numbers" class="m-auto">
                         <a>
                             <span class="pl-5 pr-3 py-2 text-center rounded">
-                                Коментарий(@Model.Comments.Count)
+                                Comments(@Model.Comments.Count)
                             </span>
                         </a>
                     </div>

@@ -4,392 +4,354 @@ GO
 ------- GENRES
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Анимация');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Animation');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Арт-хаус');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Art-house');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Балет');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Ballet');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Биографический');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Biograpthic');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Боевик');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Action');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Вестерн');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Western');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Военный');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Warrior');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Детектив');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Detective');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Документальный');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Documental');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Драма');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Drama');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Искусство');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Art');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Исторический');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Historical');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Комедия');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Comedy');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Криминал');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Criminal');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Мелодрама');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Melodrama');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Мистика');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Mistical');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Мультфильм');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Carton');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Опера');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Opera');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Приключения');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Adventure');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Рекламные ролики');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Comercial');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Романтика');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Romance');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Семейный');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Family');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Спектакль');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Perfomance');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Спорт');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Sport');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Театр');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Theatre');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Трагедия');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Tragedy');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Триллер');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Thriller');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Ужасы');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Horror');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Фантастика');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Fantastic');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Футбол');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Soccer');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Фэнтези');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Fantacy');
 
 INSERT INTO [Entities] DEFAULT VALUES;
-INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Экшн');
+INSERT INTO [Genres]([Id], [Name]) VALUES (@@IDENTITY, N'Serial');
 
 
 -------- ACTORS
 
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Том', N'Круз');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Рассел', N'Кроу');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Аннабелль', N'Уоллис');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Джейк', N'Джонсон');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Кортни', N'Б. Вэнс');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Марван', N'Кензари');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Джои', N'Кинг');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Морган', N'Фриман');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Майкл', N'Кейн');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Питер', N'Серафинович');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Кристофер', N'Ллойд');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Алан', N'Аркин');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Мэтт', N'Диллон');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Нуми', N'Рапас');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Орландо', N'Блум');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Тони', N'Коллетт');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Майкл', N'Дуглас');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Джон', N'Малкович');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Акшай', N'Кумар');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Тосин', N'Коул');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Эделайо', N'Эдедайо');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Бен', N'Кингсли');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Антонио', N'Бандерас');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Лиам', N'МакИнтайр');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Чэд', N'Линдберг');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Габриэлла', N'Райт');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Кунг', N'Ле');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Яна', N'Маринова');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Марк', N'Смит');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Башар', N'Рахаль');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Дзиро', N'Ван');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Мэттью', N'МакКонахи');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Энн', N'Хэтэуэй');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Джессика', N'Честейн');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Маккензи', N'Фой');
-INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Дэвид', N'Гяси');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Tom', N'Cruise');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Tom', N'Hanks');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Jack', N'Nicholson');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Robert', N'De Niro');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Gene', N'Hackman');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Robert', N'Duvall');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Dustim', N'Hoffman');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Al', N'Pacino');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Clint', N'Eastwood');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Kevin', N'Spacey');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Christofer', N'Walken');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Harrison', N'Ford');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Samuel', N'L.Jackson');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Edward', N'Norton');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Bill', N'Murray');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Ed', N'Harris');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Mel', N'Gipson');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Leonardo', N'DiCaprio');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Woody', N'Harrelson');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Kevin', N'Bacon');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Denzel', N'Washington');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Johnny', N'Depp');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Viggo', N'Mortensen');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Brad', N'Pitt');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Matt', N'Damon');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Steve', N'Buscemi');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Kurt', N'Russell');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Don', N'Cheadle');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Bradley', N'Cooper');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Sean', N'Penn');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Kenin', N'Costner');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Will', N'Smith');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Ray', N'Liotta');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Robert', N'Redford');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'Bruce', N'Williams');
+INSERT INTO [Actors]([FirstName], [LastName]) VALUES (N'James', N'Cann');
 
 
 ---DIRECTORS
 
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Кристофер', N'Нолан');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Тарсем', N'Сингх');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Ридли', N'Скотт');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Джозеф', N'Косински');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Даг', N'Лайман');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Луи', N'Летерье');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Гленн', N'Фикарра');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Джон', N'Рекуа');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Джеймс', N'Ганн');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Тим', N'Миллер');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Дункан', N'Джонс');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Нэнси', N'Майерс');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Оливье', N'Накаш');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Эрик', N'Толедано');
-INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Марк', N'Форстер');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Martin', N'Scorsese');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Francis', N'Ford Cappola');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Steven', N'Spielberg');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'John', N'Ford');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Quentin', N'Tarantino');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'John', N'Huston');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Nicholas', N'Ray');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Mel', N'Brooks');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Robert', N'Altman');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Michael', N'Curtiz');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Clint', N'Eastwood');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'James', N'Ivory');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Tim', N'Burton');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'Elia', N'Kazan');
+INSERT INTO [Directors]([FirstName], [LastName]) VALUES (N'David', N'Lunch');
 
 
 
 ---WRITERS
 
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Тони', N'Мошер');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Джон', N'Салливан');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Николай', N'Арсель');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Акива', N'Голдсман');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Андерс Томас', N'Йенсен');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Джереми', N'Хафт');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Эд', N'Гонзалез');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Стивен', N'Багатурян');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Курт', N'Джонстад');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Энтони', N'Джонстон');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Эдгар', N'Райт');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Гэри', N'Спинелли');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Эрик', N'Пирсон');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Стэн', N'Ли');
-INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Ларри', N'Либер');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Lake', N'Bell');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Joel', N'Coen');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Betty', N'Collins');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Leah', N'Baiard');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Jenna', N'Bans');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Andrea', N'Berloff');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Troy', N'Beyer');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Anna', N'Biller');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Jenry', N'Bicks');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Martie', N'Cook');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Adele', N'Comandini');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Tomy', N'Jones');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Cheo', N'Simpson');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'Susan', N'Stewart');
+INSERT INTO [Writers]([FirstName], [LastName]) VALUES (N'SJ', N'Chiro');
 
 
 --CITIES
 
-INSERT INTO [Cities]([Name]) VALUES (N'Нью-Йорк');
-INSERT INTO [Cities]([Name]) VALUES (N'Лос-Анджелес');
-INSERT INTO [Cities]([Name]) VALUES (N'Чикаго');
-INSERT INTO [Cities]([Name]) VALUES (N'Хьюстон');
-INSERT INTO [Cities]([Name]) VALUES (N'Филадельфия');
-INSERT INTO [Cities]([Name]) VALUES (N'Финикс');
-INSERT INTO [Cities]([Name]) VALUES (N'Сан-Антонио');
-INSERT INTO [Cities]([Name]) VALUES (N'Сан-Диего');
-INSERT INTO [Cities]([Name]) VALUES (N'Даллас');
-INSERT INTO [Cities]([Name]) VALUES (N'Сан-Хосе');
-INSERT INTO [Cities]([Name]) VALUES (N'Остин');
-INSERT INTO [Cities]([Name]) VALUES (N'Индианаполис');
-INSERT INTO [Cities]([Name]) VALUES (N'Сан-Франциско');
-INSERT INTO [Cities]([Name]) VALUES (N'Детройт');
-INSERT INTO [Cities]([Name]) VALUES (N'Сиэтл');
+INSERT INTO [Cities]([Name]) VALUES (N'New-York');
+INSERT INTO [Cities]([Name]) VALUES (N'Los-Angeleas');
+INSERT INTO [Cities]([Name]) VALUES (N'Chicago');
+INSERT INTO [Cities]([Name]) VALUES (N'Hewston');
+INSERT INTO [Cities]([Name]) VALUES (N'Philadelphia');
+INSERT INTO [Cities]([Name]) VALUES (N'Fenix');
+INSERT INTO [Cities]([Name]) VALUES (N'San Antonio');
+INSERT INTO [Cities]([Name]) VALUES (N'San-Diego');
+INSERT INTO [Cities]([Name]) VALUES (N'Dalas');
+INSERT INTO [Cities]([Name]) VALUES (N'San-Hose');
+INSERT INTO [Cities]([Name]) VALUES (N'Ostin');
+INSERT INTO [Cities]([Name]) VALUES (N'Indianapolis');
+INSERT INTO [Cities]([Name]) VALUES (N'San-Francisco');
+INSERT INTO [Cities]([Name]) VALUES (N'Detroit');
+INSERT INTO [Cities]([Name]) VALUES (N'Sietle');
 
 
 --COUNTRIES
 
-INSERT INTO [Countries]([Name]) VALUES (N'Непал');
-INSERT INTO [Countries]([Name]) VALUES (N'Австралия');
-INSERT INTO [Countries]([Name]) VALUES (N'Филиппины');
-INSERT INTO [Countries]([Name]) VALUES (N'Норвегия');
-INSERT INTO [Countries]([Name]) VALUES (N'Бразилия');
-INSERT INTO [Countries]([Name]) VALUES (N'Чили');
-INSERT INTO [Countries]([Name]) VALUES (N'Индия');
-INSERT INTO [Countries]([Name]) VALUES (N'Уганда');
-INSERT INTO [Countries]([Name]) VALUES (N'Швейцария');
-INSERT INTO [Countries]([Name]) VALUES (N'Канада');
-INSERT INTO [Countries]([Name]) VALUES (N'Кения');
-INSERT INTO [Countries]([Name]) VALUES (N'Италия');
-INSERT INTO [Countries]([Name]) VALUES (N'Колумбия');
-INSERT INTO [Countries]([Name]) VALUES (N'Аргентина');
-INSERT INTO [Countries]([Name]) VALUES (N'Намибия');
-INSERT INTO [Countries]([Name]) VALUES (N'Китай');
-INSERT INTO [Countries]([Name]) VALUES (N'США');
-INSERT INTO [Countries]([Name]) VALUES (N'Россия');
-INSERT INTO [Countries]([Name]) VALUES (N'Германия');
-INSERT INTO [Countries]([Name]) VALUES (N'Испания');
-INSERT INTO [Countries]([Name]) VALUES (N'Англия');
+INSERT INTO [Countries]([Name]) VALUES (N'Nepal');
+INSERT INTO [Countries]([Name]) VALUES (N'Autralia');
+INSERT INTO [Countries]([Name]) VALUES (N'Philipines');
+INSERT INTO [Countries]([Name]) VALUES (N'Northway');
+INSERT INTO [Countries]([Name]) VALUES (N'Brasil');
+INSERT INTO [Countries]([Name]) VALUES (N'Chili');
+INSERT INTO [Countries]([Name]) VALUES (N'India');
+INSERT INTO [Countries]([Name]) VALUES (N'Uganda');
+INSERT INTO [Countries]([Name]) VALUES (N'Swetzerland');
+INSERT INTO [Countries]([Name]) VALUES (N'Canada');
+INSERT INTO [Countries]([Name]) VALUES (N'Kenia');
+INSERT INTO [Countries]([Name]) VALUES (N'Italy');
+INSERT INTO [Countries]([Name]) VALUES (N'Columbia');
+INSERT INTO [Countries]([Name]) VALUES (N'Argentine');
+INSERT INTO [Countries]([Name]) VALUES (N'Zambia');
+INSERT INTO [Countries]([Name]) VALUES (N'Suedia');
+INSERT INTO [Countries]([Name]) VALUES (N'SUA');
+INSERT INTO [Countries]([Name]) VALUES (N'Russia');
+INSERT INTO [Countries]([Name]) VALUES (N'Moldova');
+INSERT INTO [Countries]([Name]) VALUES (N'Spain');
+INSERT INTO [Countries]([Name]) VALUES (N'United Kingdom');
 
 
 ----LANGUAGES
 
-INSERT INTO [Languages]([Name]) VALUES (N'Китайский');
-INSERT INTO [Languages]([Name]) VALUES (N'Испанский');
-INSERT INTO [Languages]([Name]) VALUES (N'Английский');
-INSERT INTO [Languages]([Name]) VALUES (N'Португальский');
-INSERT INTO [Languages]([Name]) VALUES (N'Русский');
-INSERT INTO [Languages]([Name]) VALUES (N'Немецкий');
-INSERT INTO [Languages]([Name]) VALUES (N'Французский');
-INSERT INTO [Languages]([Name]) VALUES (N'Итальянский');
-INSERT INTO [Languages]([Name]) VALUES (N'Румынский');
+INSERT INTO [Languages]([Name]) VALUES (N'Chinese');
+INSERT INTO [Languages]([Name]) VALUES (N'Spanish');
+INSERT INTO [Languages]([Name]) VALUES (N'English');
+INSERT INTO [Languages]([Name]) VALUES (N'Portuguese');
+INSERT INTO [Languages]([Name]) VALUES (N'Russian');
+INSERT INTO [Languages]([Name]) VALUES (N'Japanese');
+INSERT INTO [Languages]([Name]) VALUES (N'French');
+INSERT INTO [Languages]([Name]) VALUES (N'Italian');
+INSERT INTO [Languages]([Name]) VALUES (N'Romanian');
 
 
 ---MOVIES
 
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Звездные войны: Пробуждение силы', N'Star Wars: Episode VII - The Force Awakens', 89, '2015-12-17', N'Да пребудет с вами сила! Продолжение эпической и классической саги в еще более масштабном формате. Действие происходит через 30 лет после «Возвращение Джедая». На планеты вновь надвигается опасность: Сила пробуждается, и те, кому она подвластна, хотят использовать ее в личных целях. Грядет новая межгалактическая война.');
-
+VALUES (@@IDENTITY, N'Star Wars: Episode VII - The Force Awakens', N'Star Wars: Episode VII - The Force Awakens', 89, '2015-12-17', N'Da power will be with you! Continuation of the epic and classical saga in an even larger format. The action takes place 30 years after the Return of the Jedi. The world is once again in danger: The power awakens, and those to whom it is subject, want to use it for personal purposes. A new intergalactic war is coming. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Охота на монстра', N'Zhuo yao ji', 89, '2015-12-17', N'Симпатичный маленький монстр Хуба - это ребенок человеческого мужчины и королевы монстров. Его преследуют как люди, ненавидящие монстров, так и монстры, которые пытаются схватить его. Действие происходит в средневековом Китае.');
-
+VALUES (@@IDENTITY, N'Zhuo yao ji', N'Zhuo yao ji', 89, '2015-12-17', N'Simpatichny little monster Huba - this is the child of the human male and the queen of monsters. He is haunted by people who hate monsters, and monsters who try to grab him. The action takes place in medieval China. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'5-я волна', N'The 5th Wave', 89, '2015-12-17', N'Первая волна оставила за собой мглу. От второй успели убежать только самые везучие. Но едва ли можно назвать везучими тех, кто уцелел после третьей. А четвертая волна стерла все человеческие законы, взамен же установила свой, один-единственный: хочешь жить — не верь никому. И вот уже накатывает пятая волна…');
-
+VALUES (@@IDENTITY, N'The 5th Wave', N'The 5th Wave', 89, '2015-12-17', N'The first wave left a haze behind it. Only the most lucky ones managed to escape from the second one. But you can hardly call those who survived after the third are lucky. And the fourth wave erased all human laws, instead, it established its own, only one: you want to live - do not believe anyone. And now the fifth wave is rolling ... ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Панда Кунг-Фу 3', N'Kung Fu Panda 3', 89, '2015-12-17', N'Отец По, которого давно считали пропавшим, внезапно возвращается и вместе с сыном отправляется в тайный рай панд, где их ждет встреча со многими новыми забавными героями. Впрочем, когда вор со сверхъестественными способностями по имени Кай начинает побеждать мастеров кунг-фу по всему Китаю, По вынужден совершить невозможное - организовать обучение целого поселка, населенного его веселыми неуклюжими братьями, чтобы превратить их в идеальную группу «Панды Кунг-Фу»!');
-
+VALUES (@@IDENTITY, N'Kung Fu Panda 3', N'Kung Fu Panda 3', 89, '2015-12-17', N'Otets Po, who was long considered missing, suddenly returns and with his son goes to the secret paradise of pandas, where they will meet with many new funny characters. However, when a thief with supernatural powers named Kai begins to defeat kung fu masters all over China, Poe is forced to do the impossible - to organize the training of the whole village inhabited by his hilarious clumsy brothers to make them an ideal group of "Panda Kung Fu"! "');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Антиганг', N'Antigang', 89, '2015-12-17', N'Бывалый коп Бюрен не любит правила. Чтобы держать под жестким контролем преступный мир, его боевая группа предпочитает использовать методы, выходящие за рамки закона. С приходом нового босса Ленуара им приходится немного поумерить пыл, и действовать подпольно.');
-
+VALUES (@@IDENTITY, N'Antigang', N'Antigang', 89, '2015-12-17', N'Burden does not like the rules. To keep the underworld under strict control, his combat group prefers to use methods that go beyond the law. With the advent of the new boss Lenoir, they have to moderate their fervor a little, and act in an underground manner. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'13 часов: Тайные воины Бенгази', N'13 Hours', 89, '2015-12-17', N'Новый масштабный проект, основанный на реальных событиях от легендарного Майкла Бэя. В основу легли трагические события 2012 года, которые происходили в охваченной протестами Ливии. Уровень угрозы в этой стране было признано чрезвычайно высоким. Мирное население и работники дипломатического корпуса находились под постоянным прицелом боевиков, совершивших атаку на посольство США. Элитный отряд бывших военнослужащих оперативно отправляется в город Бенгази. В их руках сотни жизней, времени для выполнения операции по обезвреживанию критически мало.');
-
+VALUES (@@IDENTITY, N'13 Hours', N'13 Hours', 89, '2015-12-17', N'New large-scale project, based on real events from the legendary Michael Bay. The basis was the tragic events of 2012, which occurred in the grievous protests of Libya. The level of threat in this country was recognized as extremely high. The civilian population and the employees of the diplomatic corps were under constant surveillance of the militants who attacked the US embassy. Elite detachment of former servicemen promptly sent to the city of Benghazi. In their hands, hundreds of lives, time for performing operations to neutralize is critically small. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'И грянул шторм', N'The Finest Hours', 89, '2015-12-17', N'Сюжет фильма основан на реальных событиях, произошедших в 1952 году, когда сотрудники береговой охраны в самый разгар шторма, используя деревянные моторные лодки, пытались спасти экипаж двух нефтяных танкеров.');
-
+VALUES (@@IDENTITY, N'The Finest Hours', N'The Finest Hours', 89, '2015-12-17', N'Suzhet film is based on real events that occurred in 1952, when Coast Guard officers in the midst of a storm, using wooden motor boats, tried to save the crew of two oil tankers. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Дэдпул', N'Deadpool', 89, '2015-12-17', N'Бывший солдат, ставший наемником спецназа, поучаствовал в нестандартном эксперименте, пытаясь вылечить рак. Благодаря этому Уэйд Уилсон получил повышенную способность к исцелению, невероятную силу и ловкость, а также неустойчивое психическое состояние и сформировал особый черный юмор. Однако его кожа оказалась изуродованной. В герое рождается новая личность - Дэдпул. Вооружившись новыми способностями и маниакальным чувством юмора, Уэйд Уилсон выходит на охоту за тем человеком, который разрушил его жизнь и похитил любимую девушку.');
-
+VALUES (@@IDENTITY, N'Deadpool', N'Deadpool', 89, '2015-12-17', N'Bylshy soldier, who became a mercenary special forces, participated in a non-standard experiment, trying to cure cancer. Thanks to this, Wade Wilson received an increased ability to heal, incredible strength and agility, as well as an unstable mental state and formed a special black humor. However, his skin was disfigured. In the hero a new person is born - Deadpool. Armed with new abilities and a manic sense of humor, Wade Wilson goes hunting for the man who destroyed his life and kidnapped his beloved girl. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Гордость и предубеждение и зомби', N'Pride and Prejudice and Zombies', 89, '2015-12-17', N'Фильм является захватывающей и страшной интерпретацией известного романа британской писательницы Джейн Остин. Загадочная чума появилась в Великобритании в XIX веке. Люди стали ходячими мертвецами, что едят живую человеческую плоть. В таких условиях многому пришлось измениться. Смелая героиня Элизабет Беннет не только красивая и умная, она также мастер боевых искусств и оружия. Наставником для Элизабет и ее сестер стал молодой и привлекательный мистер Дарси. Девушке приходится объединиться с учителем на пропитанном кровью поле боя, чтобы освободить страну от зомби. Станут герои парой в этом опасном мире?');
-
+VALUES (@@IDENTITY, N'Pride and Prejudice and Zombies', N'Pride and Prejudice and Zombies', 89, '2015-12-17', N'Film is an exciting and frightening interpretation of the famous novel by British writer Jane Austen. Mysterious plague appeared in the UK in the XIX century. People have become walking dead men who eat living human flesh. In such conditions, much had to change. Bold heroine Elizabeth Bennet is not only beautiful and smart, she is also a master of martial arts and weapons. The mentor for Elizabeth and her sisters was the young and attractive Mr. Darcy. The girl has to team up with the teacher on a blood-soaked battlefield to free the country from zombies. Will the heroes pair in this dangerous world? ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Пернатая банда', N'El Americano: The Movie', 89, '2015-12-17', N'Как и все подростки, попугай Куко обожает находить занятия поинтереснее, чем помогать старшим в скучных домашних делах. Например, фанатеть от своего любимого телегероя, крутого супер-пернатого Эль Американо! Все меняется, когда банда птиц-раздолбаев грозится забрать у отца Куко цирковую арену, поколениями принадлежащей их семье. Куко решает, что без помощи Эль Американо ну никак не обойтись и он отправляется в полное опасностей путешествие в Голливуд, в конце пути открыв супергероя внутри себя самого.');
-
+VALUES (@@IDENTITY, N'El Americano: The Movie', N'El Americano: The Movie', 89, '2015-12-17', N'As well as all teens, the parrot Kuko loves finding activities more interesting than helping seniors in boring household chores. For example, fanatet from your favorite teleguoya, cool super-feathered El Amerikano! Everything changes when a gang of birds-gouging threatens to take away from the father of Kuko circus arena, the generations belonging to their family. Kuko decides that without the help of El Amerikano, theres no way to do it and he goes on a full-perilous journey to Hollywood, at the end of the road, opening a superhero inside himself. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Боги Египта', N'Gods of Egypt', 89, '2015-12-17', N'Некогда мирное и процветающее египетское царство погружается в хаос: беспощадный бог тьмы Сет убивает своего брата Осириса и узурпирует трон. Вызов ему неожиданно бросает простой смертный, находчивый молодой вор. Чтобы вернуть к жизни свою прекрасную возлюбленную, ему приходится заручиться поддержкой могущественного и мстительного бога Гора.');
-
+VALUES (@@IDENTITY, N'Gods of Egypt', N'Gods of Egypt', 89, '2015-12-17', N'The once peaceful and prosperous Egyptian kingdom plunges into chaos: the merciless god of darkness Seth kills his brother Osiris and usurps the throne. Summon him unexpectedly throws a simple mortal, resourceful young thief. To restore his beautiful beloved to life, he has to enlist the support of the powerful and vengeful god Horus. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Безумный Макс: Дорога ярости', N'Mad Max: Fury Road', 89, '2015-12-17', N'Сюжет фильма рассказывает о том, как после мести за смерть жены и сына, Макс Рокатански (Том Харди) покинул ряды «Основного силового патруля», и поехал в пустыню, где скитается в одиночестве, пока мир медленно катится в пропасть в результате нефтяного кризиса и глобальной войны. У Макса по большому счету есть только один друг - его машина «Перехватчик». Нашему герою нужно научиться выживать в пост-апокалиптической пустоте и соревноваться с жестокими, безжалостными воинами, проживающими здесь. Макс встречает императрицу Фюриозу (Шарлиз Терон) - женщину, которая хочет пересечь пустыню.');
-
+VALUES (@@IDENTITY, N'Mad Max: Fury Road', N'Mad Max: Fury Road', 89, '2015-12-17', N'The plot tells how, after revenge for the death of his wife and son, Max Rokatansky (Tom Hardy) left the ranks of the "Basic Force Patrol", and went to the desert where he wanders alone while the world slowly rolls into the abyss as a result of the oil crisis and global war. Max, by and large, has only one friend - his car "Interceptor". Our hero needs to learn how to survive in the post-apocalyptic emptiness and compete with the cruel, ruthless warriors living here. Max meets Empress Furyozu (Charlize Theron) - a woman who wants to cross the desert. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Братья из Гримсби', N'Grimsby', 89, '2015-12-17', N'Британская комедия от создателя "Бората" и "Диктатора" Саши Барона Коэна. У Нобби есть все, чего только может пожелать человек из бедного рыбацкого городка Гримсби: самая красивая девушка в Англии и 9 детей. Но футбольному хулигану в жизни не хватало родного брата. Вот уже 28 лет Нобби пытается найти Себастьяна. Мальчиков разлучили в детстве при усыновлении разные семьи. Узнав о местонахождении младшего брата, хулиган отправляется в путь немедленно. Но он не знает, что Себастьян работает наемником секретной службы МИ6 и только раскрыл заговор, который угрожает безопасности всего мира.');
-
+VALUES (@@IDENTITY, N'Grimsby', N'Grimsby', 89, '2015-12-17', N'British comedy from the creator of "Borat" and "Dictator" Sasha Baron Cohen. Nobby has everything a man from the poor fishing town of Grimsby can desire: the most beautiful girl in England and 9 children. But the football hooligan did not have a brother in his life. For 28 years, Nobby has been trying to find Sebastian. Boys were separated in childhood when adopted by different families. After learning about the whereabouts of the younger brother, the hooligan sets off immediately. But he does not know that Sebastian is a mercenary of MI6s secret service and only disclosed a conspiracy that threatens the security of the whole world. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Крутые чуваки', N'The Nice Guys', 89, '2015-12-17', N'Лос-Анджелес, 1970-е годы. Незадачливого частного детектива Холланда Марча (Райан Гослинг) и костолома Джексона Хили (Расселл Кроу) нанимают для распутывания дела о возможном самоубийстве старлетки. Легкое и неважное, казалось бы, дело, превращается в запутанный и шокирующий преступный сговор, в котором замешаны высшие чиновники. Детективам нужно не только привыкнуть к нестандартным профессиональным методам друг друга, но и остаться в живых среди выстрелов и взрывов.');
-
+VALUES (@@IDENTITY, N'The Nice Guys', N'The Nice Guys', 89, '2015-12-17', N'Los Angeles, the 1970s. The unlucky private detective Holland March (Ryan Gosling) and the Jackson Healeys (Jackson) Healey (Russell Crowe) are hired to unravel the case about the possible suicide of the starlet. An easy and unimportant, it would seem, business turns into an intricate and shocking criminal conspiracy in which senior officials are implicated. Detectives need not only to get used to the non-standard professional methods of each other, but also to survive among the shots and explosions. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Отряд самоубийц', N'Suicide squad', 89, '2015-12-17', N'Правительство решает дать команде суперзлодеев шанс искупить грехи. Подвох в том, что им поручают миссию, где они, скорее всего, погибнут. Показы в IMAX 3D состоятся только в Днепре, в кинотеатре Мультиплекс, ТРЦ "Dafi"');
-
+VALUES (@@IDENTITY, N'Suicide squad', N'Suicide squad', 89, '2015-12-17', N'The government decides to give the team a super villain a chance to atone for sins. The catch is that they are entrusted with a mission, where they are likely to perish. Imaz in IMAX 3D will be held only in the Dnieper, in the multiplex cinema, SEC "Dafi"');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Автобан', N'Collide', 89, '2015-12-17', N'Захватывающий экшн от легендарного продюсера Джоэла Сильвера ("Хищник", "Крепкий орешек", "V значит Вендетта", "Матрица", "Шерлок Холмс"). Чтобы достать денег на лечение для своей девушки, Кейси Штайн решает вернуться к криминальному прошлому и ограбить местного гангстера. Однако план срабатывает совсем не так, как хотелось. С этого момента и начинаются безумные гонки по автобанам Германии.');
-
+VALUES (@@IDENTITY, N'Collide', N'Collide', 89, '2015-12-17', N'Exciting action from legendary producer Joel Silver ("Predator", "Die Hard", "V means Vendetta", "Matrix", "Sherlock Holmes"). To get money for treatment for his girlfriend, Casey Stein decides to return to the criminal past and rob a local gangster. However, the plan does not work as it should have been. From this moment, crazy races on the autobahns of Germany begin. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Аудитор', N'The Accountant', 89, '2015-12-17', N'Лента расскажет о жизни математического гения Кристиана Вульфа. Основав свою аудиторскую фирму, он консультировал опасные преступные организации и сам работал наемным убийцей.');
-
+VALUES (@@IDENTITY, N'The Accountant', N'The Accountant', 89, '2015-12-17', N'The tape will tell about the life of the mathematical genius of Christian Wulff. Having established his audit firm, he advised dangerous criminal organizations and himself worked as a hired killer. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Джек Ричер: Не отступай', N'Jack Reacher: Never Go Back', 89, '2015-12-17', N'Продолжение известного боевика с Томом Крузом в главной роли. Джек Ричер решает вернуться в 110 подразделение военной полиции, чтобы поблагодарить свою коллегу - майора Сьюзан Тернер, которая однажды очень ему помогла. Но оказавшись в части, Ричер узнает, что Сьюзан недавно арестовали за получение взятки, а его самого обвиняют в убийстве 16-летней давности, о событиях которого он ничего не помнит. Странное стечение обстоятельств или чей-то злой замысел? С этого момента у Джека начинается много неприятностей и приключений.');
-
+VALUES (@@IDENTITY, N'Jack Reacher: Never Go Back', N'Jack Reacher: Never Go Back', 89, '2015-12-17', N'Continuation of the famous militant with Tom Cruise in the title role. Jack Reacher decides to return to 110 military police units to thank his colleague, Major Susan Turner, who once helped him a lot. But being in the unit, Reacher learns that Susan was recently arrested for taking bribes, and he himself is accused of murdering 16-year-olds, of which he does not remember anything. A strange combination of circumstances or someones evil plan? From this moment, Jack begins a lot of trouble and adventure. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Изгой-один: Звёздные войны. Истории', N'Rogue One: A Star Wars Story', 89, '2015-12-17', N'Любимая сага "Звездные войны" возвращается на экраны! Группа повстанцев бросает вызов Империи и решает захватить чертежи совершенного оружия "Звезды смерти". Во главе отряда становится бывшая преступница, смелая и отважная Джин Эрсо. Узнав об этом, Император посылает для борьбы с мятежниками своего самого лучшего и самого могущественного приспешника - Дарта Вейдера. Это означает лишь одно: теперь война будет идти не на жизнь, а на смерть.');
-
+VALUES (@@IDENTITY, N'Rogue One: A Star Wars Story', N'Rogue One: A Star Wars Story', 89, '2015-12-17', N'Favorite saga "Star Wars" returns to the screens! The rebel group challenges the Empire and decides to seize the drawings of the perfect weapon of the "Death Star". At the head of the detachment is the former criminal, courageous and brave Jean Erso. Upon learning of this, the Emperor sends his best and most powerful henchman, Darth Vader, to fight the rebels. This means only one thing: now the war will go not to life, but to death. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Обитель зла: Финальная битва', N'Resident Evil: The Final Chapter', 89, '2015-12-17', N'Зрелищное завершение франшизы "Обитель зла", собравшей более миллиарда долларов в мировом прокате! Элис (Милла Йовович) осталась последней надеждой человечества на спасение. Она должна вернуться к исходной точке, городу Раккун-Сити, ведь именно там корпорация "Амбрелла" собирает свои силы, чтобы нанести сокрушительный финальный удар.');
-
+VALUES (@@IDENTITY, N'Resident Evil: The Final Chapter', N'Resident Evil: The Final Chapter', 89, '2015-12-17', N'Spectacular completion of the franchise "Resident Evil", which collected more than a billion dollars in worldwide box office! Alice (Milla Jovovich) remained the last hope of mankind for salvation. It should return to the starting point, the city of Raccoon City, because it is there that the corporation "Umbrella" gathers its forces to deal a crushing final blow. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Терминатор 2: Судный день 3D', N'Terminator 2: Judgment Day 3D', 89, '2015-12-17', N'Легенда вернулась. Новейшие 3D-технологии от команды, работавшей над «Аватаром», и революционные спецэффекты в одном из лучших фантастических фильмов всех времен. Неуязвимый киборг нового поколения прибывает в наше время с миссией убить молодого Джона Коннора, будущего лидера сопротивления, которому суждено окончить войну людей и машин. Но на защиту Джона успевают отправить перепрограммированного терминатора Т-800. Теперь будущее всего человечества зависит от исхода схватки, разворачивающейся в наши дни.');
-
+VALUES (@@IDENTITY, N'Terminator 2: Judgment Day 3D', N'Terminator 2: Judgment Day 3D', 89, '2015-12-17', N'The legend returned. The latest 3D technology from the team that worked on "Avatar", and revolutionary special effects in one of the best fantastic films of all time. The invulnerable cyborg of the new generation is arriving in our time with the mission of killing the young John Connor, the future leader of the resistance, who is destined to end the war of men and machines. But the defense of John has time to send the reprogrammed terminator T-800. Now the future of all mankind depends on the outcome of the struggle unfolding these days. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'На драйве', N'Baby Driver', 89, '2015-12-17', N'Бейби - талантливый водитель, который работает на криминального авторитета по имени Док. Весь бандитский мир знает, если "Малыш" за рулем - никакие копы не смогут их догнать. Все, что ему нужно - это музыка и скорость, которыми он глушит шум в ушах - память о трагедии детства. Но, однажды, в жизни драйвера появляется Дебора - девушка, в которую он влюбляется, и с которой хотел бы убежать куда подальше от подонков, с которыми он работал. Док дает водителю последнее задание, после чего обещает отпустить. Но, кажется, от такого преследования не удрать даже "Малышу". С этой передряги ему помогут выбраться разве только отвага, музыка и драйв.');
-
+VALUES (@@IDENTITY, N'Baby Driver', N'Baby Driver', 89, '2015-12-17', N'Baby is a talented driver who works for a crime boss named Doc. The entire gangster world knows if the "Kid" at the wheel - no cops can not catch up with them. All that he needs is music and the speed with which he dulls the noise in his ears - the memory of the tragedy of childhood. But, once, in the life of the driver appears Deborah - a girl, in which he falls in love, and with whom he would like to run away from the dregs with whom he worked. Doc gives the driver the last task, and then promises to let go. But it seems that even such a "kid" can not escape from such persecution. With this scam, only courage, music and drive will help him get out. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Лего Фильм: Бэтмен', N'The Lego Batman Movie', 89, '2015-12-17', N'Новый фильм от Лего о любимом супергерое и его неожиданных приключениях с новым напарником!');
-
+VALUES (@@IDENTITY, N'The Lego Batman Movie', N'The Lego Batman Movie', 89, '2015-12-17', N'A new film from Lego about your favorite superhero and his unexpected adventures with a new partner! ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Король Артур: Легенда меча', N'King Arthur: Legend of the Sword', 89, '2015-12-17', N'Сюжет фильма повествует о молодом Артуре, который слоняется в окрестностях города Лондониум со своей бандой и своим происхождением совсем не интересуется. Так он живет до момента, когда судьба сводит его с магическим мечом Экскалибур. После этого Артур кардинально меняется. Он влюбляется, присоединяется к движению сопротивления и объединяет вокруг себя людей, чтобы вместе свергнуть тирана Вортигема, который убил родителей Артура и захватил трон.');
-
+VALUES (@@IDENTITY, N'King Arthur: Legend of the Sword', N'King Arthur: Legend of the Sword', 89, '2015-12-17', N'The plot of the film tells of a young Arthur, who hangs around the city of London with his gang and his origin is not interested. So he lives until the moment when fate brings him with the magic sword of Excalibur. After that, Arthur is radically changing. He falls in love, joins the resistance movement and unites people around him to together overthrow the tyrant Vortigem, who killed Arthurs parents and captured the throne. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Конг: Остров Черепа', N'Kong: Skull Island', 89, '2015-12-17', N'70-е годы прошлого века. Главный герой (Том Хиддлстон) организовывает экспедицию на Остров Черепа, чтобы найти там пропавшего брата и некую загадочную субстанцию. Путешественникам придется познакомиться с жуткими монстрами и всеми кошмарами места, где когда-то был пойман Кинг-Конг.');
-
+VALUES (@@IDENTITY, N'Kong: Skull Island', N'Kong: Skull Island', 89, '2015-12-17', N'70th years of the last century. The protagonist (Tom Hiddleston) organizes an expedition to Skull Island to find there the missing brother and some mysterious substance. Travelers will have to get acquainted with the eerie monsters and all nightmares of the place where King Kong was once captured. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Логан: Росомаха', N'Logan', 89, '2015-12-17', N'В далеком будущем Логан (Хью Джекман) и Чарльз Ксавьер (Патрик Стюарт) остались без команды Людей Икс, однако лишь они могут противостоять могущественной корпорации, которая стремится уничтожить весь мир. Но годы дают о себе знать и помочь героям в борьбе против воров может только женский клон Росомахи.');
-
+VALUES (@@IDENTITY, N'Logan', N'Logan', 89, '2015-12-17', N'In the distant future, Logan (Hugh Jackman) and Charles Xavier (Patrick Stewart) were left without the X-Men team, but only they can withstand a powerful corporation that seeks to destroy the whole world. But the years make it felt, and only the Wolverine female clone can help heroes in the fight against thieves. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Стражи Галактики 2', N'Guardians of the Galaxy Vol. 2', 89, '2015-12-17', N'Межгалактический блокбастер возвращается! На этот раз банда космических бродяг должна выяснить все детали биографии своего главаря Звездного Рыцаря. Их крутость высшего уровня - исключительно смелые, безусловно остроумные, склонные к авантюрам и небольшому криминалу. Они поразят вас снова в фантастическом экшне от Marvel.');
-
+VALUES (@@IDENTITY, N'Guardians of the Galaxy Vol. 2', N'Guardians of the Galaxy Vol. 2', 89, '2015-12-17', N'Intergalactic blockbuster is back! This time the gang of space vagrants must find out all the details of the biography of their leader, the Star Knight. Their coolness at the highest level is exceptionally bold, certainly witty, prone to adventures and a small crime. They will hit you again in a fantastic action from Marvel. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Призрак в доспехах', N'Ghost in the Shell', 89, '2015-12-17', N'Новый научно-фантастический триллер с магнетической Скарлетт Йоханссон в главной роли! 2029 год. Кибертехнологии стали доступными каждому и практически все люди вживили себе нейронные импланты. Но вместе с тем развитие науки принесло человечеству опасную угрозу - хакеров, которые взламывают мозг и могут вмешиваться в политику. Майор-киборг элитного подразделения получает задание найти и обезвредить группу экстремистов, стремящихся уничтожить весь кибермир.');
-
+VALUES (@@IDENTITY, N'Ghost in the Shell', N'Ghost in the Shell', 89, '2015-12-17', N'A new sci-fi thriller with magnetic Scarlett Johansson in the title role! 2029 year. Cyber technology became available to everyone and virtually all people implanted themselves with neural implants. But at the same time, the development of science has brought a dangerous threat to humanity - hackers who break into the brain and can interfere in politics. The cyber-major of the elite unit gets the task to find and neutralize a group of extremists who are trying to destroy the entire cyberworld. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Три икса: Реактивизация', N'xXx: Return of Xander Cage', 89, '2015-12-17', N'Ксандер Кейдж возвращается, чтобы спасать мир! Получив шпионское задание, спецагент собирает команду экстремалов и отправляется на поиски секретного опасного оружия - "Ящика Пандоры".');
-
+VALUES (@@IDENTITY, N'xXx: Return of Xander Cage', N'xXx: Return of Xander Cage', 89, '2015-12-17', N'Xander Cage returns to save the world! Having received an espionage mission, the special agent assembles a team of extremals and goes in search of a secret dangerous weapon - the Pandoras Box. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Приказ убить', N'Kill Command', 89, '2015-12-17', 'Недалекое будущее. На отдаленный остров в учебных целях высаживают группу морских пехотинцев. Настоящую суть задания бойцы поймут, только когда столкнутся с другими "островитянами" - высокотехнологичными роботами, которые руководствуются одним приказом.');
-
+VALUES (@@IDENTITY, N'Kill Command', N'Kill Command', 89, '2015-12-17', N'A near future. On a remote island for training purposes a group of marines is planted. The real essence of the task the fighters will understand, only when they collide with other "islanders" - high-tech robots that are guided by one order. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Джон Уик 2', N'John Wick: Chapter Two', 89, '2015-12-17', N'Джон Уик возвращается! Когда его бывший коллега берет под свой контроль таинственную гильдию наемных убийц, Джон отправляется в Рим, чтобы сражаться с самыми опасными в мире киллерами.');
-
+VALUES (@@IDENTITY, N'John Wick: Chapter Two', N'John Wick: Chapter Two', 89, '2015-12-17', N'John Wick comes back! When his former colleague takes control of the mysterious guild of assassins, John travels to Rome to fight the worlds most dangerous killers. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Чудо-женщина', N'Wonder Woman', 89, '2015-12-17', N'Принцесса амазонок Диана всю жизнь живет на отдаленном райском острове, но однажды на его берегах случайно оказывается американский пилот. Юная воительница узнает о серьезном конфликте во внешнем мире из уст солдата и решает покинуть свой дом, чтобы помочь восстановить мир. Сражаясь бок о бок с людьми, дочь Зевса Диана найдет свое истинное предназначение и превратится в Чудо-Женщину.');
-
+VALUES (@@IDENTITY, N'Wonder Woman', N'Wonder Woman', 89, '2015-12-17', N'Princess of the Amazons Diana lives all her life on a remote paradise island, but one day on its shores is an American pilot. A young warrior learns about a serious conflict in the outside world from the mouth of a soldier and decides to leave her home to help restore peace. Battling side by side with people, Zeus daughter Diana will find her true destiny and become a Wonder Woman. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Форсаж 8', N'The Fate of the Furious', 89, '2015-12-17', N'После расставания с Брайаном О Коннером у команды Доминика Торетто появляются новые враги, а его семья оказывается на грани разрыва.');
-
+VALUES (@@IDENTITY, N'The Fate of the Furious', N'The Fate of the Furious', 89, '2015-12-17', N'After parting with Brian Conner, Dominique Torettos team has new enemies, and his family is on the verge of breaking. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Спасатели Малибу', N'Baywatch', 89, '2015-12-17', N'Как заставить молодого практиканта отвлечься от тусовок с моделями, знает Дуэйн Джонсон. Залив в безопасности, когда он на посту.');
-
+VALUES (@@IDENTITY, N'Baywatch', N'Baywatch', 89, '2015-12-17', N'How to make the young intern to be distracted from hangouts with models, Dwayne Johnson knows. The bay is safe when he is on duty. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Ветреная река', N'Wind River', 89, '2015-12-17', N'Американская глубинка. Охотник Кори Ламберт из Департамента рыболовства в индейской резервации Ветряная Река во время прогулки находит недавно убитую женщину. ФБР отправляет на дело совсем неопытного агента Джейн Беннер, которая оказывается совсем не готова ко всем трудностям, что создает зимний Висконсин. Одной девушке не справиться, поэтому она просит Кори, как местного жителя, помогать ей в расследовании. И они многое узнают... Как минимум то, что убийство было не одно, а целая серия. Ветряная Река - место, где перемешались законы природы и законы человечества. И непонятно, какие из них руководят всем вокруг.');
-
+VALUES (@@IDENTITY, N'Wind River', N'Wind River', 89, '2015-12-17', N'American outback. Hunter Corey Lambert from the Department of Fisheries in the Indian Reservation The Wind River during the walk finds a recently murdered woman. The FBI sends a very inexperienced agent Jane Benner to the case, which is not at all prepared for all the difficulties that creates the winter Wisconsin. One girl can not cope, so she asks Corey, as a local resident, to help her in the investigation. And they learn a lot ... At least the fact that the murder was not one but a whole series. The Wind River is the place where the laws of nature and the laws of humanity are mixed. And it is not clear which of them lead everyone around. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Лига справедливости', N'Justice League', 89, '2015-12-17', N'Понимая, что существуют угрозы, с которыми невозможно справиться в одиночку, Бэтмен и Супермен создают совершенно новую команду, собрав в ней самых могущественных защитников человечества. Объединившись и забыв о разногласиях, героям предстоит столкнуться лицом к лицу со страшной угрозой в лице могущественного правителя планеты Апоколипс — Дарксайда, чья мощь способна обратить в прах не только Землю, но и всю галактику.');
-
+VALUES (@@IDENTITY, N'Justice League', N'Justice League', 89, '2015-12-17', N'Realizing that there are threats that can not be dealt with alone, Batman and Superman create a completely new team, gathering in it the most powerful defenders of humanity. Uniting and forgetting the disagreements, the heroes face the terrible threat in the face of the powerful ruler of the planet Apokolips - Darkseid, whose power is able to draw not only the Earth, but the entire galaxy to dust. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Kingsman: Золотое кольцо', N'Kingsman: The Golden Circle', 89, '2015-12-17', N'Эггси и Мерлин соберутся навестить своих коллег из США — членов организации «Statesman», после того, как штаб-квартира «Kingsman» была разрушена Поппи.');
-
+VALUES (@@IDENTITY, N'Kingsman: The Golden Circle', N'Kingsman: The Golden Circle', 89, '2015-12-17', N'Eggsey and Merlin are going to visit their US colleagues, members of the Statesman organization, after the Kingsman headquarters was destroyed by Poppy. ');
 INSERT INTO [Entities] DEFAULT VALUES;
 INSERT INTO [Movies]([Id], [Name], [OriginalName], [Duration], [ReleaseDate], [Description]) 
-VALUES (@@IDENTITY, N'Черная пантера', N'Black Panther', 89, '2015-12-17', N'С первого взгляда можно решить, что Ваканда — обычная территория дикой Африки, но это не так. Здесь, в недрах пустынных земель, скрываются залежи уникального металла, способного поглощать вибрацию. Многие пытались добраться до него, разоряя всё на своём пути и принося смерть аборигенам, но каждый раз таинственный дух саванны — Чёрная Пантера — вставал на защиту угнетённых. Спустя много лет беда снова приходит в Ваканду, и в этот раз враг заручился поддержкой современных технологий. Когда шансов почти не остаётся, Т`Чалла, молодой принц Ваканды, узнаёт, что именно ему предстоит возродить легенду и продолжить вечную борьбу, надев маску Чёрной Пантеры.');
-
+VALUES (@@IDENTITY, N'Black Panther', N'Black Panther', 89, '2015-12-17', N'At first glance, you can decide that Wakida is the usual territory of wild Africa, but it is not. Here, in the depths of desert lands, there are deposits of unique metal that can absorb vibration. Many tried to get to him, ruining everything in their path and bringing death to the aborigines, but each time the mysterious spirit of the savannah - the Black Panther - rose to protect the oppressed. After many years, the trouble again comes to Wakidu, and this time the enemy enlisted the support of modern technologies. When there is almost no chance, TChalla, the young prince of Wakanda, learns that he has to revive the legend and continue the eternal struggle by wearing the mask of the Black Panther. ');
 
 ----MOVIEACTORS
 

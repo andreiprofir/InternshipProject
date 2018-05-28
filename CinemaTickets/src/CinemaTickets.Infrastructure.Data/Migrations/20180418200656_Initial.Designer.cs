@@ -12,8 +12,8 @@ using System;
 namespace CinemaTickets.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CinemaTicketsContext))]
-    [Migration("20170921211221_2ndMigration")]
-    partial class _2ndMigration
+    [Migration("20180418200656_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
