@@ -24,11 +24,31 @@ else
         </a>
         foreach (MovieSessionForMovieViewModel session in item.MovieSessions)
         {
-            <div id="movie-session" class="d-inline-block text-center mr-2 mb-2" data-toggle="tooltip" title="от @session.MinPrice.ToString("F", CultureInfo.CurrentUICulture)">
-                <span id="movie-session-time" class="d-block">@session.Time.ToString("t", CultureInfo.CurrentUICulture)</span>
+            <div id="movie-session" class="d-inline-block text-center mr-2 mb-2">
+                <span id="movie-session-time" data-movie-session-id="@session.Id" class="d-block buy-ticket-modal-button" data-toggle="tooltip" title="from @session.MinPrice.ToString("F", CultureInfo.CurrentUICulture)">@session.Time.ToString("t", CultureInfo.CurrentUICulture)</span>
                 <span id="movie-session-format">@session.Format.ToLower(CultureInfo.CurrentUICulture)</span>
             </div>
         }
         <hr />
     }
+
+    <div id="modals">
+
+    </div>
 }
+
+<script>
+    $(function() {
+        $(".buy-ticket-modal-button").click(function() {
+            $.get(
+                '@Url.Action("BuyTicket")',
+                {
+                    sessionId: $(this).attr('data-movie-session-id')
+                }
+            ).done(function(data) {
+                $("#modals").html($(data));
+                $("#buyTicketModal").modal();
+            });
+        });
+    });
+</script>

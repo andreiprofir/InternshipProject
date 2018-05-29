@@ -88,7 +88,10 @@ namespace CinemaTickets.Infrastructure.Business.Services
         {
             Movie domainModel = _mapper.Map<Movie>(movie);
             
-            _movieRepository.Update(domainModel);
+            if (domainModel.Id == 0)
+                _movieRepository.Add(domainModel);
+            else
+                _movieRepository.Update(domainModel);
 
             foreach (MovieActor actor in domainModel.MovieActors)
             {

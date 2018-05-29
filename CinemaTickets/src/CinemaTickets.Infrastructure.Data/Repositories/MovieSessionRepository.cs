@@ -24,5 +24,17 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
 
             return queryWithSpecifications.ToList();
         }
+
+        public List<Seat> GetAllSeatsBy(long movieSessionId)
+        {
+            return CreateQuery()
+                .Where(x => x.Id == movieSessionId)
+                .Include(x => x.Hall)
+                    .ThenInclude(x => x.Seats)
+                .SelectMany(x => x.Hall.Seats)
+                .Where(x => !(x.Orders.Any(y => y.MovieSessionId == movieSessionId)))
+                    .Include(x => x.SeatType)
+                .ToList();
+        }
     }
 }

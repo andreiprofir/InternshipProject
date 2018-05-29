@@ -16,6 +16,16 @@
                 <input asp-for="Username" class="form-control" disabled />
             </div>
             <div class="form-group">
+                <label asp-for="Wallet"></label>
+                <div class="input-group">
+                    <input asp-for="Wallet" disabled class="form-control">
+                    <span class="input-group-addon">$</span>
+                    <span class="input-group-btn">
+                        <button id="topUpModalButton" class="btn btn-info" type="button" data-toggle="modal" data-target="#topUpWalletModal">Top Up</button>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
                 <label asp-for="Email"></label>
                 @if (Model.IsEmailConfirmed)
                 {
@@ -38,6 +48,31 @@
             </div>
             <button type="submit" class="btn btn-success">Save</button>
         </form>
+        <div class="modals">
+            <div class="modal fade" id="topUpWalletModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form asp-controller="Manage" asp-action="TopUpWallet" method="post">
+                                <div class="form-group">
+                                    <label for="amount">Enter the amount you want to Top Up your wallet</label>
+                                    <input id="amount" name="amount" type="number" class="form-control" />
+                                </div>
+
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

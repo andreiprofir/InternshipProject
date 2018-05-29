@@ -1,7 +1,7 @@
 ﻿@using System.Collections
 @model MovieViewModel
 @{
-    ViewData["Title"] = $"Редактирование фильма {Model.Name}";
+    ViewData["Title"] = $"Edit movie {Model.Name}";
 
     var movieActors = new MultiSelectList(ViewData["MovieActors"] as IEnumerable, "Id", "FullName");
 

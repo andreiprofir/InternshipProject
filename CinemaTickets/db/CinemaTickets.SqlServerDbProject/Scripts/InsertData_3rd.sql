@@ -16,6 +16,13 @@ VALUES (3, 0, N'97e03a76-3e01-4730-959a-918ed38ab79d', N'user@gmail.com', 0, 1, 
 
 SET IDENTITY_INSERT [dbo].[Users] OFF
 
+INSERT INTO [dbo].[Customers] ([Id], [AvatarUri], [Discriminator], [FirstName], [LastName])
+VALUES (2, NULL, N'Customer', N'Admin', N'Admin')
+
+INSERT INTO [dbo].[Customers] ([Id], [AvatarUri], [Discriminator], [FirstName], [LastName])
+VALUES (3, NULL, N'Customer', N'User', N'User')
+GO
+
 INSERT [dbo].[UserRoles] ([UserId], [RoleId]) VALUES (2, 1)
 INSERT [dbo].[UserRoles] ([UserId], [RoleId]) VALUES (2, 2)
 INSERT [dbo].[UserRoles] ([UserId], [RoleId]) VALUES (3, 2)

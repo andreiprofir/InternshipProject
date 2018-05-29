@@ -12,9 +12,10 @@ using System;
 namespace CinemaTickets.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CinemaTicketsContext))]
-    partial class CinemaTicketsContextModelSnapshot : ModelSnapshot
+    [Migration("20180529055245_1st_Migration_Add_Wallet_In_User_Entity")]
+    partial class _1st_Migration_Add_Wallet_In_User_Entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

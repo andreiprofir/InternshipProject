@@ -61,7 +61,8 @@ namespace CinemaTickets.Web.Controllers
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
                 IsEmailConfirmed = user.EmailConfirmed,
-                StatusMessage = StatusMessage
+                StatusMessage = StatusMessage,
+                Wallet = user.Wallet
             };
 
             return View(model);
@@ -463,6 +464,20 @@ namespace CinemaTickets.Web.Controllers
             _logger.LogInformation("User with ID {UserId} has generated new 2FA recovery codes.", user.Id);
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TopUpWallet(decimal amount)
+        {
+            if (amount > 0)
+            {
+                User user = await _userManager.GetUserAsync(User);
+                user.Wallet += amount;
+
+                await _userManager.UpdateAsync(user);
+            }
+
+            return RedirectToAction("Index");
         }
 
         #region Helpers

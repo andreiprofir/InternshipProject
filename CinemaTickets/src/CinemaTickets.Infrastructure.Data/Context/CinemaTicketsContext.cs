@@ -88,7 +88,8 @@ namespace CinemaTickets.Infrastructure.Data.Context
                 .WithOne(e => e.Customer)
                 .HasForeignKey<UserCustomer>(e => e.Id);
 
-            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<User>().ToTable("Users")
+                .Property(x => x.Wallet).HasDefaultValue(0);
             
             modelBuilder.Entity<Role>()
                 .ToTable("Roles");

@@ -7,5 +7,7 @@ namespace CinemaTickets.Infrastructure.Data.Repositories.Interfaces
     public interface IMovieSessionRepository : IRepository<MovieSession>
     {
         List<MovieSession> FindAllAndIncludeCinemaAndPrices(params ISpecification<MovieSession>[] specifications);
+        
+        List<Seat> GetAllSeatsBy(long movieSessionId);
     }
 }

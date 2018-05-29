@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using CinemaTickets.Domain.Dtos;
 using CinemaTickets.Domain.Dtos.Actor;
 using CinemaTickets.Domain.Dtos.Country;
 using CinemaTickets.Domain.Dtos.Director;
@@ -19,8 +20,10 @@ using CinemaTickets.Services.Application.ViewModels.Genre;
 using CinemaTickets.Services.Application.ViewModels.Language;
 using CinemaTickets.Services.Application.ViewModels.Movie;
 using CinemaTickets.Services.Interfaces;
+using CinemaTickets.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CinemaTickets.Web.Controllers
 {
@@ -35,6 +38,8 @@ namespace CinemaTickets.Web.Controllers
         private IGenreService _genreService;
         private ILanguageService _languageService;
         private IWriterService _writerService;
+        private IOrderService _orderService;
+        private ISeatService _seatService;
 
         public MovieController(IMapper mapper, 
             IMovieService movieService,
@@ -43,7 +48,9 @@ namespace CinemaTickets.Web.Controllers
             IDirectorService directorService,
             IGenreService genreService,
             ILanguageService languageService,
-            IWriterService writerService)
+            IWriterService writerService, 
+            IOrderService orderService, 
+            ISeatService seatService)
         {
             _mapper = mapper;
             _movieService = movieService;
@@ -54,6 +61,8 @@ namespace CinemaTickets.Web.Controllers
             _genreService = genreService;
             _languageService = languageService;
             _writerService = writerService;
+            _orderService = orderService;
+            _seatService = seatService;
         }
 
         [Route("{id}")]
@@ -79,7 +88,7 @@ namespace CinemaTickets.Web.Controllers
         }
         
         [Authorize(Roles = "admin, moderator")]
-        [Route("[controller]/create")]
+        [Route("/create")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -88,17 +97,6 @@ namespace CinemaTickets.Web.Controllers
             SetViewDataVariables();
 
             return View("Edit", movie);
-        }
-
-        [Authorize(Roles = "admin, moderator")]
-        [Route("[controller]/create")]
-        [HttpPost]
-        public IActionResult Create(MovieViewModel movie)
-        {
-            if (!ModelState.IsValid)
-                return View(movie);
-            //salvarea datelor trebuie sa fie in service si in repositoriu
-            return RedirectToAction("Index");
         }
 
         [Authorize(Roles = "admin, moderator")]
@@ -116,7 +114,7 @@ namespace CinemaTickets.Web.Controllers
         }
 
         [Authorize(Roles = "admin, moderator")]
-        [Route("edit/{id}")]
+        [Route("edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(MovieViewModel movie)
@@ -129,7 +127,7 @@ namespace CinemaTickets.Web.Controllers
 
             _movieService.Update(_mapper.Map<MovieDto>(movie));
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Display", new {id = movie.Id});
         }
 
         [Authorize(Roles = "admin, moderator")]
@@ -140,6 +138,41 @@ namespace CinemaTickets.Web.Controllers
             _movieService.Delete(id);
 
             return RedirectToAction("Index");
+        }
+
+        [Authorize(Roles = "user")]
+        [HttpGet]
+        public IActionResult BuyTicket(long sessionId)
+        {
+            var model = new BuyTicketViewModel
+            {
+                MovieSessionId = sessionId
+            };
+
+            List<SeatDto> seats = _seatService.GetAllBy(sessionId);
+
+            var sourceForSelectList = seats.Select(x => new
+            {
+                Value = x.Id,
+                Label = $"[R = {x.RowNumber}, C = {x.ColumnNumber}] Type: {x.SeatType.ToLower()}"
+            });
+
+            ViewBag.Seats = new SelectList(sourceForSelectList, "Value", "Label");
+
+            return PartialView("_BuyTicket", model);
+        }
+
+        [Authorize(Roles = "user")]
+        [HttpPost]
+        public IActionResult BuyTicket(BuyTicketViewModel model)
+        {
+            var movieId = _orderService.BuyTicketAndGetMovieId(User, new BuyTicketDto
+            {
+                MovieSessionId = model.MovieSessionId,
+                SeatId = model.SeatId
+            });
+
+            return RedirectToAction("Display", new {id = movieId});
         }
 
         private void SetViewDataVariables()

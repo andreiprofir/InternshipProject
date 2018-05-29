@@ -68,9 +68,11 @@ namespace CinemaTickets.Web
             services.AddScoped(typeof(IQuerySpecificationBuilder<>), typeof(QuerySpecificationBuilder<>));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IMovieSessionRepository, MovieSessionRepository>();
             services.AddScoped<IMovieService, MovieService>();
 
             services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<ISessionPriceRepository, SessionPriceRepository>();
             services.AddScoped<IGenreService, GenreService>();
 
             services.AddScoped<ICinemaRepository, CinemaRepository>();
@@ -83,6 +85,8 @@ namespace CinemaTickets.Web
             services.AddScoped<IWriterService, WriterService>();
             services.AddScoped<ILanguageService, LanguageService>();
             services.AddScoped<ICountryService, CountryService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<ISeatService, SeatService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

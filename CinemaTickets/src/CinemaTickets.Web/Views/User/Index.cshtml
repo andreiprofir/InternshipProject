@@ -2,7 +2,7 @@
 @inject RoleManager<Role> RoleManager
 
 @{
-    ViewData["Title"] = "Все зарегистрированные пользователи";
+    ViewData["Title"] = "All registered users";
     var list = new MultiSelectList(RoleManager.Roles.Select(r => r.Name).ToList());
 }
 

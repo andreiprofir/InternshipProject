@@ -15,6 +15,7 @@
     @if (User.IsInRole("admin"))
     {
         <li class="rounded-link text-center"><a class="d-block" asp-controller="User" asp-action="Index">Users</a></li>
+        <li class="rounded-link text-center"><a class="d-block" asp-controller="Movie" asp-action="Create">Create Movie</a></li>
     }
 </ul>
 
