@@ -52,12 +52,17 @@ namespace CinemaTickets.Web
                 .AddEntityFrameworkStores<CinemaTicketsContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = "626492187709103";
+                facebookOptions.AppSecret = "60d9f4cdc0059c33b06daf1eaed953ed";
+            });
+
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
             services.AddAutoMapper(additional => additional.AddProfiles(Assembly.Load("CinemaTickets.Services.Application")));
-
 
             services.AddScoped<DbContext, CinemaTicketsContext>();
             services.AddScoped(typeof(IQuerySpecificationBuilder<>), typeof(QuerySpecificationBuilder<>));
