@@ -12,9 +12,10 @@ using System;
 namespace CinemaTickets.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(CinemaTicketsContext))]
-    partial class CinemaTicketsContextModelSnapshot : ModelSnapshot
+    [Migration("20180530064345_2nd_Migration_Add_Identifier_To_Order_Entity")]
+    partial class _2nd_Migration_Add_Identifier_To_Order_Entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

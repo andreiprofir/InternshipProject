@@ -1,0 +1,53 @@
+﻿@model List<CinemaTickets.Services.Application.ViewModels.OrderViewModel>
+
+@{
+    ViewData["Title"] = "All bought tickets";
+}
+
+<div class="row p-5">
+    @if (Model.Any())
+    {
+        <table class="col-md-12 table table-striped">
+            <thead class="thead-inverse">
+            <tr>
+                <th>#</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().MovieTitle)</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().RowNumber)</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().ColumnNumber)</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().SeatType)</th>
+                <th>@Html.DisplayNameFor(m => m.FirstOrDefault().Identifier)</th>
+            </tr>
+            </thead>
+            <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <th scope="row">
+                        @(i + 1)
+                    </th>
+                    <td>
+                        <a asp-action="Display" asp-route-id="@Model[i].MovieId">@Model[i].MovieTitle</a>
+                    </td>
+                    <td>
+                        @Model[i].RowNumber
+                    </td>
+                    <td>
+                        @Model[i].ColumnNumber
+                    </td>
+                    <td>
+                        @Model[i].SeatType.ToLowerInvariant()
+                    </td>
+                    <td>
+                        @Model[i].Identifier
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1>No tickets to display</h1>
+    }
+</div>
+

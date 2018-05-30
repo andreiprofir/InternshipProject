@@ -1,4 +1,7 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
+using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
 using CinemaTickets.Domain.Dtos;
 using CinemaTickets.Domain.Interfaces;
@@ -11,27 +14,29 @@ namespace CinemaTickets.Infrastructure.Business.Services
 {
     public class OrderService : IOrderService
     {
-        private readonly IRepository<Order> _orderRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly IMovieSessionRepository _movieSessionRepository;
         private readonly IRepository<Seat> _seatRepository;
         private readonly UserManager<User> _userManager;
         private readonly ISessionPriceRepository _sessionPriceRepository;
         private readonly IRepository<Customer> _customerRepository;
+        private readonly IMapper _mapper;
 
         public OrderService(
-            IRepository<Order> orderRepository, 
             IMovieSessionRepository movieSessionRepository, 
             IRepository<Seat> seatRepository, 
             UserManager<User> userManager, 
             ISessionPriceRepository sessionPriceRepository, 
-            IRepository<Customer> customerRepository)
+            IRepository<Customer> customerRepository, 
+            IOrderRepository orderRepository, IMapper mapper)
         {
-            _orderRepository = orderRepository;
             _movieSessionRepository = movieSessionRepository;
             _seatRepository = seatRepository;
             _userManager = userManager;
             _sessionPriceRepository = sessionPriceRepository;
             _customerRepository = customerRepository;
+            _orderRepository = orderRepository;
+            _mapper = mapper;
         }
 
         public long BuyTicketAndGetMovieId(ClaimsPrincipal userClaimsPrincipal, BuyTicketDto model)
@@ -41,8 +46,8 @@ namespace CinemaTickets.Infrastructure.Business.Services
             Seat seat = _seatRepository.Get(model.SeatId);
 
             decimal ticketPrice = _sessionPriceRepository.GetPrice(movieSession.Id, seat.SeatTypeId);
-            if (ticketPrice < 1 && user.Wallet >= 20)
-                user.Wallet -= 20;
+            if (ticketPrice > user.Wallet)
+                return movieSession.MovieId;
             else
                 user.Wallet -= ticketPrice;
 
@@ -54,12 +59,22 @@ namespace CinemaTickets.Infrastructure.Business.Services
             {
                 Customer = customer,
                 Seat = seat,
-                MovieSession = movieSession
+                MovieSession = movieSession,
+                Identifier = Guid.NewGuid()
             });
 
             _orderRepository.SaveChanges();
 
             return movieSession.MovieId;
+        }
+
+        public List<OrderDto> GetAllBy(ClaimsPrincipal userClaims)
+        {
+            User user = _userManager.GetUserAsync(userClaims).Result;
+
+            List<Order> orders = _orderRepository.GetAllBy(user.Id);
+
+            return _mapper.Map<List<Order>, List<OrderDto>>(orders);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace CinemaTickets.Domain.Core.Models
+﻿using System;
+
+namespace CinemaTickets.Domain.Core.Models
 {
     public partial class Order
     {
@@ -10,5 +12,7 @@
         public MovieSession MovieSession { get; set; }
         public Seat Seat { get; set; }
         public Customer Customer { get; set; }
+
+        public Guid Identifier { get; set; }
     }
 }

@@ -29,6 +29,9 @@ namespace CinemaTickets.Infrastructure.Data.Mappings
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Orders_Customers");
+
+            builder.HasIndex(x => x.Identifier)
+                .IsUnique();
         }
     }
 }

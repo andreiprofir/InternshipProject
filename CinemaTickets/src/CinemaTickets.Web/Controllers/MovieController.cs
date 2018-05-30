@@ -175,6 +175,19 @@ namespace CinemaTickets.Web.Controllers
             return RedirectToAction("Display", new {id = movieId});
         }
 
+        
+        [HttpGet]
+        [Route("tickets")]
+        [Authorize]
+        public IActionResult GetOrders()
+        {
+            List<OrderDto> orders = _orderService.GetAllBy(User);
+
+            List<OrderViewModel> model = _mapper.Map<List<OrderDto>, List<OrderViewModel>>(orders);
+
+            return View("Orders", model);
+        }
+
         private void SetViewDataVariables()
         {
             List<ActorDto> actorsSource = _movieActorService.GetAll();

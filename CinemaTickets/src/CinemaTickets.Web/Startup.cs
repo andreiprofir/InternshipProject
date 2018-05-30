@@ -69,6 +69,7 @@ namespace CinemaTickets.Web
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IMovieSessionRepository, MovieSessionRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IMovieService, MovieService>();
 
             services.AddScoped<IGenreRepository, GenreRepository>();

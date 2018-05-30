@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using AutoMapper;
 using CinemaTickets.Domain.Core.Models;
+using CinemaTickets.Domain.Dtos;
 using CinemaTickets.Domain.Dtos.Actor;
 using CinemaTickets.Domain.Dtos.Cinema;
 using CinemaTickets.Domain.Dtos.City;
@@ -16,6 +17,7 @@ using CinemaTickets.Domain.Dtos.Picture;
 using CinemaTickets.Domain.Dtos.Promotion;
 using CinemaTickets.Domain.Dtos.User;
 using CinemaTickets.Domain.Dtos.Writer;
+using CinemaTickets.Infrastructure.Data.Mappings;
 using CinemaTickets.Infrastructure.Data.Models.Identity;
 
 namespace CinemaTickets.Services.Application.AutoMapper
@@ -197,6 +199,11 @@ namespace CinemaTickets.Services.Application.AutoMapper
             CreateMap<Writer, WriterDto>()
                 .ForMember(dest => dest.FullName,
                     opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
+
+            CreateMap<Order, OrderDto>()
+                .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieSession.MovieId))
+                .ForMember(dest => dest.MovieTitle, opt => opt.MapFrom(src => src.MovieSession.Movie.OriginalName))
+                .ForMember(dest => dest.SeatType, opt => opt.MapFrom(src => src.Seat.SeatType.Name));
         }
     }
 }

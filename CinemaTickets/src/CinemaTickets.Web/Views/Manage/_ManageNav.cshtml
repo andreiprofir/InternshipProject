@@ -17,5 +17,9 @@
         <li class="rounded-link text-center"><a class="d-block" asp-controller="User" asp-action="Index">Users</a></li>
         <li class="rounded-link text-center"><a class="d-block" asp-controller="Movie" asp-action="Create">Create Movie</a></li>
     }
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="rounded-link text-center"><a class="d-block" asp-controller="Movie" asp-action="GetOrders">Tickets</a></li>
+    }
 </ul>
 

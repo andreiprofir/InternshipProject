@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using AutoMapper;
+using CinemaTickets.Domain.Dtos;
 using CinemaTickets.Domain.Dtos.Actor;
 using CinemaTickets.Domain.Dtos.Cinema;
 using CinemaTickets.Domain.Dtos.City;
@@ -70,6 +71,8 @@ namespace CinemaTickets.Services.Application.AutoMapper
             CreateMap<LanguageDto, LanguageViewModel>();
             CreateMap<WriterDto, WriterViewModel>();
             CreateMap<MovieDto, MovieViewModel>();
+
+            CreateMap<OrderDto, OrderViewModel>();
         }
     }
 }

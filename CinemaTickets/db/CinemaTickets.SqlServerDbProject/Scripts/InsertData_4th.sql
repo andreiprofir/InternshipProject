@@ -1,3 +1,6 @@
+USE [CinemaTickets]
+GO
+
 insert into [Seats] ([ColumnNumber], [HallId], [Identifier], [IsBusy], [RowNumber], [SeatTypeId]) values (1, 1, '2652', 0, 1, 4);
 insert into [Seats] ([ColumnNumber], [HallId], [Identifier], [IsBusy], [RowNumber], [SeatTypeId]) values (2, 2, '169', 0, 2, 5);
 insert into [Seats] ([ColumnNumber], [HallId], [Identifier], [IsBusy], [RowNumber], [SeatTypeId]) values (3, 3, '789', 0, 3, 5);
