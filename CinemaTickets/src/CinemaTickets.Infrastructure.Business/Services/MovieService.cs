@@ -17,11 +17,31 @@ namespace CinemaTickets.Infrastructure.Business.Services
         private IMovieRepository _movieRepository;
         private IMapper _mapper;
         private IRepository<MovieActor> _movieActorRepository;
+        private IRepository<MovieDirector> _movieDirectorRepository;
+        private IRepository<MovieCountry> _movieCountryRepository;
+        private IRepository<MovieLanguage> _movieLanguageRepository;
+        private IRepository<MovieWriter> _movieWriterRepository;
+        private IRepository<MovieGenre> _movieGenreRepository;
+        private IRepository<Entity> _entityRepository;
 
-        public MovieService(IMovieRepository movieRepository, IRepository<MovieActor> movieActorRepository, IMapper mapper)
+        public MovieService(IMovieRepository movieRepository, 
+            IRepository<MovieActor> movieActorRepository, 
+            IMapper mapper, 
+            IRepository<MovieDirector> movieDirectorRepository, 
+            IRepository<MovieCountry> movieCountryRepository, 
+            IRepository<MovieLanguage> movieLanguageRepository,
+            IRepository<MovieWriter> movieWriterRepository, 
+            IRepository<MovieGenre> movieGenreRepository, 
+            IRepository<Entity> entityRepository)
         {
             _movieRepository = movieRepository;
             _mapper = mapper;
+            _movieDirectorRepository = movieDirectorRepository;
+            _movieCountryRepository = movieCountryRepository;
+            _movieLanguageRepository = movieLanguageRepository;
+            _movieWriterRepository = movieWriterRepository;
+            _movieGenreRepository = movieGenreRepository;
+            _entityRepository = entityRepository;
             _movieActorRepository = movieActorRepository;
         }
 
@@ -87,19 +107,117 @@ namespace CinemaTickets.Infrastructure.Business.Services
         public void Update(MovieDto movie)
         {
             Movie domainModel = _mapper.Map<Movie>(movie);
-            
+
             if (domainModel.Id == 0)
-                _movieRepository.Add(domainModel);
+            {
+                var entity = _entityRepository.Add(new Entity());
+                _entityRepository.SaveChanges();
+                domainModel.Entity = entity;
+                domainModel.Id = entity.Id;
+                domainModel = _movieRepository.Add(domainModel);
+                _movieRepository.SaveChanges();
+                movie.Id = entity.Id;
+            }
             else
+            {
                 _movieRepository.Update(domainModel);
 
-            foreach (MovieActor actor in domainModel.MovieActors)
+                domainModel = _movieRepository.GetByIdAndIncludeAllInfo(domainModel.Id);
+
+                DeleteAllMany(domainModel);
+
+                _movieActorRepository.SaveChanges();
+                _movieDirectorRepository.SaveChanges();
+                _movieCountryRepository.SaveChanges();
+                _movieLanguageRepository.SaveChanges();
+                _movieWriterRepository.SaveChanges();
+                _movieGenreRepository.SaveChanges();
+                _movieRepository.SaveChanges();
+
+                AddNewAllManyData(domainModel, movie);
+
+                //_movieRepository.Update(domainModel);
+
+                _movieActorRepository.SaveChanges();
+                _movieDirectorRepository.SaveChanges();
+                _movieCountryRepository.SaveChanges();
+                _movieLanguageRepository.SaveChanges();
+                _movieWriterRepository.SaveChanges();
+                _movieGenreRepository.SaveChanges();
+                _movieRepository.SaveChanges();
+            }
+        }
+
+        private void AddNewAllManyData(Movie domainModel, MovieDto movieDto)
+        {
+            foreach (long movieActorId in movieDto.MovieActors)
             {
-                _movieActorRepository.Add(actor);
+                _movieActorRepository.Add(new MovieActor {ActorId = movieActorId, MovieId = domainModel.Id});
             }
 
-            _movieRepository.SaveChanges();
-            _movieActorRepository.SaveChanges();
+            foreach (long movieDirectorId in movieDto.MovieDirectors)
+            {
+                _movieDirectorRepository.Add(new MovieDirector {DirectorId = movieDirectorId, MovieId = domainModel.Id});
+            }
+
+            foreach (long movieCountryId in movieDto.MovieCountries)
+            {
+                _movieCountryRepository.Add(new MovieCountry {CountryId = movieCountryId, MovieId = domainModel.Id});
+            }
+
+            foreach (long movieLanguageId in movieDto.MovieLanguages)
+            {
+                _movieLanguageRepository.Add(new MovieLanguage {LanguageId = movieLanguageId, MovieId = domainModel.Id});
+            }
+
+            foreach (long movieWriterId in movieDto.MovieWriters)
+            {
+                _movieWriterRepository.Add(new MovieWriter {WriterId = movieWriterId, MovieId = domainModel.Id});
+            }
+
+            foreach (long movieGenreId in movieDto.MovieGenres)
+            {
+                _movieGenreRepository.Add(new MovieGenre {GenreId = movieGenreId, MovieId = domainModel.Id});
+            }
+        }
+
+        private void DeleteAllMany(Movie movie)
+        {
+            foreach (MovieActor movieActor in movie.MovieActors)
+            {
+                _movieActorRepository.Delete(movieActor);
+            }
+            movie.MovieActors.Clear();
+
+            foreach (MovieDirector movieDirector in movie.MovieDirectors)
+            {
+                _movieDirectorRepository.Delete(movieDirector);
+            }
+            movie.MovieDirectors.Clear();
+
+            foreach (MovieCountry movieCountry in movie.MovieCountries)
+            {
+                _movieCountryRepository.Delete(movieCountry);
+            }
+            movie.MovieCountries.Clear();
+
+            foreach (MovieLanguage movieLanguage in movie.MovieLanguages)
+            {
+                _movieLanguageRepository.Delete(movieLanguage);
+            }
+            movie.MovieLanguages.Clear();
+
+            foreach (MovieWriter movieWriter in movie.MovieWriters)
+            {
+                _movieWriterRepository.Delete(movieWriter);
+            }
+            movie.MovieWriters.Clear();
+
+            foreach (MovieGenre movieGenre in movie.MovieGenres)
+            {
+                _movieGenreRepository.Delete(movieGenre);
+            }
+            movie.MovieGenres.Clear();
         }
     }
 }

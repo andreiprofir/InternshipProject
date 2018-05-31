@@ -18,7 +18,7 @@
 }
 
 <div class="row">
-    <form class="col-md-10 m-auto" asp-controller="Movie" asp-action="Edit" asp-antiforgery="true">
+    <form class="col-md-10 m-auto" asp-controller="Movie" asp-action="Edit" method="post" asp-antiforgery="true">
         <input type="hidden" asp-for="Id"/>
         <div class="form-group">
             <label class="col-form-label-lg bold" asp-for="Name"></label>

@@ -16,7 +16,7 @@ namespace CinemaTickets.Domain.Interfaces
 
         List<TEntity> Find(params ISpecification<TEntity>[] specifications);
 
-        void Add(TEntity entity);
+        TEntity Add(TEntity entity);
 
         void Update(TEntity entity);
 
