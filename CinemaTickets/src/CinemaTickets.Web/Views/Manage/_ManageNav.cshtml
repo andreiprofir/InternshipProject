@@ -7,10 +7,10 @@
 <ul id="nav-in-profile" class="nav flex-column nav-pills nav-fill">
     <li class="@ManageNavPages.IndexNavClass(ViewContext) rounded-link text-center"><a class="d-block" asp-action="Index">Profile</a></li>
     <li class="@ManageNavPages.ChangePasswordNavClass(ViewContext) rounded-link text-center"><a class="d-block" asp-action="ChangePassword">Password</a></li>
-    @if (hasExternalLogins)
+    @*@if (hasExternalLogins)
     {
         <li class="@ManageNavPages.ExternalLoginsNavClass(ViewContext) rounded-link text-center"><a class="d-block" asp-action="ExternalLogins">External logins</a></li>
-    }
+    }*@
     <li class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext) rounded-link text-center"><a class="d-block" asp-action="TwoFactorAuthentication">Two-factor authentication</a></li>
     @if (User.IsInRole("admin"))
     {

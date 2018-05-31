@@ -50,12 +50,12 @@ namespace CinemaTickets.Infrastructure.Data.Repositories
             return _dbSet.AsNoTracking();
         }
 
-        public void Add(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
             if (entity == null)
                 throw new ArgumentNullException(paramName: nameof(entity));
 
-            _dbSet.Add(entity);
+            return _dbSet.Add(entity).Entity;
         }
 
         public void Update(TEntity entity)

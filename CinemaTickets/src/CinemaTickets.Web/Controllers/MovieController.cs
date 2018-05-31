@@ -114,7 +114,7 @@ namespace CinemaTickets.Web.Controllers
         }
 
         [Authorize(Roles = "admin, moderator")]
-        [Route("edit")]
+        [Route("edit/{id?}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(MovieViewModel movie)
@@ -125,9 +125,10 @@ namespace CinemaTickets.Web.Controllers
                 return View(movie);
             }
 
-            _movieService.Update(_mapper.Map<MovieDto>(movie));
+            var dto = _mapper.Map<MovieDto>(movie);
+            _movieService.Update(dto);
 
-            return RedirectToAction("Display", new {id = movie.Id});
+            return RedirectToAction("Display", new {id = dto.Id});
         }
 
         [Authorize(Roles = "admin, moderator")]
