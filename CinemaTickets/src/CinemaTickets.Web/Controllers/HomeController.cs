@@ -35,14 +35,14 @@ namespace CinemaTickets.Web.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "The application to buy tickets";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Andrei Profir Contact Page";
 
             return View();
         }

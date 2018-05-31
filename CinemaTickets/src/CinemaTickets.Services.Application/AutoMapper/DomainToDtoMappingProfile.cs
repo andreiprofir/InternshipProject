@@ -203,7 +203,9 @@ namespace CinemaTickets.Services.Application.AutoMapper
             CreateMap<Order, OrderDto>()
                 .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieSession.MovieId))
                 .ForMember(dest => dest.MovieTitle, opt => opt.MapFrom(src => src.MovieSession.Movie.OriginalName))
-                .ForMember(dest => dest.SeatType, opt => opt.MapFrom(src => src.Seat.SeatType.Name));
+                .ForMember(dest => dest.SeatType, opt => opt.MapFrom(src => src.Seat.SeatType.Name))
+                .ForMember(dest => dest.RowNumber, opt => opt.MapFrom(src => src.Seat.RowNumber))
+                .ForMember(dest => dest.ColumnNumber, opt => opt.MapFrom(src => src.Seat.ColumnNumber));
         }
     }
 }

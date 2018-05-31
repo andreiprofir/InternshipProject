@@ -140,7 +140,8 @@ namespace CinemaTickets.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "user")]
+        [Route("buy-ticket")]
+        [Authorize]
         [HttpGet]
         public IActionResult BuyTicket(long sessionId)
         {
@@ -162,6 +163,7 @@ namespace CinemaTickets.Web.Controllers
             return PartialView("_BuyTicket", model);
         }
 
+        [Route("buy-ticket")]
         [Authorize(Roles = "user")]
         [HttpPost]
         public IActionResult BuyTicket(BuyTicketViewModel model)

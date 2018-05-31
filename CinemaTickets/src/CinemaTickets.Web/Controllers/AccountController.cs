@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CinemaTickets.Domain.Core.Models;
+using CinemaTickets.Domain.Interfaces;
 using CinemaTickets.Infrastructure.Data.Context;
 using CinemaTickets.Infrastructure.Data.Models.Identity;
 using Microsoft.AspNetCore.Authentication;
@@ -27,17 +29,20 @@ namespace CinemaTickets.Web.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly IRepository<Customer> _customerRepository;
 
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger, 
+            IRepository<Customer> customerRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _customerRepository = customerRepository;
         }
 
         [TempData]
@@ -227,6 +232,9 @@ namespace CinemaTickets.Web.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    _customerRepository.Add(new Customer {Id = user.Id});
+                    _customerRepository.SaveChanges();
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

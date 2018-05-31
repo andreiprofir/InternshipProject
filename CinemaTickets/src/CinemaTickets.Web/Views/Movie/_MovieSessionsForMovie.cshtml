@@ -41,7 +41,7 @@ else
     $(function() {
         $(".buy-ticket-modal-button").click(function() {
             $.get(
-                '@Url.Action("BuyTicket")',
+                '@Url.Action("BuyTicket", "Movie")',
                 {
                     sessionId: $(this).attr('data-movie-session-id')
                 }
